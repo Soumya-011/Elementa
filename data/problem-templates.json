@@ -1,0 +1,53 @@
+{
+  "molar_mass": {
+    "label": "Molar Mass",
+    "compound_ids": ["h2o", "hcl", "h2so4", "naoh", "nacl", "caco3", "cuso4", "caoh2", "nh3", "co", "so2", "no2", "na2co3", "agno3", "feso4", "znso4", "cao", "fe", "ethanol", "methane"]
+  },
+  "mole_conversion": {
+    "label": "Mole \u2194 Gram Conversion",
+    "compound_ids": ["h2o", "co", "nacl", "cao", "h2so4", "naoh", "nh3", "hcl", "caco3", "methane"],
+    "mass_range_g": [1, 200]
+  },
+  "molarity": {
+    "label": "Solution Molarity",
+    "compound_ids": ["nacl", "naoh", "h2so4", "hcl", "cuso4", "koh", "agno3", "na2co3"],
+    "mass_range_g": [1, 50],
+    "volume_range_l": [0.1, 2]
+  },
+  "gas_law": {
+    "label": "Ideal Gas Law",
+    "moles_range_mol": [0.1, 5],
+    "volume_range_l": [1, 20],
+    "temperature_range_k": [250, 400]
+  },
+  "ph_strong": {
+    "label": "pH of Strong Acids/Bases",
+    "conc_exponent_range": [-4, 0]
+  },
+  "ksp": {
+    "label": "Ksp \u2192 Molar Solubility",
+    "ksp_exponent_range": [-12, -3],
+    "stoich_options": [[1, 1], [1, 2], [2, 1], [1, 3]]
+  },
+  "equation_balancing": {
+    "label": "Equation Balancing",
+    "equations": [
+      "Fe + O2 = Fe2O3",
+      "C4H10 + O2 = CO2 + H2O",
+      "Al + HCl = AlCl3 + H2",
+      "N2 + H2 = NH3",
+      "Na + H2O = NaOH + H2",
+      "CaCO3 = CaO + CO2",
+      "KClO3 = KCl + O2",
+      "Zn + HCl = ZnCl2 + H2",
+      "C3H8 + O2 = CO2 + H2O",
+      "Fe2O3 + CO = Fe + CO2",
+      "Mg + N2 = Mg3N2",
+      "P4 + O2 = P2O5",
+      "NH3 + O2 = NO + H2O",
+      "Cu + AgNO3 = Cu(NO3)2 + Ag",
+      "H2 + O2 = H2O",
+      "KOH + H2SO4 = K2SO4 + H2O"
+    ]
+  }
+}

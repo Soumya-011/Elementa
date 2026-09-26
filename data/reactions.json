@@ -1,0 +1,1715 @@
+[
+  {
+    "id": "rxn_001",
+    "reactant_id": "zinc",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Zinc Chloride (ZnCl2)",
+    "balanced_equation": "Zn + 2HCl -> ZnCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Zinc lies above hydrogen in the reactivity series, so it displaces H2 from the acid."
+  },
+  {
+    "id": "rxn_002",
+    "reactant_id": "copper",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Copper(II) Nitrate (Cu(NO3)2)",
+    "balanced_equation": "Cu + 4HNO3 -> Cu(NO3)2 + 2NO2 + 2H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Concentrated HNO3 oxidizes copper and is itself reduced to brown NO2 gas."
+  },
+  {
+    "id": "rxn_003",
+    "reactant_id": "magnesium",
+    "reagent_id": "acetic acid",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Magnesium Acetate (Mg(CH3COO)2)",
+    "balanced_equation": "Mg + 2CH3COOH -> Mg(CH3COO)2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Weak acid, but magnesium is reactive enough to still displace H2."
+  },
+  {
+    "id": "rxn_004",
+    "reactant_id": "aluminum",
+    "reagent_id": "naoh",
+    "concentration": "concentrated",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Sodium Aluminate (NaAlO2)",
+    "balanced_equation": "2Al + 2NaOH + 2H2O -> 2NaAlO2 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "Same amphoteric reaction, faster when hot and concentrated."
+  },
+  {
+    "id": "rxn_005",
+    "reactant_id": "zinc",
+    "reagent_id": "koh",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Potassium Zincate (K2ZnO2)",
+    "balanced_equation": "Zn + 2KOH -> K2ZnO2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "KOH behaves like NaOH toward amphoteric zinc."
+  },
+  {
+    "id": "rxn_006",
+    "reactant_id": "carbon",
+    "reagent_id": "h2so4",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Carbon dioxide (CO2)",
+    "balanced_equation": "C + 2H2SO4 -> CO2 + 2SO2 + 2H2O",
+    "byproducts": [
+      "SO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "non-metal redox (oxidizing acid)",
+    "explanation": "Simplified in the original dataset to just CO2; the fuller equation also produces SO2 as hot concentrated H2SO4 is reduced."
+  },
+  {
+    "id": "rxn_007",
+    "reactant_id": "sulfur",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Sulfuric Acid (H2SO4)",
+    "balanced_equation": "S + 6HNO3 -> H2SO4 + 6NO2 + 2H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "non-metal redox (oxidizing acid)",
+    "explanation": "Concentrated hot HNO3 oxidizes sulfur all the way up to sulfuric acid."
+  },
+  {
+    "id": "rxn_008",
+    "reactant_id": "chlorine",
+    "reagent_id": "naoh",
+    "concentration": "dilute",
+    "temperature": "cold",
+    "result": "reaction",
+    "main_product": "Sodium Hypochlorite (NaClO)",
+    "balanced_equation": "Cl2 + 2NaOH -> NaCl + NaOCl + H2O",
+    "byproducts": [
+      "H2O"
+    ],
+    "reaction_type": "halogen disproportionation",
+    "explanation": "Cold, dilute NaOH gives the disproportionation product sodium chlorate(I) (hypochlorite) -- this is how bleach is made."
+  },
+  {
+    "id": "rxn_009",
+    "reactant_id": "chlorine",
+    "reagent_id": "naoh",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Sodium Chlorate (NaClO3)",
+    "balanced_equation": "3Cl2 + 6NaOH -> 5NaCl + NaClO3 + 3H2O",
+    "byproducts": [
+      "H2O"
+    ],
+    "reaction_type": "halogen disproportionation",
+    "explanation": "Hot, concentrated NaOH pushes the disproportionation further, to chlorate(V)."
+  },
+  {
+    "id": "rxn_010",
+    "reactant_id": "white phosphorus",
+    "reagent_id": "naoh",
+    "concentration": "concentrated",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Sodium Hypophosphite (NaH2PO2)",
+    "balanced_equation": "P4 + 3NaOH + 3H2O -> 3NaH2PO2 + PH3",
+    "byproducts": [
+      "PH3 (gas, toxic)"
+    ],
+    "reaction_type": "non-metal disproportionation",
+    "explanation": "White phosphorus disproportionates in hot alkali; phosphine (PH3) gas is a genuine and hazardous byproduct, not just a spectator."
+  },
+  {
+    "id": "rxn_011",
+    "reactant_id": "red phosphorus",
+    "reagent_id": "naoh",
+    "concentration": "concentrated",
+    "temperature": "warm",
+    "result": "no_reaction",
+    "main_product": "Sodium Phosphate (Na3PO4)",
+    "balanced_equation": null,
+    "byproducts": [],
+    "reaction_type": "disputed / simplified",
+    "explanation": "Red phosphorus is polymeric and far less reactive than white phosphorus; it does not readily undergo this disproportionation under normal lab conditions. This entry is a teaching simplification carried over from the original dataset and should be reviewed before being treated as fact."
+  },
+  {
+    "id": "rxn_012",
+    "reactant_id": "sodium",
+    "reagent_id": "h2o",
+    "concentration": "n/a",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Sodium Hydroxide (NaOH) and Hydrogen gas (H2)",
+    "balanced_equation": "2Na + 2H2O -> 2NaOH + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-water displacement",
+    "explanation": "Alkali metals react vigorously with cold water, releasing H2 and often enough heat to ignite it."
+  },
+  {
+    "id": "rxn_013",
+    "reactant_id": "potassium",
+    "reagent_id": "h2o",
+    "concentration": "n/a",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Potassium Hydroxide (KOH) and Hydrogen gas (H2)",
+    "balanced_equation": "2K + 2H2O -> 2KOH + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-water displacement",
+    "explanation": "Potassium is even more reactive than sodium and reacts violently with cold water."
+  },
+  {
+    "id": "rxn_014",
+    "reactant_id": "iron",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Iron(II) Chloride (FeCl2)",
+    "balanced_equation": "Fe + 2HCl -> FeCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "HCl is not oxidizing, so iron forms the +2 (iron(II)) salt."
+  },
+  {
+    "id": "rxn_015",
+    "reactant_id": "iron",
+    "reagent_id": "hcl",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Iron(II) Chloride (FeCl2)",
+    "balanced_equation": "Fe + 2HCl -> FeCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "HCl is never oxidizing regardless of concentration, so iron(II) chloride forms even with hot concentrated acid."
+  },
+  {
+    "id": "rxn_016",
+    "reactant_id": "iron",
+    "reagent_id": "h2so4",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Iron(II) Sulfate (FeSO4)",
+    "balanced_equation": "Fe + H2SO4 -> FeSO4 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Dilute H2SO4 is not oxidizing, giving iron(II) sulfate."
+  },
+  {
+    "id": "rxn_017",
+    "reactant_id": "iron",
+    "reagent_id": "h2so4",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Iron(III) Sulfate (Fe2(SO4)3)",
+    "balanced_equation": "2Fe + 6H2SO4 -> Fe2(SO4)3 + 3SO2 + 6H2O",
+    "byproducts": [
+      "SO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Hot concentrated H2SO4 is a strong oxidizer and pushes iron to the +3 state."
+  },
+  {
+    "id": "rxn_018",
+    "reactant_id": "iron",
+    "reagent_id": "hno3",
+    "concentration": "dilute",
+    "temperature": "cold",
+    "result": "reaction",
+    "main_product": "Iron(III) Nitrate (Fe(NO3)3)",
+    "balanced_equation": "Fe + 4HNO3 -> Fe(NO3)3 + NO + 2H2O",
+    "byproducts": [
+      "NO (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "HNO3 is oxidizing even when dilute or cold, giving iron(III) nitrate and NO gas."
+  },
+  {
+    "id": "rxn_019",
+    "reactant_id": "iron",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Iron(III) Nitrate (Fe(NO3)3)",
+    "balanced_equation": "Fe + 6HNO3 -> Fe(NO3)3 + 3NO2 + 3H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Concentrated hot HNO3 is reduced to NO2 instead of NO."
+  },
+  {
+    "id": "rxn_020",
+    "reactant_id": "iron",
+    "reagent_id": "acetic acid",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Iron(II) Acetate (Fe(CH3COO)2)",
+    "balanced_equation": "Fe + 2CH3COOH -> Fe(CH3COO)2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "A weak, non-oxidizing acid, so iron(II) forms."
+  },
+  {
+    "id": "rxn_021",
+    "reactant_id": "iron",
+    "reagent_id": "acetic acid",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Iron(II) Acetate (Fe(CH3COO)2)",
+    "balanced_equation": "Fe + 2CH3COOH -> Fe(CH3COO)2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction, faster when hot and concentrated."
+  },
+  {
+    "id": "rxn_022",
+    "reactant_id": "iron",
+    "reagent_id": "h3po4",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Iron(II) Phosphate (Fe3(PO4)2)",
+    "balanced_equation": "3Fe + 2H3PO4 -> Fe3(PO4)2 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Non-oxidizing acid, giving iron(II) phosphate."
+  },
+  {
+    "id": "rxn_023",
+    "reactant_id": "iron",
+    "reagent_id": "h3po4",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Iron(III) Phosphate (FePO4)",
+    "balanced_equation": "2Fe + 2H3PO4 -> 2FePO4 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Hot concentrated phosphoric acid can further oxidize the iron(II) intermediate to iron(III) phosphate in air; simplified here as a direct product."
+  },
+  {
+    "id": "rxn_024",
+    "reactant_id": "magnesium",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "cold",
+    "result": "reaction",
+    "main_product": "Magnesium Chloride (MgCl2)",
+    "balanced_equation": "Mg + 2HCl -> MgCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Magnesium is a reactive metal and displaces H2 readily, even in the cold."
+  },
+  {
+    "id": "rxn_025",
+    "reactant_id": "magnesium",
+    "reagent_id": "hcl",
+    "concentration": "concentrated",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Magnesium Chloride (MgCl2)",
+    "balanced_equation": "Mg + 2HCl -> MgCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction, proceeding vigorously."
+  },
+  {
+    "id": "rxn_026",
+    "reactant_id": "magnesium",
+    "reagent_id": "h2so4",
+    "concentration": "dilute",
+    "temperature": "cold",
+    "result": "reaction",
+    "main_product": "Magnesium Sulfate (MgSO4)",
+    "balanced_equation": "Mg + H2SO4 -> MgSO4 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Standard displacement reaction."
+  },
+  {
+    "id": "rxn_027",
+    "reactant_id": "magnesium",
+    "reagent_id": "h2so4",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Magnesium Sulfate (MgSO4)",
+    "balanced_equation": "Mg + H2SO4 -> MgSO4 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Simplified; some SO2 may also form with hot concentrated acid."
+  },
+  {
+    "id": "rxn_028",
+    "reactant_id": "magnesium",
+    "reagent_id": "hno3",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Magnesium Nitrate (Mg(NO3)2)",
+    "balanced_equation": "3Mg + 8HNO3 -> 3Mg(NO3)2 + 2NO + 4H2O",
+    "byproducts": [
+      "NO (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "HNO3 is reduced to NO instead of releasing H2."
+  },
+  {
+    "id": "rxn_029",
+    "reactant_id": "magnesium",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Magnesium Nitrate (Mg(NO3)2)",
+    "balanced_equation": "Mg + 4HNO3 -> Mg(NO3)2 + 2NO2 + 2H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Concentrated HNO3 is reduced to NO2."
+  },
+  {
+    "id": "rxn_030",
+    "reactant_id": "magnesium",
+    "reagent_id": "acetic acid",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Magnesium Acetate (Mg(CH3COO)2)",
+    "balanced_equation": "Mg + 2CH3COOH -> Mg(CH3COO)2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Weak acid, but magnesium is reactive enough to still displace H2."
+  },
+  {
+    "id": "rxn_031",
+    "reactant_id": "magnesium",
+    "reagent_id": "acetic acid",
+    "concentration": "concentrated",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Magnesium Acetate (Mg(CH3COO)2)",
+    "balanced_equation": "Mg + 2CH3COOH -> Mg(CH3COO)2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction, faster with concentrated acid."
+  },
+  {
+    "id": "rxn_032",
+    "reactant_id": "magnesium",
+    "reagent_id": "h3po4",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Magnesium Phosphate (Mg3(PO4)2)",
+    "balanced_equation": "3Mg + 2H3PO4 -> Mg3(PO4)2 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Standard displacement; phosphate is tribasic so stoichiometry differs from HCl."
+  },
+  {
+    "id": "rxn_033",
+    "reactant_id": "magnesium",
+    "reagent_id": "h3po4",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Magnesium Phosphate (Mg3(PO4)2)",
+    "balanced_equation": "3Mg + 2H3PO4 -> Mg3(PO4)2 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction, faster when hot and concentrated."
+  },
+  {
+    "id": "rxn_034",
+    "reactant_id": "calcium",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "cold",
+    "result": "reaction",
+    "main_product": "Calcium Chloride (CaCl2)",
+    "balanced_equation": "Ca + 2HCl -> CaCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Standard displacement; calcium is quite reactive."
+  },
+  {
+    "id": "rxn_035",
+    "reactant_id": "calcium",
+    "reagent_id": "hcl",
+    "concentration": "concentrated",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Calcium Chloride (CaCl2)",
+    "balanced_equation": "Ca + 2HCl -> CaCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction, faster."
+  },
+  {
+    "id": "rxn_036",
+    "reactant_id": "calcium",
+    "reagent_id": "h2so4",
+    "concentration": "dilute",
+    "temperature": "cold",
+    "result": "reaction",
+    "main_product": "Calcium Sulfate (CaSO4)",
+    "balanced_equation": "Ca + H2SO4 -> CaSO4 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "In practice, the insoluble CaSO4 layer that forms can coat the metal and slow the reaction after it starts."
+  },
+  {
+    "id": "rxn_037",
+    "reactant_id": "calcium",
+    "reagent_id": "h2so4",
+    "concentration": "concentrated",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Calcium Sulfate (CaSO4)",
+    "balanced_equation": "Ca + H2SO4 -> CaSO4 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same passivation caveat applies."
+  },
+  {
+    "id": "rxn_038",
+    "reactant_id": "calcium",
+    "reagent_id": "hno3",
+    "concentration": "dilute",
+    "temperature": "cold",
+    "result": "reaction",
+    "main_product": "Calcium Nitrate (Ca(NO3)2)",
+    "balanced_equation": "Ca + 2HNO3 -> Ca(NO3)2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Simplified: very dilute cold HNO3 can behave close to a normal acid with reactive metals like calcium, though some NOx is also typically produced."
+  },
+  {
+    "id": "rxn_039",
+    "reactant_id": "calcium",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Calcium Nitrate (Ca(NO3)2)",
+    "balanced_equation": "Ca + 4HNO3 -> Ca(NO3)2 + 2NO2 + 2H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Concentrated HNO3 is reduced to NO2."
+  },
+  {
+    "id": "rxn_040",
+    "reactant_id": "calcium",
+    "reagent_id": "acetic acid",
+    "concentration": "dilute",
+    "temperature": "cold",
+    "result": "reaction",
+    "main_product": "Calcium Acetate (Ca(CH3COO)2)",
+    "balanced_equation": "Ca + 2CH3COOH -> Ca(CH3COO)2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Standard weak-acid displacement."
+  },
+  {
+    "id": "rxn_041",
+    "reactant_id": "calcium",
+    "reagent_id": "acetic acid",
+    "concentration": "concentrated",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Calcium Acetate (Ca(CH3COO)2)",
+    "balanced_equation": "Ca + 2CH3COOH -> Ca(CH3COO)2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction, faster."
+  },
+  {
+    "id": "rxn_042",
+    "reactant_id": "calcium",
+    "reagent_id": "h3po4",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Calcium Phosphate (Ca3(PO4)2)",
+    "balanced_equation": "3Ca + 2H3PO4 -> Ca3(PO4)2 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Standard displacement."
+  },
+  {
+    "id": "rxn_043",
+    "reactant_id": "calcium",
+    "reagent_id": "h3po4",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Calcium Phosphate (Ca3(PO4)2)",
+    "balanced_equation": "3Ca + 2H3PO4 -> Ca3(PO4)2 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction, faster."
+  },
+  {
+    "id": "rxn_044",
+    "reactant_id": "aluminum",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Aluminum Chloride (AlCl3)",
+    "balanced_equation": "2Al + 6HCl -> 2AlCl3 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Aluminum's oxide layer dissolves first, then the metal displaces H2 readily."
+  },
+  {
+    "id": "rxn_045",
+    "reactant_id": "aluminum",
+    "reagent_id": "hcl",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Aluminum Chloride (AlCl3)",
+    "balanced_equation": "2Al + 6HCl -> 2AlCl3 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction, faster when hot and concentrated."
+  },
+  {
+    "id": "rxn_046",
+    "reactant_id": "aluminum",
+    "reagent_id": "h2so4",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Aluminum Sulfate (Al2(SO4)3)",
+    "balanced_equation": "2Al + 3H2SO4 -> Al2(SO4)3 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Standard displacement reaction."
+  },
+  {
+    "id": "rxn_047",
+    "reactant_id": "aluminum",
+    "reagent_id": "h2so4",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Aluminum Sulfate (Al2(SO4)3)",
+    "balanced_equation": "2Al + 3H2SO4 -> Al2(SO4)3 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Simplified; hot concentrated acid may also generate some SO2."
+  },
+  {
+    "id": "rxn_048",
+    "reactant_id": "aluminum",
+    "reagent_id": "hno3",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Aluminum Nitrate (Al(NO3)3)",
+    "balanced_equation": "Al + 4HNO3 -> Al(NO3)3 + NO + 2H2O",
+    "byproducts": [
+      "NO (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Dilute HNO3 is reduced to NO. Note: concentrated HNO3 instead passivates aluminum (forms a protective oxide layer) and is not included here."
+  },
+  {
+    "id": "rxn_049",
+    "reactant_id": "aluminum",
+    "reagent_id": "naoh",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Sodium Aluminate (NaAlO2)",
+    "balanced_equation": "2Al + 2NaOH + 2H2O -> 2NaAlO2 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "Aluminum is amphoteric and dissolves in strong alkali to form aluminate."
+  },
+  {
+    "id": "rxn_050",
+    "reactant_id": "aluminum",
+    "reagent_id": "naoh",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Sodium Aluminate (NaAlO2)",
+    "balanced_equation": "2Al + 2NaOH + 2H2O -> 2NaAlO2 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "Same amphoteric reaction, faster when hot and concentrated."
+  },
+  {
+    "id": "rxn_051",
+    "reactant_id": "aluminum",
+    "reagent_id": "koh",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Potassium Aluminate (KAlO2)",
+    "balanced_equation": "2Al + 2KOH + 2H2O -> 2KAlO2 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "KOH behaves like NaOH toward amphoteric aluminum."
+  },
+  {
+    "id": "rxn_052",
+    "reactant_id": "aluminum",
+    "reagent_id": "koh",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Potassium Aluminate (KAlO2)",
+    "balanced_equation": "2Al + 2KOH + 2H2O -> 2KAlO2 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "Same amphoteric reaction, faster when hot and concentrated."
+  },
+  {
+    "id": "rxn_053",
+    "reactant_id": "aluminum",
+    "reagent_id": "acetic acid",
+    "concentration": "dilute",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Aluminum Acetate (Al(CH3COO)3)",
+    "balanced_equation": "2Al + 6CH3COOH -> 2Al(CH3COO)3 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Weak acid, but reaction still proceeds, especially when warmed."
+  },
+  {
+    "id": "rxn_054",
+    "reactant_id": "zinc",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Zinc Chloride (ZnCl2)",
+    "balanced_equation": "Zn + 2HCl -> ZnCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Zinc lies above hydrogen in the reactivity series, so it displaces H2 from the acid."
+  },
+  {
+    "id": "rxn_055",
+    "reactant_id": "zinc",
+    "reagent_id": "hcl",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Zinc Chloride (ZnCl2)",
+    "balanced_equation": "Zn + 2HCl -> ZnCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction as with dilute HCl; the reaction simply proceeds faster."
+  },
+  {
+    "id": "rxn_056",
+    "reactant_id": "zinc",
+    "reagent_id": "h2so4",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Zinc Sulfate (ZnSO4)",
+    "balanced_equation": "Zn + H2SO4 -> ZnSO4 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Dilute H2SO4 behaves as a normal (non-oxidizing) acid here."
+  },
+  {
+    "id": "rxn_057",
+    "reactant_id": "zinc",
+    "reagent_id": "h2so4",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Zinc Sulfate (ZnSO4)",
+    "balanced_equation": "Zn + H2SO4 -> ZnSO4 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Simplified: hot concentrated H2SO4 can also act as an oxidizer and release some SO2, but the dominant product is ZnSO4 + H2."
+  },
+  {
+    "id": "rxn_058",
+    "reactant_id": "zinc",
+    "reagent_id": "hno3",
+    "concentration": "dilute",
+    "temperature": "cold",
+    "result": "reaction",
+    "main_product": "Zinc Nitrate (Zn(NO3)2)",
+    "balanced_equation": "3Zn + 8HNO3 -> 3Zn(NO3)2 + 2NO + 4H2O",
+    "byproducts": [
+      "NO (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Nitric acid is an oxidizing acid, so it does NOT release H2 like other acids; it is reduced to NO instead."
+  },
+  {
+    "id": "rxn_059",
+    "reactant_id": "zinc",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Zinc Nitrate (Zn(NO3)2)",
+    "balanced_equation": "Zn + 4HNO3 -> Zn(NO3)2 + 2NO2 + 2H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Concentrated HNO3 is reduced to brown NO2 gas rather than NO."
+  },
+  {
+    "id": "rxn_060",
+    "reactant_id": "zinc",
+    "reagent_id": "naoh",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Sodium Zincate (Na2ZnO2)",
+    "balanced_equation": "Zn + 2NaOH -> Na2ZnO2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "Zinc is amphoteric and dissolves in strong alkali to form zincate, releasing H2."
+  },
+  {
+    "id": "rxn_061",
+    "reactant_id": "zinc",
+    "reagent_id": "naoh",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Sodium Zincate (Na2ZnO2)",
+    "balanced_equation": "Zn + 2NaOH -> Na2ZnO2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "Same amphoteric reaction; concentrated hot NaOH reacts faster."
+  },
+  {
+    "id": "rxn_062",
+    "reactant_id": "zinc",
+    "reagent_id": "koh",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Potassium Zincate (K2ZnO2)",
+    "balanced_equation": "Zn + 2KOH -> K2ZnO2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "KOH behaves like NaOH toward amphoteric zinc."
+  },
+  {
+    "id": "rxn_063",
+    "reactant_id": "zinc",
+    "reagent_id": "koh",
+    "concentration": "concentrated",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Potassium Zincate (K2ZnO2)",
+    "balanced_equation": "Zn + 2KOH -> K2ZnO2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "KOH behaves like NaOH toward amphoteric zinc."
+  },
+  {
+    "id": "rxn_064",
+    "reactant_id": "copper",
+    "reagent_id": "hno3",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Copper(II) Nitrate (Cu(NO3)2)",
+    "balanced_equation": "3Cu + 8HNO3 -> 3Cu(NO3)2 + 2NO + 4H2O",
+    "byproducts": [
+      "NO (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Copper is below hydrogen, but HNO3 attacks it by oxidation (not displacement), producing NO."
+  },
+  {
+    "id": "rxn_065",
+    "reactant_id": "copper",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Copper(II) Nitrate (Cu(NO3)2)",
+    "balanced_equation": "Cu + 4HNO3 -> Cu(NO3)2 + 2NO2 + 2H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Concentrated HNO3 oxidizes copper and is itself reduced to brown NO2 gas."
+  },
+  {
+    "id": "rxn_066",
+    "reactant_id": "copper",
+    "reagent_id": "h2so4",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Copper(II) Sulfate (CuSO4)",
+    "balanced_equation": "Cu + 2H2SO4 -> CuSO4 + SO2 + 2H2O",
+    "byproducts": [
+      "SO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Only hot, concentrated H2SO4 is a strong enough oxidizer to attack copper; it is reduced to SO2."
+  },
+  {
+    "id": "rxn_067",
+    "reactant_id": "copper",
+    "reagent_id": "h2so4",
+    "concentration": "concentrated",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Copper(II) Sulfate (CuSO4)",
+    "balanced_equation": "Cu + 2H2SO4 -> CuSO4 + SO2 + 2H2O",
+    "byproducts": [
+      "SO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Only hot, concentrated H2SO4 is a strong enough oxidizer to attack copper; it is reduced to SO2."
+  },
+  {
+    "id": "rxn_068",
+    "reactant_id": "copper",
+    "reagent_id": "hno3",
+    "concentration": "dilute",
+    "temperature": "cold",
+    "result": "reaction",
+    "main_product": "Copper(II) Nitrate (Cu(NO3)2)",
+    "balanced_equation": "3Cu + 8HNO3 -> 3Cu(NO3)2 + 2NO + 4H2O",
+    "byproducts": [
+      "NO (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Copper is below hydrogen, but HNO3 attacks it by oxidation (not displacement), producing NO."
+  },
+  {
+    "id": "rxn_069",
+    "reactant_id": "copper",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Copper(II) Nitrate (Cu(NO3)2)",
+    "balanced_equation": "Cu + 4HNO3 -> Cu(NO3)2 + 2NO2 + 2H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Concentrated HNO3 oxidizes copper and is itself reduced to brown NO2 gas."
+  },
+  {
+    "id": "rxn_070",
+    "reactant_id": "copper",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "hot",
+    "result": "no_reaction",
+    "main_product": "No Reaction",
+    "balanced_equation": null,
+    "byproducts": [],
+    "reaction_type": "no reaction",
+    "explanation": "Copper sits below hydrogen in the reactivity series, so it cannot displace H2 from HCl of any concentration."
+  },
+  {
+    "id": "rxn_071",
+    "reactant_id": "copper",
+    "reagent_id": "h2so4",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "no_reaction",
+    "main_product": "No Reaction",
+    "balanced_equation": null,
+    "byproducts": [],
+    "reaction_type": "no reaction",
+    "explanation": "Copper sits below hydrogen in the reactivity series and dilute H2SO4 is not oxidizing, so no reaction occurs."
+  },
+  {
+    "id": "rxn_072",
+    "reactant_id": "copper",
+    "reagent_id": "acetic acid",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Copper(II) Acetate (Cu(CH3COO)2)",
+    "balanced_equation": "2Cu + 4CH3COOH + O2 -> 2Cu(CH3COO)2 + 2H2O",
+    "byproducts": [
+      "H2O"
+    ],
+    "reaction_type": "metal-acid (air-assisted)",
+    "explanation": "Acetic acid alone will not oxidize copper; this reaction only proceeds with dissolved atmospheric O2 present (as in verdigris formation)."
+  },
+  {
+    "id": "rxn_073",
+    "reactant_id": "copper",
+    "reagent_id": "h3po4",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "no_reaction",
+    "main_product": "Copper(II) Phosphate (Cu3(PO4)2)",
+    "balanced_equation": null,
+    "byproducts": [],
+    "reaction_type": "educational simplification",
+    "explanation": "Phosphoric acid is weak and non-oxidizing; copper does not meaningfully react with it under normal lab conditions. This entry is retained as a simplification and should be reviewed."
+  },
+  {
+    "id": "rxn_074",
+    "reactant_id": "lead",
+    "reagent_id": "hno3",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Lead(II) Nitrate (Pb(NO3)2)",
+    "balanced_equation": "3Pb + 8HNO3 -> 3Pb(NO3)2 + 2NO + 4H2O",
+    "byproducts": [
+      "NO (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Lead is below hydrogen but is oxidized by HNO3, unlike with HCl or H2SO4."
+  },
+  {
+    "id": "rxn_075",
+    "reactant_id": "lead",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Lead(II) Nitrate (Pb(NO3)2)",
+    "balanced_equation": "Pb + 4HNO3 -> Pb(NO3)2 + 2NO2 + 2H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Concentrated HNO3 is reduced to NO2."
+  },
+  {
+    "id": "rxn_076",
+    "reactant_id": "lead",
+    "reagent_id": "hcl",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Lead(II) Chloride (PbCl2)",
+    "balanced_equation": "Pb + 2HCl -> PbCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "The insoluble PbCl2 that forms coats the metal and strongly limits the reaction in practice, even though lead is technically above hydrogen."
+  },
+  {
+    "id": "rxn_077",
+    "reactant_id": "lead",
+    "reagent_id": "h2so4",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Lead(II) Sulfate (PbSO4)",
+    "balanced_equation": "Pb + H2SO4 -> PbSO4 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Similarly limited: insoluble PbSO4 quickly coats the metal surface and can stop the reaction."
+  },
+  {
+    "id": "rxn_078",
+    "reactant_id": "lead",
+    "reagent_id": "naoh",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Sodium Plumbite (Na2PbO2)",
+    "balanced_equation": "Pb + 2NaOH -> Na2PbO2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "Lead is amphoteric and dissolves in strong alkali to form plumbite."
+  },
+  {
+    "id": "rxn_079",
+    "reactant_id": "lead",
+    "reagent_id": "naoh",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Sodium Plumbite (Na2PbO2)",
+    "balanced_equation": "Pb + 2NaOH -> Na2PbO2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "Same amphoteric reaction, faster when hot and concentrated."
+  },
+  {
+    "id": "rxn_080",
+    "reactant_id": "lead",
+    "reagent_id": "koh",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Potassium Plumbite (K2PbO2)",
+    "balanced_equation": "Pb + 2KOH -> K2PbO2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "KOH behaves like NaOH toward amphoteric lead."
+  },
+  {
+    "id": "rxn_081",
+    "reactant_id": "lead",
+    "reagent_id": "koh",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Potassium Plumbite (K2PbO2)",
+    "balanced_equation": "Pb + 2KOH -> K2PbO2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "Same amphoteric reaction, faster when hot and concentrated."
+  },
+  {
+    "id": "rxn_082",
+    "reactant_id": "lead",
+    "reagent_id": "acetic acid",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Lead(II) Acetate (Pb(CH3COO)2)",
+    "balanced_equation": "Pb + 2CH3COOH -> Pb(CH3COO)2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Lead(II) acetate ('sugar of lead') forms; this salt is notably soluble, unlike PbCl2/PbSO4."
+  },
+  {
+    "id": "rxn_083",
+    "reactant_id": "lead",
+    "reagent_id": "acetic acid",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Lead(II) Acetate (Pb(CH3COO)2)",
+    "balanced_equation": "Pb + 2CH3COOH -> Pb(CH3COO)2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction, faster when hot and concentrated."
+  },
+  {
+    "id": "rxn_084",
+    "reactant_id": "tin",
+    "reagent_id": "hcl",
+    "concentration": "concentrated",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Tin(II) Chloride (SnCl2)",
+    "balanced_equation": "Sn + 2HCl -> SnCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "HCl is not oxidizing, giving tin(II) chloride."
+  },
+  {
+    "id": "rxn_085",
+    "reactant_id": "tin",
+    "reagent_id": "hcl",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Tin(II) Chloride (SnCl2)",
+    "balanced_equation": "Sn + 2HCl -> SnCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "HCl is not oxidizing, giving tin(II) chloride."
+  },
+  {
+    "id": "rxn_086",
+    "reactant_id": "tin",
+    "reagent_id": "hno3",
+    "concentration": "dilute",
+    "temperature": "cold",
+    "result": "reaction",
+    "main_product": "Tin(II) Nitrate (Sn(NO3)2)",
+    "balanced_equation": "3Sn + 8HNO3 -> 3Sn(NO3)2 + 2NO + 4H2O",
+    "byproducts": [
+      "NO (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Cold dilute HNO3 gives soluble tin(II) nitrate."
+  },
+  {
+    "id": "rxn_087",
+    "reactant_id": "tin",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Tin(IV) Oxide (SnO2)",
+    "balanced_equation": "Sn + 4HNO3 -> SnO2 + 4NO2 + 2H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Hot concentrated HNO3 oxidizes tin all the way to insoluble tin(IV) oxide (metastannic acid) rather than a soluble nitrate."
+  },
+  {
+    "id": "rxn_088",
+    "reactant_id": "tin",
+    "reagent_id": "h2so4",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Tin(IV) Sulfate (Sn(SO4)2)",
+    "balanced_equation": "Sn + 4H2SO4 -> Sn(SO4)2 + 2SO2 + 4H2O",
+    "byproducts": [
+      "SO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Hot concentrated H2SO4 oxidizes tin to the +4 state."
+  },
+  {
+    "id": "rxn_089",
+    "reactant_id": "tin",
+    "reagent_id": "naoh",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Sodium Stannite (Na2SnO2)",
+    "balanced_equation": "Sn + 2NaOH -> Na2SnO2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "Warm dilute alkali gives the +2 stannite."
+  },
+  {
+    "id": "rxn_090",
+    "reactant_id": "tin",
+    "reagent_id": "naoh",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Sodium Stannate (Na2SnO3)",
+    "balanced_equation": "Sn + 2NaOH + H2O -> Na2SnO3 + 2H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "Hot concentrated alkali oxidizes tin further to the +4 stannate."
+  },
+  {
+    "id": "rxn_091",
+    "reactant_id": "tin",
+    "reagent_id": "koh",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Potassium Stannite (K2SnO2)",
+    "balanced_equation": "Sn + 2KOH -> K2SnO2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "KOH mirrors NaOH's behavior toward tin."
+  },
+  {
+    "id": "rxn_092",
+    "reactant_id": "tin",
+    "reagent_id": "koh",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Potassium Stannate (K2SnO3)",
+    "balanced_equation": "Sn + 2KOH + H2O -> K2SnO3 + 2H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "KOH mirrors NaOH's behavior toward tin."
+  },
+  {
+    "id": "rxn_093",
+    "reactant_id": "tin",
+    "reagent_id": "h2so4",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Tin(II) Sulfate (SnSO4)",
+    "balanced_equation": "Sn + H2SO4 -> SnSO4 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Warm dilute H2SO4 is not oxidizing, giving tin(II) sulfate."
+  },
+  {
+    "id": "rxn_094",
+    "reactant_id": "nickel",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Nickel(II) Chloride (NiCl2)",
+    "balanced_equation": "Ni + 2HCl -> NiCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Standard displacement reaction."
+  },
+  {
+    "id": "rxn_095",
+    "reactant_id": "nickel",
+    "reagent_id": "hcl",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Nickel(II) Chloride (NiCl2)",
+    "balanced_equation": "Ni + 2HCl -> NiCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction, faster."
+  },
+  {
+    "id": "rxn_096",
+    "reactant_id": "nickel",
+    "reagent_id": "h2so4",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Nickel(II) Sulfate (NiSO4)",
+    "balanced_equation": "Ni + H2SO4 -> NiSO4 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Standard displacement reaction."
+  },
+  {
+    "id": "rxn_097",
+    "reactant_id": "nickel",
+    "reagent_id": "h2so4",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Nickel(II) Sulfate (NiSO4)",
+    "balanced_equation": "Ni + H2SO4 -> NiSO4 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Simplified; hot concentrated acid may also generate some SO2."
+  },
+  {
+    "id": "rxn_098",
+    "reactant_id": "nickel",
+    "reagent_id": "hno3",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Nickel(II) Nitrate (Ni(NO3)2)",
+    "balanced_equation": "3Ni + 8HNO3 -> 3Ni(NO3)2 + 2NO + 4H2O",
+    "byproducts": [
+      "NO (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "HNO3 is reduced to NO rather than releasing H2."
+  },
+  {
+    "id": "rxn_099",
+    "reactant_id": "nickel",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Nickel(II) Nitrate (Ni(NO3)2)",
+    "balanced_equation": "Ni + 4HNO3 -> Ni(NO3)2 + 2NO2 + 2H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Concentrated HNO3 is reduced to NO2."
+  },
+  {
+    "id": "rxn_100",
+    "reactant_id": "nickel",
+    "reagent_id": "acetic acid",
+    "concentration": "dilute",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Nickel(II) Acetate (Ni(CH3COO)2)",
+    "balanced_equation": "Ni + 2CH3COOH -> Ni(CH3COO)2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Standard weak-acid displacement."
+  },
+  {
+    "id": "rxn_101",
+    "reactant_id": "nickel",
+    "reagent_id": "acetic acid",
+    "concentration": "concentrated",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Nickel(II) Acetate (Ni(CH3COO)2)",
+    "balanced_equation": "Ni + 2CH3COOH -> Ni(CH3COO)2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction, faster."
+  },
+  {
+    "id": "rxn_102",
+    "reactant_id": "nickel",
+    "reagent_id": "h3po4",
+    "concentration": "dilute",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Nickel(II) Phosphate (Ni3(PO4)2)",
+    "balanced_equation": "3Ni + 2H3PO4 -> Ni3(PO4)2 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Standard displacement."
+  },
+  {
+    "id": "rxn_103",
+    "reactant_id": "nickel",
+    "reagent_id": "h3po4",
+    "concentration": "concentrated",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Nickel(II) Phosphate (Ni3(PO4)2)",
+    "balanced_equation": "3Ni + 2H3PO4 -> Ni3(PO4)2 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction, faster."
+  },
+  {
+    "id": "rxn_104",
+    "reactant_id": "barium",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "cold",
+    "result": "reaction",
+    "main_product": "Barium Chloride (BaCl2)",
+    "balanced_equation": "Ba + 2HCl -> BaCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Standard displacement; barium is very reactive."
+  },
+  {
+    "id": "rxn_105",
+    "reactant_id": "barium",
+    "reagent_id": "hcl",
+    "concentration": "concentrated",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Barium Chloride (BaCl2)",
+    "balanced_equation": "Ba + 2HCl -> BaCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction, faster."
+  },
+  {
+    "id": "rxn_106",
+    "reactant_id": "barium",
+    "reagent_id": "hno3",
+    "concentration": "dilute",
+    "temperature": "cold",
+    "result": "reaction",
+    "main_product": "Barium Nitrate (Ba(NO3)2)",
+    "balanced_equation": "Ba + 2HNO3 -> Ba(NO3)2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Simplified: with very reactive metals like barium, dilute cold HNO3 can behave close to a normal acid, though some NOx typically also forms."
+  },
+  {
+    "id": "rxn_107",
+    "reactant_id": "barium",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Barium Nitrate (Ba(NO3)2)",
+    "balanced_equation": "Ba + 4HNO3 -> Ba(NO3)2 + 2NO2 + 2H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Concentrated HNO3 is reduced to NO2."
+  },
+  {
+    "id": "rxn_108",
+    "reactant_id": "barium",
+    "reagent_id": "acetic acid",
+    "concentration": "dilute",
+    "temperature": "cold",
+    "result": "reaction",
+    "main_product": "Barium Acetate (Ba(CH3COO)2)",
+    "balanced_equation": "Ba + 2CH3COOH -> Ba(CH3COO)2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Standard weak-acid displacement."
+  },
+  {
+    "id": "rxn_109",
+    "reactant_id": "barium",
+    "reagent_id": "acetic acid",
+    "concentration": "concentrated",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Barium Acetate (Ba(CH3COO)2)",
+    "balanced_equation": "Ba + 2CH3COOH -> Ba(CH3COO)2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction, faster."
+  },
+  {
+    "id": "rxn_110",
+    "reactant_id": "barium",
+    "reagent_id": "h2so4",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Barium Sulfate (BaSO4)",
+    "balanced_equation": "Ba + H2SO4 -> BaSO4 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "BaSO4 is extremely insoluble and rapidly coats the metal, so this reaction slows and stops well before completion in practice."
+  },
+  {
+    "id": "rxn_111",
+    "reactant_id": "barium",
+    "reagent_id": "h2so4",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Barium Sulfate (BaSO4)",
+    "balanced_equation": "Ba + H2SO4 -> BaSO4 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same passivation caveat applies."
+  },
+  {
+    "id": "rxn_112",
+    "reactant_id": "barium",
+    "reagent_id": "h3po4",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Barium Phosphate (Ba3(PO4)2)",
+    "balanced_equation": "3Ba + 2H3PO4 -> Ba3(PO4)2 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Standard displacement."
+  },
+  {
+    "id": "rxn_113",
+    "reactant_id": "barium",
+    "reagent_id": "h3po4",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Barium Phosphate (Ba3(PO4)2)",
+    "balanced_equation": "3Ba + 2H3PO4 -> Ba3(PO4)2 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Same reaction, faster."
+  }
+]

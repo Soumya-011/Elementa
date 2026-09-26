@@ -1,0 +1,392 @@
+[
+  {
+    "id": "prep_h2_lab",
+    "target_id": "h2",
+    "type": "gas",
+    "method": "Lab Preparation",
+    "reactants": ["Zinc (granules)", "Dilute Hydrochloric Acid (or Sulfuric Acid)"],
+    "equation": "Zn + 2HCl -> ZnCl2 + H2",
+    "collection": "Over water or upward delivery (since it is lighter than air and insoluble in water).",
+    "notes": "Do not use alkali metals (too dangerous/explosive) or copper (no reaction)."
+  },
+  {
+    "id": "prep_h2_ind",
+    "target_id": "h2",
+    "type": "gas",
+    "method": "Steam-Methane Reforming (Industrial)",
+    "reactants": ["Methane (Natural Gas)", "Steam"],
+    "equation": "CH4 + H2O <-> CO + 3H2 | CO + H2O <-> CO2 + H2",
+    "collection": "Pressure swing adsorption to purify the hydrogen.",
+    "notes": "Endothermic process utilizing a Nickel catalyst at 700-1000°C, followed by the Water-Gas Shift reaction to maximize H2 yield."
+  },
+  {
+    "id": "prep_o2_lab_h2o2",
+    "target_id": "o2",
+    "type": "gas",
+    "method": "Lab Preparation (from H2O2)",
+    "reactants": ["Hydrogen Peroxide", "Manganese(IV) Oxide (catalyst)"],
+    "equation": "2H2O2 -> 2H2O + O2",
+    "collection": "Over water.",
+    "notes": "Manganese(IV) oxide acts as a catalyst and is not consumed in the reaction. This is often the safest lab method."
+  },
+  {
+    "id": "prep_o2_lab_kclo3",
+    "target_id": "o2",
+    "type": "gas",
+    "method": "Lab Preparation (from KClO3)",
+    "reactants": ["Potassium Chlorate", "Manganese(IV) Oxide (catalyst)"],
+    "equation": "2KClO3 -> 2KCl + 3O2",
+    "collection": "Over water.",
+    "notes": "Reactants must be heated. The MnO2 catalyst significantly lowers the decomposition temperature required."
+  },
+  {
+    "id": "prep_o2_lab_k2cr2o7",
+    "target_id": "o2",
+    "type": "gas",
+    "method": "Lab Preparation (Thermal Decomposition)",
+    "reactants": ["Potassium Dichromate"],
+    "equation": "4K2Cr2O7 -> 4K2CrO4 + 2Cr2O3 + 3O2",
+    "collection": "Over water.",
+    "notes": "Requires strong heating. Potassium dichromate decomposes to yield oxygen gas alongside potassium chromate and chromium(III) oxide."
+  },
+  {
+    "id": "prep_o2_ind",
+    "target_id": "o2",
+    "type": "gas",
+    "method": "Fractional Distillation (Industrial)",
+    "reactants": ["Air"],
+    "equation": "n/a",
+    "collection": "Liquefaction followed by fractional distillation.",
+    "notes": "Air is cooled to -200°C to liquefy it. Nitrogen boils off first at -196°C, leaving liquid oxygen which boils at -183°C."
+  },
+  {
+    "id": "prep_n2_lab",
+    "target_id": "n2",
+    "type": "gas",
+    "method": "Lab Preparation",
+    "reactants": ["Ammonium Chloride", "Sodium Nitrite"],
+    "equation": "NH4Cl + NaNO2 -> NH4NO2 + NaCl | NH4NO2 -> N2 + 2H2O",
+    "collection": "Over water.",
+    "notes": "Direct heating of solid ammonium nitrite is explosive, so it is prepared safely in situ by heating an aqueous mixture of these two salts."
+  },
+  {
+    "id": "prep_n2_ind",
+    "target_id": "n2",
+    "type": "gas",
+    "method": "Fractional Distillation (Industrial)",
+    "reactants": ["Air"],
+    "equation": "n/a",
+    "collection": "Gas phase collection during fractional distillation.",
+    "notes": "Air is liquefied, and N2 boils off first (-196°C) leaving O2 behind."
+  },
+  {
+    "id": "prep_co2_lab",
+    "target_id": "co2",
+    "type": "gas",
+    "method": "Lab Preparation",
+    "reactants": ["Calcium Carbonate (Marble chips)", "Dilute Hydrochloric Acid"],
+    "equation": "CaCO3 + 2HCl -> CaCl2 + H2O + CO2",
+    "collection": "Downward delivery (since it is heavier than air).",
+    "notes": "Avoid using sulfuric acid as it forms an insoluble layer of calcium sulfate that stops the reaction."
+  },
+  {
+    "id": "prep_co2_ind",
+    "target_id": "co2",
+    "type": "gas",
+    "method": "Calcination of Limestone (Industrial)",
+    "reactants": ["Limestone (Calcium Carbonate)"],
+    "equation": "CaCO3 -> CaO + CO2",
+    "collection": "Gas extracted from rotary kilns.",
+    "notes": "Thermal decomposition heated to ~900°C. Quicklime (CaO) is produced as a highly valuable primary product."
+  },
+  {
+    "id": "prep_nh3_lab",
+    "target_id": "nh3",
+    "type": "gas",
+    "method": "Lab Preparation",
+    "reactants": ["Calcium Hydroxide", "Ammonium Chloride"],
+    "equation": "Ca(OH)2 + 2NH4Cl -> CaCl2 + 2H2O + 2NH3",
+    "collection": "Upward delivery (lighter than air). Cannot be collected over water as it is highly soluble.",
+    "notes": "Reactants must be heated. The gas is dried using quicklime (CaO)."
+  },
+  {
+    "id": "prep_nh3_ind",
+    "target_id": "nh3",
+    "type": "gas",
+    "method": "Haber Process (Industrial)",
+    "reactants": ["Nitrogen gas", "Hydrogen gas"],
+    "equation": "N2 + 3H2 <-> 2NH3",
+    "collection": "Condensation of NH3 gas by cooling the equilibrium mixture.",
+    "notes": "Uses an Iron catalyst at ~450°C and 200 atm pressure. It is a reversible, exothermic reaction."
+  },
+  {
+    "id": "prep_cl2_lab",
+    "target_id": "cl2",
+    "type": "gas",
+    "method": "Lab Preparation",
+    "reactants": ["Manganese(IV) Oxide", "Concentrated Hydrochloric Acid"],
+    "equation": "MnO2 + 4HCl -> MnCl2 + 2H2O + Cl2",
+    "collection": "Downward delivery (heavier than air) in a fume cupboard.",
+    "notes": "Requires gentle heating. Chlorine is highly toxic. It can be passed through water to remove HCl gas, and concentrated sulfuric acid to dry it."
+  },
+  {
+    "id": "prep_cl2_ind",
+    "target_id": "cl2",
+    "type": "gas",
+    "method": "Chlor-Alkali Process (Industrial)",
+    "reactants": ["Brine (Concentrated NaCl solution)"],
+    "equation": "2NaCl + 2H2O -> 2NaOH + Cl2 + H2",
+    "collection": "Collected at the anode.",
+    "notes": "Electrolysis of concentrated sodium chloride solution. NaOH and H2 are also produced as valuable byproducts."
+  },
+  {
+    "id": "prep_hcl_lab",
+    "target_id": "hcl",
+    "type": "gas",
+    "method": "Lab Preparation",
+    "reactants": ["Sodium Chloride", "Concentrated Sulfuric Acid"],
+    "equation": "NaCl + H2SO4 -> NaHSO4 + HCl",
+    "collection": "Downward delivery (heavier than air).",
+    "notes": "Reaction occurs at room temperature. Heating further gives Na2SO4, but it forms a hard crust in lab glassware. Cannot be dried with ammonia."
+  },
+  {
+    "id": "prep_hcl_ind",
+    "target_id": "hcl",
+    "type": "gas",
+    "method": "Direct Synthesis (Industrial)",
+    "reactants": ["Hydrogen gas", "Chlorine gas"],
+    "equation": "H2 + Cl2 -> 2HCl",
+    "collection": "Dissolved in water to form Hydrochloric Acid.",
+    "notes": "Highly exothermic. The reactant gases are often obtained cleanly as by-products from the Chlor-Alkali process."
+  },
+  {
+    "id": "prep_so2_lab",
+    "target_id": "so2",
+    "type": "gas",
+    "method": "Lab Preparation",
+    "reactants": ["Copper turnings", "Concentrated Sulfuric Acid"],
+    "equation": "Cu + 2H2SO4 -> CuSO4 + SO2 + 2H2O",
+    "collection": "Downward delivery (heavier than air).",
+    "notes": "Requires heating. Can also be prepared by reacting a sulfite (like Na2SO3) with dilute acid at room temperature."
+  },
+  {
+    "id": "prep_h2s_lab",
+    "target_id": "h2s",
+    "type": "gas",
+    "method": "Lab Preparation (Kipp's Apparatus)",
+    "reactants": ["Iron(II) Sulfide", "Dilute Hydrochloric Acid (or Sulfuric Acid)"],
+    "equation": "FeS + 2HCl -> FeCl2 + H2S",
+    "collection": "Downward delivery.",
+    "notes": "Highly toxic with a rotten egg smell. Prepared on-demand using Kipp's Apparatus to control gas flow."
+  },
+  {
+    "id": "prep_no_lab",
+    "target_id": "no",
+    "type": "gas",
+    "method": "Lab Preparation",
+    "reactants": ["Copper turnings", "Dilute Nitric Acid"],
+    "equation": "3Cu + 8HNO3 -> 3Cu(NO3)2 + 2NO + 4H2O",
+    "collection": "Over water (as it readily reacts with oxygen in air).",
+    "notes": "Nitric oxide is colorless but reacts instantly with air to form brown Nitrogen Dioxide (NO2)."
+  },
+  {
+    "id": "prep_no2_lab",
+    "target_id": "no2",
+    "type": "gas",
+    "method": "Lab Preparation",
+    "reactants": ["Copper turnings", "Concentrated Nitric Acid"],
+    "equation": "Cu + 4HNO3 -> Cu(NO3)2 + 2NO2 + 2H2O",
+    "collection": "Downward delivery (heavier than air).",
+    "notes": "NO2 is a toxic, heavy, brown gas. Alternately prepared by the thermal decomposition of Lead(II) Nitrate."
+  },
+  {
+    "id": "prep_h2so4_ind",
+    "target_id": "h2so4",
+    "type": "acid",
+    "method": "Contact Process (Industrial)",
+    "reactants": ["Sulfur (or sulfide ores)", "Oxygen", "Water"],
+    "equation": "S + O2 -> SO2 | 2SO2 + O2 <-> 2SO3 | SO3 + H2SO4 -> H2S2O7 | H2S2O7 + H2O -> 2H2SO4",
+    "collection": "n/a",
+    "notes": "Uses a Vanadium(V) oxide (V2O5) catalyst at ~450°C and 1-2 atm pressure."
+  },
+  {
+    "id": "prep_hno3_ind",
+    "target_id": "hno3",
+    "type": "acid",
+    "method": "Ostwald Process (Industrial)",
+    "reactants": ["Ammonia", "Oxygen", "Water"],
+    "equation": "4NH3 + 5O2 -> 4NO + 6H2O | 2NO + O2 -> 2NO2 | 3NO2 + H2O -> 2HNO3 + NO",
+    "collection": "n/a",
+    "notes": "Uses a Platinum-Rhodium catalyst at ~850°C."
+  },
+  {
+    "id": "prep_naoh_ind",
+    "target_id": "naoh",
+    "type": "base",
+    "method": "Chlor-Alkali Process (Industrial)",
+    "reactants": ["Brine (Concentrated NaCl solution)"],
+    "equation": "2NaCl + 2H2O -> 2NaOH + Cl2 + H2",
+    "collection": "Aqueous solution extracted from cathode compartment.",
+    "notes": "Electrolysis of concentrated sodium chloride solution. Also produces valuable Cl2 and H2 gases."
+  },
+  {
+    "id": "prep_aquaregia",
+    "target_id": "aqua_regia",
+    "type": "mixture",
+    "method": "Lab/Industrial Preparation",
+    "reactants": ["Concentrated Hydrochloric Acid (3 parts)", "Concentrated Nitric Acid (1 part)"],
+    "equation": "HNO3 + 3HCl -> NOCl + Cl2 + 2H2O",
+    "collection": "Used immediately in liquid form.",
+    "notes": "Highly corrosive 3:1 molar ratio mixture. The active oxidizing agents are dissolved Cl2 and nitrosyl chloride (NOCl). It is capable of dissolving noble metals like Gold (Au) and Platinum (Pt)."
+  },
+  {
+    "id": "prep_so2_lab_na2so3",
+    "target_id": "so2",
+    "type": "gas",
+    "method": "Lab Preparation (from Sodium Sulfite)",
+    "reactants": ["Sodium Sulfite", "Dilute Hydrochloric Acid"],
+    "equation": "Na2SO3 + 2HCl -> 2NaCl + H2O + SO2",
+    "collection": "Downward delivery (heavier than air).",
+    "notes": "This method is safer and more convenient than the copper-turnings approach as it proceeds at room temperature without requiring heating."
+  },
+  {
+    "id": "prep_cao_lab",
+    "target_id": "cao",
+    "type": "oxide",
+    "method": "Lab Preparation (Thermal Decomposition)",
+    "reactants": ["Calcium Carbonate (Limestone or Marble)"],
+    "equation": "CaCO3 -> CaO + CO2",
+    "collection": "Solid residue collected after heating.",
+    "notes": "Requires strong heating in a crucible. CO2 gas is evolved. The product is quicklime, which reacts exothermically with water to form slaked lime Ca(OH)2."
+  },
+  {
+    "id": "prep_fe_lab",
+    "target_id": "fe",
+    "type": "metal",
+    "method": "Lab Preparation (Reduction with Carbon Monoxide)",
+    "reactants": ["Iron(III) Oxide", "Carbon Monoxide"],
+    "equation": "Fe2O3 + 3CO -> 2Fe + 3CO2",
+    "collection": "Solid iron collected from the reduction tube.",
+    "notes": "A laboratory-scale demonstration of the blast furnace reduction. The iron produced is spongy and impure (containing slag)."
+  },
+  {
+    "id": "prep_fe_ind",
+    "target_id": "fe",
+    "type": "metal",
+    "method": "Blast Furnace (Industrial)",
+    "reactants": ["Hematite (Iron(III) Oxide)", "Coke (Carbon)", "Air (Oxygen)", "Limestone (Flux)"],
+    "equation": "C + O2 -> CO2 | CO2 + C -> 2CO | Fe2O3 + 3CO -> 2Fe + 3CO2",
+    "collection": "Molten iron tapped from the bottom of the furnace.",
+    "notes": "Coke is combusted to produce CO2, which reacts with more coke to form CO (the reducing agent). Limestone (CaCO3) is added as a flux to remove impurities as slag (calcium silicate). The furnace operates continuously at temperatures up to ~2000°C."
+  },
+  {
+    "id": "prep_na_lab",
+    "target_id": "na",
+    "type": "metal",
+    "method": "Downs Process (Lab/Small-Scale Electrolysis)",
+    "reactants": ["Molten Sodium Chloride", "Calcium Chloride (to lower melting point)"],
+    "equation": "2NaCl -> 2Na + Cl2 (electrolysis)",
+    "collection": "Sodium metal collected at the cathode, rising to the surface of the molten electrolyte.",
+    "notes": "NaCl is mixed with CaCl2 to lower the melting point from ~801°C to ~600°C, saving energy. Sodium is highly reactive and must be stored under oil. Chlorine gas is collected at the anode."
+  },
+  {
+    "id": "prep_cuso4_lab",
+    "target_id": "cuso4",
+    "type": "salt",
+    "method": "Lab Preparation",
+    "reactants": ["Copper(II) Oxide", "Dilute Sulfuric Acid"],
+    "equation": "CuO + H2SO4 -> CuSO4 + H2O",
+    "collection": "The solution is filtered to remove excess CuO, then crystallized to obtain blue CuSO4·5H2O crystals.",
+    "notes": "CuO is a black powder that reacts with dilute H2SO4 upon heating to form a blue solution of copper(II) sulfate. Excess CuO ensures complete neutralization of the acid."
+  },
+  {
+    "id": "prep_na2co3_ind",
+    "target_id": "na2co3",
+    "type": "salt",
+    "method": "Solvay Process (Industrial)",
+    "reactants": ["Sodium Chloride", "Ammonia", "Limestone (Calcium Carbonate)", "Water"],
+    "equation": "NH3 + H2O + CO2 -> NH4HCO3 | NH4HCO3 + NaCl -> NaHCO3 + NH4Cl | 2NaHCO3 -> Na2CO3 + H2O + CO2",
+    "collection": "Sodium carbonate is obtained by heating sodium bicarbonate.",
+    "notes": "CO2 is obtained by calcining limestone. NH3 is recycled from NH4Cl by reacting it with Ca(OH)2 (from the lime kiln). This process is economical but produces CaCl2 as a waste byproduct."
+  },
+  {
+    "id": "prep_ethanol_lab",
+    "target_id": "ethanol",
+    "type": "organic",
+    "method": "Fermentation (Lab Preparation)",
+    "reactants": ["Glucose (or Sucrose/Yeast)"],
+    "equation": "C6H12O6 -> 2C2H5OH + 2CO2",
+    "collection": "The mixture is distilled to obtain aqueous ethanol (~15% by fermentation alone, up to ~95% after distillation).",
+    "notes": "Enzymes in yeast (zymase) catalyze the anaerobic breakdown of glucose. The process is carried out at ~30-35°C in the absence of air. Fractional distillation yields ethanol up to 95% purity; absolute ethanol requires drying agents."
+  },
+  {
+    "id": "prep_ethanol_ind",
+    "target_id": "ethanol",
+    "type": "organic",
+    "method": "Ethene Hydration (Industrial)",
+    "reactants": ["Ethene", "Steam"],
+    "equation": "C2H4 + H2O -> C2H5OH",
+    "collection": "Condensed and purified by distillation.",
+    "notes": "Uses a Phosphoric Acid (H3PO4) catalyst adsorbed on silica at ~300°C and ~60 atm. This direct hydration method produces high-purity ethanol and is the preferred industrial route."
+  },
+  {
+    "id": "prep_caoh2_lab",
+    "target_id": "caoh2",
+    "type": "base",
+    "method": "Lab Preparation",
+    "reactants": ["Calcium Oxide (Quicklime)", "Water"],
+    "equation": "CaO + H2O -> Ca(OH)2",
+    "collection": "The solid slaked lime or its aqueous suspension (limewater) is collected.",
+    "notes": "The reaction is highly exothermic and produces a white suspension of calcium hydroxide (milk of lime). The clear supernatant is limewater, used to test for CO2."
+  },
+  {
+    "id": "prep_feso4_lab",
+    "target_id": "feso4",
+    "type": "salt",
+    "method": "Lab Preparation",
+    "reactants": ["Iron (filings or granules)", "Dilute Sulfuric Acid"],
+    "equation": "Fe + H2SO4 -> FeSO4 + H2",
+    "collection": "The solution is filtered, then concentrated and crystallized to obtain pale green FeSO4·7H2O crystals.",
+    "notes": "Hydrogen gas is evolved. Excess iron is used to prevent oxidation of Fe(II) to Fe(III). The crystals are efflorescent and easily oxidized; a small amount of dilute acid is added to the solution to stabilize it."
+  },
+  {
+    "id": "prep_pbno3_lab",
+    "target_id": "pbno3",
+    "type": "salt",
+    "method": "Lab Preparation",
+    "reactants": ["Lead(II) Oxide", "Dilute Nitric Acid"],
+    "equation": "PbO + 2HNO3 -> Pb(NO3)2 + H2O",
+    "collection": "The solution is filtered, concentrated by evaporation, and crystallized to obtain Pb(NO3)2 crystals.",
+    "notes": "Lead(II) oxide is a yellow or red powder depending on the temperature at which it was prepared. Lead compounds are toxic and should be handled with care."
+  },
+  {
+    "id": "prep_agno3_lab",
+    "target_id": "agno3",
+    "type": "salt",
+    "method": "Lab Preparation",
+    "reactants": ["Silver metal", "Dilute Nitric Acid"],
+    "equation": "Ag + 2HNO3 -> AgNO3 + NO2 + H2O",
+    "collection": "The solution is evaporated and crystallized to obtain colorless AgNO3 crystals.",
+    "notes": "Silver reacts only with nitric acid, not with dilute sulfuric or hydrochloric acid. Using concentrated HNO3 would produce NO instead of NO2. Silver nitrate is light-sensitive and must be stored in dark amber bottles."
+  },
+  {
+    "id": "prep_na_ind",
+    "target_id": "na",
+    "type": "metal",
+    "method": "Downs Process (Industrial)",
+    "reactants": ["Sodium Chloride", "Calcium Chloride (flux)"],
+    "equation": "2NaCl -> 2Na + Cl2 (electrolysis, molten)",
+    "collection": "Molten sodium rises and is tapped off from the cathode region. Chlorine gas is collected separately at the anode.",
+    "notes": "Industrial-scale electrolysis of molten NaCl at ~600°C in a Downs cell. A steel cathode and graphite anode are used, separated by a steel gauze diaphragm. CaCl2 is added to lower the melting point. Sodium is highly reactive and must be stored under mineral oil or in an inert atmosphere."
+  },
+  {
+    "id": "prep_nh3_lab_alt",
+    "target_id": "nh3",
+    "type": "gas",
+    "method": "Lab Preparation (Alternative)",
+    "reactants": ["Ammonium Sulfate", "Sodium Hydroxide"],
+    "equation": "(NH4)2SO4 + 2NaOH -> Na2SO4 + 2NH3 + 2H2O",
+    "collection": "Upward delivery (lighter than air). Cannot be collected over water as it is highly soluble.",
+    "notes": "This is an alternative to the calcium hydroxide + ammonium chloride method. Sodium hydroxide is a stronger base, so the reaction proceeds readily with gentle heating. The gas should be dried using quicklime (CaO)."
+  }
+]

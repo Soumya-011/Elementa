@@ -1,0 +1,52 @@
+[
+  {
+    "target_id": "copper",
+    "misconception": "Copper reacts with dilute acids to produce hydrogen gas like other metals.",
+    "correction": "Copper is below hydrogen in the reactivity series. It cannot displace hydrogen from dilute acids (e.g., HCl, dilute H2SO4). It only reacts with strong oxidizing acids like HNO3."
+  },
+  {
+    "target_id": "aluminum",
+    "misconception": "Aluminum is unreactive because it doesn't immediately fizz when placed in acid.",
+    "correction": "Aluminum is highly reactive but naturally forms a tough, continuous, and protective oxide layer (Al2O3). This layer must dissolve before the underlying metal can react vigorously."
+  },
+  {
+    "target_id": "lead",
+    "misconception": "Lead reacts continuously with sulfuric acid.",
+    "correction": "When lead reacts with H2SO4 or HCl, it forms insoluble PbSO4 or PbCl2. This insoluble salt coats the metal and quickly halts the reaction (passivation)."
+  },
+  {
+    "target_id": "h2o",
+    "misconception": "Water is just a passive solvent and doesn't participate in displacement.",
+    "correction": "Water is actually an active reagent. Alkali metals (like Na, K) react violently with cold water to displace hydrogen gas."
+  },
+  {
+    "target_id": "sodium",
+    "misconception": "Sodium is stored in water to keep it safe.",
+    "correction": "Sodium is stored under oil (kerosene or paraffin), NOT water. Sodium reacts violently with water, producing NaOH and H2 gas which can ignite. Storing it in water would destroy it."
+  },
+  {
+    "target_id": "cuso4",
+    "misconception": "Copper(II) sulfate is inherently blue because copper metal is blue.",
+    "correction": "Anhydrous CuSO4 is actually white. The blue color comes from the [Cu(H2O)6]2+ complex ion formed when water molecules coordinate with Cu2+ in the crystal lattice (CuSO4.5H2O)."
+  },
+  {
+    "target_id": "h2so4",
+    "misconception": "You should add water to concentrated sulfuric acid when diluting it.",
+    "correction": "ALWAYS add acid to water (AAW), never the reverse. Adding water to concentrated H2SO4 generates intense localized heat that can cause the water to boil violently and splatter acid. Adding acid to water disperses the heat safely."
+  },
+  {
+    "target_id": "noble_gas",
+    "misconception": "Noble gases are completely inert and form no compounds whatsoever.",
+    "correction": "While noble gases are very stable, heavier members DO form compounds. Xenon forms XeF2, XeF4, XeF6, XeO3, and XeO4. Krypton forms KrF2 under extreme conditions. The lighter noble gases (He, Ne) remain truly inert."
+  },
+  {
+    "target_id": "nacl",
+    "misconception": "Sodium chloride dissolves as neutral NaCl molecules in water.",
+    "correction": "NaCl dissolves by dissociation into Na+(aq) and Cl-(aq) ions, not as intact molecules. The polar water molecules surround and stabilize the separated ions (hydration/solvation)."
+  },
+  {
+    "target_id": "h2o",
+    "misconception": "Carbon dioxide is an acid.",
+    "correction": "CO2 itself is a covalent molecule, not an acid. However, it is an acidic oxide: it dissolves in water to form carbonic acid (H2CO3), which then partially dissociates to produce H+ ions, making the solution acidic."
+  }
+]

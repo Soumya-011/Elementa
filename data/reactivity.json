@@ -1,0 +1,17 @@
+[
+  { "id": "potassium", "symbol": "K", "name": "Potassium", "extraction": "Electrolysis" },
+  { "id": "sodium", "symbol": "Na", "name": "Sodium", "extraction": "Electrolysis" },
+  { "id": "calcium", "symbol": "Ca", "name": "Calcium", "extraction": "Electrolysis" },
+  { "id": "magnesium", "symbol": "Mg", "name": "Magnesium", "extraction": "Electrolysis" },
+  { "id": "aluminum", "symbol": "Al", "name": "Aluminum", "extraction": "Electrolysis" },
+  { "id": "carbon", "symbol": "C", "name": "Carbon (Non-metal)", "extraction": "Reference for Reduction", "is_reference": true },
+  { "id": "zinc", "symbol": "Zn", "name": "Zinc", "extraction": "Reduction by Carbon" },
+  { "id": "iron", "symbol": "Fe", "name": "Iron", "extraction": "Reduction by Carbon" },
+  { "id": "tin", "symbol": "Sn", "name": "Tin", "extraction": "Reduction by Carbon" },
+  { "id": "lead", "symbol": "Pb", "name": "Lead", "extraction": "Reduction by Carbon" },
+  { "id": "hydrogen", "symbol": "H", "name": "Hydrogen (Non-metal)", "extraction": "Reference for Acids", "is_reference": true },
+  { "id": "copper", "symbol": "Cu", "name": "Copper", "extraction": "Found native / Heat" },
+  { "id": "silver", "symbol": "Ag", "name": "Silver", "extraction": "Found native" },
+  { "id": "gold", "symbol": "Au", "name": "Gold", "extraction": "Found native" },
+  { "id": "platinum", "symbol": "Pt", "name": "Platinum", "extraction": "Found native" }
+]

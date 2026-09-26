@@ -1,0 +1,21 @@
+[
+  { "id": "li",  "reduction": "Li⁺(aq) + e⁻ ⇌ Li(s)",      "oxidation": "Li(s) ⇌ Li⁺(aq) + e⁻",      "e0": -3.04, "n": 1, "ion": "Li⁺" },
+  { "id": "k",   "reduction": "K⁺(aq) + e⁻ ⇌ K(s)",        "oxidation": "K(s) ⇌ K⁺(aq) + e⁻",        "e0": -2.93, "n": 1, "ion": "K⁺" },
+  { "id": "ca",  "reduction": "Ca²⁺(aq) + 2e⁻ ⇌ Ca(s)",   "oxidation": "Ca(s) ⇌ Ca²⁺(aq) + 2e⁻",   "e0": -2.87, "n": 2, "ion": "Ca²⁺" },
+  { "id": "na",  "reduction": "Na⁺(aq) + e⁻ ⇌ Na(s)",      "oxidation": "Na(s) ⇌ Na⁺(aq) + e⁻",      "e0": -2.71, "n": 1, "ion": "Na⁺" },
+  { "id": "mg",  "reduction": "Mg²⁺(aq) + 2e⁻ ⇌ Mg(s)",   "oxidation": "Mg(s) ⇌ Mg²⁺(aq) + 2e⁻",   "e0": -2.37, "n": 2, "ion": "Mg²⁺" },
+  { "id": "al",  "reduction": "Al³⁺(aq) + 3e⁻ ⇌ Al(s)",   "oxidation": "Al(s) ⇌ Al³⁺(aq) + 3e⁻",   "e0": -1.66, "n": 3, "ion": "Al³⁺" },
+  { "id": "zn",  "reduction": "Zn²⁺(aq) + 2e⁻ ⇌ Zn(s)",   "oxidation": "Zn(s) ⇌ Zn²⁺(aq) + 2e⁻",   "e0": -0.76, "n": 2, "ion": "Zn²⁺" },
+  { "id": "fe2", "reduction": "Fe²⁺(aq) + 2e⁻ ⇌ Fe(s)",   "oxidation": "Fe(s) ⇌ Fe²⁺(aq) + 2e⁻",   "e0": -0.44, "n": 2, "ion": "Fe²⁺" },
+  { "id": "ni",  "reduction": "Ni²⁺(aq) + 2e⁻ ⇌ Ni(s)",   "oxidation": "Ni(s) ⇌ Ni²⁺(aq) + 2e⁻",   "e0": -0.25, "n": 2, "ion": "Ni²⁺" },
+  { "id": "sn",  "reduction": "Sn²⁺(aq) + 2e⁻ ⇌ Sn(s)",   "oxidation": "Sn(s) ⇌ Sn²⁺(aq) + 2e⁻",   "e0": -0.14, "n": 2, "ion": "Sn²⁺" },
+  { "id": "pb",  "reduction": "Pb²⁺(aq) + 2e⁻ ⇌ Pb(s)",   "oxidation": "Pb(s) ⇌ Pb²⁺(aq) + 2e⁻",   "e0": -0.13, "n": 2, "ion": "Pb²⁺" },
+  { "id": "h",   "reduction": "2H⁺(aq) + 2e⁻ ⇌ H₂(g)",    "oxidation": "H₂(g) ⇌ 2H⁺(aq) + 2e⁻",    "e0":  0.00, "n": 2, "ion": "H⁺" },
+  { "id": "cu",  "reduction": "Cu²⁺(aq) + 2e⁻ ⇌ Cu(s)",   "oxidation": "Cu(s) ⇌ Cu²⁺(aq) + 2e⁻",   "e0":  0.34, "n": 2, "ion": "Cu²⁺" },
+  { "id": "ag",  "reduction": "Ag⁺(aq) + e⁻ ⇌ Ag(s)",      "oxidation": "Ag(s) ⇌ Ag⁺(aq) + e⁻",      "e0":  0.80, "n": 1, "ion": "Ag⁺" },
+  { "id": "hg",  "reduction": "Hg²⁺(aq) + 2e⁻ ⇌ Hg(l)",   "oxidation": "Hg(l) ⇌ Hg²⁺(aq) + 2e⁻",   "e0":  0.85, "n": 2, "ion": "Hg²⁺" },
+  { "id": "br2", "reduction": "Br₂(l) + 2e⁻ ⇌ 2Br⁻(aq)", "oxidation": "2Br⁻(aq) ⇌ Br₂(l) + 2e⁻", "e0":  1.07, "n": 2, "ion": "Br⁻" },
+  { "id": "cl2", "reduction": "Cl₂(g) + 2e⁻ ⇌ 2Cl⁻(aq)", "oxidation": "2Cl⁻(aq) ⇌ Cl₂(g) + 2e⁻", "e0":  1.36, "n": 2, "ion": "Cl⁻" },
+  { "id": "au",  "reduction": "Au³⁺(aq) + 3e⁻ ⇌ Au(s)",   "oxidation": "Au(s) ⇌ Au³⁺(aq) + 3e⁻",   "e0":  1.50, "n": 3, "ion": "Au³⁺" },
+  { "id": "f2",  "reduction": "F₂(g) + 2e⁻ ⇌ 2F⁻(aq)",  "oxidation": "2F⁻(aq) ⇌ F₂(g) + 2e⁻",  "e0":  2.87, "n": 2, "ion": "F⁻" }
+]

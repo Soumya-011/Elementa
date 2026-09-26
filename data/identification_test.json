@@ -1,0 +1,405 @@
+[
+  {
+    "id": "h2",
+    "name": "Hydrogen (H2)",
+    "category": "Gas",
+    "dry_test": {
+      "procedure": "Hold a lit splint at the open end of a test tube.",
+      "result": "The gas burns with a characteristic 'squeaky pop' sound."
+    },
+    "wet_test": null,
+    "notes": "Highly flammable. The pop is a miniature explosion of hydrogen mixing with oxygen."
+  },
+  {
+    "id": "o2",
+    "name": "Oxygen (O2)",
+    "category": "Gas",
+    "dry_test": {
+      "procedure": "Insert a glowing splint into the test tube.",
+      "result": "The splint relights and bursts back into flame."
+    },
+    "wet_test": null,
+    "notes": "Oxygen supports combustion."
+  },
+  {
+    "id": "co2",
+    "name": "Carbon Dioxide (CO2)",
+    "category": "Gas",
+    "dry_test": {
+      "procedure": "Hold a lit splint in the gas.",
+      "result": "The flame is extinguished."
+    },
+    "wet_test": {
+      "procedure": "Bubble the gas through limewater (aqueous Calcium Hydroxide).",
+      "result": "The limewater turns milky/cloudy.",
+      "equation": "Ca(OH)2 + CO2 -> CaCO3 + H2O"
+    },
+    "notes": "The cloudiness is a fine precipitate of insoluble Calcium Carbonate (CaCO3)."
+  },
+  {
+    "id": "cl2",
+    "name": "Chlorine (Cl2)",
+    "category": "Gas",
+    "dry_test": {
+      "procedure": "Hold damp blue litmus paper in the gas.",
+      "result": "The paper turns red (acidic) and is instantly bleached white."
+    },
+    "wet_test": {
+      "procedure": "Pass through aqueous Potassium Iodide (KI).",
+      "result": "The colorless KI solution turns brown.",
+      "equation": "Cl2 + 2KI -> 2KCl + I2"
+    },
+    "notes": "Chlorine displaces iodine from KI. Highly toxic; always test in a fume hood."
+  },
+  {
+    "id": "nh3",
+    "name": "Ammonia (NH3)",
+    "category": "Gas",
+    "dry_test": {
+      "procedure": "Hold damp red litmus paper in the gas.",
+      "result": "The red paper turns blue."
+    },
+    "wet_test": {
+      "procedure": "Hold a glass rod dipped in concentrated Hydrochloric Acid (HCl) near the gas.",
+      "result": "Dense white fumes are produced.",
+      "equation": "NH3 + HCl -> NH4Cl"
+    },
+    "notes": "Ammonia is the only common alkaline gas. The fumes are solid Ammonium Chloride."
+  },
+  {
+    "id": "no3_ion",
+    "name": "Nitrate Ion (NO3-)",
+    "category": "Anion",
+    "dry_test": {
+      "procedure": "Heat the solid salt strongly.",
+      "result": "May evolve heavy, toxic brown fumes of Nitrogen Dioxide (NO2)."
+    },
+    "wet_test": {
+      "procedure": "Brown Ring Test: Add freshly prepared Iron(II) Sulfate (FeSO4) solution, then carefully pour concentrated Sulfuric Acid (H2SO4) down the side of the test tube.",
+      "result": "A distinct brown ring forms at the junction of the two liquids.",
+      "equation": "NO3- + 3Fe2+ + 4H+ -> NO + 3Fe3+ + 2H2O | [Fe(H2O)6]2+ + NO -> [Fe(H2O)5(NO)]2+ + H2O"
+    },
+    "notes": "The brown ring is a complex ion called pentaaquanitrosyliron(II)."
+  },
+  {
+    "id": "so4_ion",
+    "name": "Sulfate Ion (SO4 2-)",
+    "category": "Anion",
+    "dry_test": null,
+    "wet_test": {
+      "procedure": "Add dilute Hydrochloric acid (to remove carbonate impurities), followed by aqueous Barium Chloride (BaCl2).",
+      "result": "A dense white precipitate forms.",
+      "equation": "Ba2+ + SO4 2- -> BaSO4"
+    },
+    "notes": "Barium sulfate is highly insoluble, even in acidic conditions."
+  },
+  {
+    "id": "cl_ion",
+    "name": "Chloride Ion (Cl-)",
+    "category": "Anion",
+    "dry_test": {
+      "procedure": "Add concentrated Sulfuric Acid to the solid salt.",
+      "result": "Evolves steamy, acidic white fumes of Hydrogen Chloride (HCl)."
+    },
+    "wet_test": {
+      "procedure": "Add dilute Nitric acid (to remove impurities), followed by aqueous Silver Nitrate (AgNO3).",
+      "result": "A white precipitate forms which dissolves in dilute aqueous ammonia.",
+      "equation": "Ag+ + Cl- -> AgCl"
+    },
+    "notes": "Silver chloride turns purple/grey upon exposure to sunlight due to photodecomposition."
+  },
+  {
+    "id": "co3_ion",
+    "name": "Carbonate Ion (CO3 2-)",
+    "category": "Anion",
+    "dry_test": null,
+    "wet_test": {
+      "procedure": "Add any dilute acid (e.g., HCl or HNO3) to the solid or solution.",
+      "result": "Brisk effervescence (fizzing) as a colorless gas is evolved. The gas turns limewater milky.",
+      "equation": "CO3 2- + 2H+ -> H2O + CO2"
+    },
+    "notes": "Confirms presence of carbonate or bicarbonate."
+  },
+  {
+    "id": "cu2_ion",
+    "name": "Copper(II) Ion (Cu 2+)",
+    "category": "Cation",
+    "dry_test": {
+      "procedure": "Flame Test: Dip a nichrome wire in concentrated HCl, then in the salt, and hold in a roaring Bunsen flame.",
+      "result": "Produces a striking blue-green flame."
+    },
+    "wet_test": {
+      "procedure": "Add aqueous Sodium Hydroxide (NaOH) dropwise.",
+      "result": "A pale blue precipitate forms which is insoluble in excess NaOH.",
+      "equation": "Cu2+ + 2OH- -> Cu(OH)2"
+    },
+    "notes": "Adding excess aqueous Ammonia instead will dissolve the precipitate into a deep royal blue solution."
+  },
+  {
+    "id": "fe3_ion",
+    "name": "Iron(III) Ion (Fe 3+)",
+    "category": "Cation",
+    "dry_test": null,
+    "wet_test": {
+      "procedure": "Add aqueous Sodium Hydroxide (NaOH) dropwise.",
+      "result": "A rusty red-brown precipitate forms which is insoluble in excess.",
+      "equation": "Fe3+ + 3OH- -> Fe(OH)3"
+    },
+    "notes": "Unlike Iron(II) which forms a green precipitate, Iron(III) forms a distinctly brown solid."
+  },
+  {
+    "id": "so2",
+    "name": "Sulfur Dioxide (SO2)",
+    "category": "Gas",
+    "dry_test": {
+      "procedure": "Hold damp blue litmus paper in the gas.",
+      "result": "The paper turns red (acidic) and is then bleached white."
+    },
+    "wet_test": {
+      "procedure": "Bubble the gas through acidified potassium dichromate solution (K2Cr2O7 + H2SO4).",
+      "result": "The orange solution turns green.",
+      "equation": "SO2 + K2Cr2O7 + H2SO4 -> K2SO4 + Cr2(SO4)3 + H2O"
+    },
+    "notes": "SO2 acts as a reducing agent, reducing Cr(VI) to Cr(III). Highly toxic; use a fume hood."
+  },
+  {
+    "id": "h2s",
+    "name": "Hydrogen Sulfide (H2S)",
+    "category": "Gas",
+    "dry_test": {
+      "procedure": "Hold lead acetate paper in the gas.",
+      "result": "The paper turns black or brown."
+    },
+    "wet_test": {
+      "procedure": "Pass the gas through cadmium nitrate or lead acetate solution.",
+      "result": "A yellow or black precipitate forms.",
+      "equation": "H2S + Pb(NO3)2 -> PbS + 2HNO3"
+    },
+    "notes": "Identified by its characteristic rotten egg smell. Highly toxic; always test in a fume hood."
+  },
+  {
+    "id": "no",
+    "name": "Nitric Oxide (NO)",
+    "category": "Gas",
+    "dry_test": {
+      "procedure": "Expose the colorless gas to air.",
+      "result": "The gas immediately turns brown as it reacts with oxygen to form Nitrogen Dioxide (NO2)."
+    },
+    "wet_test": null,
+    "notes": "NO is a neutral oxide and is paramagnetic. The brown color change on contact with air is the key identification feature."
+  },
+  {
+    "id": "h2o_vapor",
+    "name": "Water Vapor (H2O)",
+    "category": "Gas",
+    "dry_test": {
+      "procedure": "Hold anhydrous copper(II) sulfate (white powder) in the gas.",
+      "result": "The white powder turns blue."
+    },
+    "wet_test": null,
+    "notes": "Confirms the presence of water vapor. Equation: CuSO4 + 5H2O -> CuSO4.5H2O. Anhydrous CuSO4 is a reliable test for water."
+  },
+  {
+    "id": "so3_ion",
+    "name": "Sulfite Ion (SO3 2-)",
+    "category": "Anion",
+    "dry_test": null,
+    "wet_test": {
+      "procedure": "Add aqueous Barium Chloride (BaCl2) solution. A white precipitate forms. Then add dilute Hydrochloric Acid (HCl).",
+      "result": "The white precipitate dissolves with effervescence (SO2 gas is evolved).",
+      "equation": "SO3 2- + Ba2+ -> BaSO3; BaSO3 + 2H+ -> Ba2+ + H2O + SO2"
+    },
+    "notes": "This distinguishes sulfite from sulfate: BaSO4 does NOT dissolve in dilute acid, whereas BaSO3 does."
+  },
+  {
+    "id": "po4_ion",
+    "name": "Phosphate Ion (PO4 3-)",
+    "category": "Anion",
+    "dry_test": null,
+    "wet_test": {
+      "procedure": "Add ammonium molybdate reagent [(NH4)2MoO4] and concentrated Nitric Acid (HNO3), then warm gently.",
+      "result": "A canary-yellow precipitate forms.",
+      "equation": "PO4 3- + 12(NH4)2MoO4 + 21HNO3 -> (NH4)3PO4.12MoO3 + 21NH4NO3 + 12H2O"
+    },
+    "notes": "A distinctive and specific test that does not work with other common anions. The yellow precipitate is ammonium phosphomolybdate."
+  },
+  {
+    "id": "oh_ion",
+    "name": "Hydroxide Ion (OH-)",
+    "category": "Anion",
+    "dry_test": null,
+    "wet_test": {
+      "procedure": "Add a few drops of phenolphthalein indicator to the solution.",
+      "result": "The solution turns pink or magenta.",
+      "equation": null
+    },
+    "notes": "Indicates an alkaline solution. Phenolphthalein is colorless in acidic and neutral solutions but turns pink above pH ~8.2."
+  },
+  {
+    "id": "i_ion",
+    "name": "Iodide Ion (I-)",
+    "category": "Anion",
+    "dry_test": {
+      "procedure": "Add concentrated Sulfuric Acid (H2SO4) to the solid salt.",
+      "result": "Violet fumes of iodine (I2) are produced, along with a smell of rotten cabbage."
+    },
+    "wet_test": {
+      "procedure": "Add dilute Nitric Acid (to remove impurities), followed by aqueous Silver Nitrate (AgNO3).",
+      "result": "A yellow precipitate (AgI) forms which is insoluble in dilute aqueous ammonia.",
+      "equation": "Ag+ + I- -> AgI"
+    },
+    "notes": "Distinguishes from Cl- (white ppt, soluble in dilute NH3) and Br- (cream ppt, partially soluble in concentrated NH3)."
+  },
+  {
+    "id": "br_ion",
+    "name": "Bromide Ion (Br-)",
+    "category": "Anion",
+    "dry_test": {
+      "procedure": "Add concentrated Sulfuric Acid (H2SO4) to the solid salt.",
+      "result": "Reddish-brown fumes of bromine (Br2) are produced."
+    },
+    "wet_test": {
+      "procedure": "Add dilute Nitric Acid (to remove impurities), followed by aqueous Silver Nitrate (AgNO3).",
+      "result": "A cream-colored precipitate (AgBr) forms which partially dissolves in concentrated aqueous ammonia.",
+      "equation": "Ag+ + Br- -> AgBr"
+    },
+    "notes": "Intermediate behavior between Cl- and I- in terms of precipitate color and ammonia solubility."
+  },
+  {
+    "id": "ch3coo_ion",
+    "name": "Acetate Ion (CH3COO-)",
+    "category": "Anion",
+    "dry_test": null,
+    "wet_test": {
+      "procedure": "Add ethanol (C2H5OH) and concentrated Sulfuric Acid (H2SO4), then warm gently.",
+      "result": "A fruity, sweet smell of ethyl acetate ester is produced.",
+      "equation": "CH3COO- + C2H5OH + H+ -> CH3COOC2H5 + H2O"
+    },
+    "notes": "Esterification test. The distinctive fruity odor of ethyl acetate confirms the presence of the acetate ion."
+  },
+  {
+    "id": "so3_reducing",
+    "name": "Sulfite Reducing Test (SO3 2-)",
+    "category": "Anion",
+    "dry_test": null,
+    "wet_test": {
+      "procedure": "Add acidified Potassium Permanganate (KMnO4) solution.",
+      "result": "The purple color of the permanganate is decolorized.",
+      "equation": "5SO3 2- + 2MnO4- + 6H+ -> 5SO4 2- + 2Mn2+ + 3H2O"
+    },
+    "notes": "Confirms the reducing nature of sulfite. SO3 2- is oxidized to SO4 2- while MnO4- is reduced from Mn(VII) to Mn(II)."
+  },
+  {
+    "id": "no2_ion",
+    "name": "Nitrite Ion (NO2-)",
+    "category": "Anion",
+    "dry_test": {
+      "procedure": "Heat the solid salt with dilute Sulfuric Acid (H2SO4).",
+      "result": "Brown fumes of Nitrogen Dioxide (NO2) are evolved."
+    },
+    "wet_test": {
+      "procedure": "Brown ring test variant: Add Iron(II) Sulfate (FeSO4) solution and acetic acid (CH3COOH) instead of concentrated H2SO4.",
+      "result": "A brown ring forms at the junction of the two liquids.",
+      "equation": "NO2- + Fe2+ + 2H+ -> NO + Fe3+ + H2O"
+    },
+    "notes": "Distinguishes from nitrate: nitrite gives the brown ring with weak acid (acetic acid), whereas nitrate requires concentrated H2SO4."
+  },
+  {
+    "id": "zn2_ion",
+    "name": "Zinc Ion (Zn2+)",
+    "category": "Cation",
+    "dry_test": null,
+    "wet_test": {
+      "procedure": "Add aqueous Sodium Hydroxide (NaOH) dropwise, then add excess NaOH.",
+      "result": "A white gelatinous precipitate forms initially, which dissolves in excess NaOH.",
+      "equation": "Zn2+ + 2OH- -> Zn(OH)2; Zn(OH)2 + 2OH- -> [Zn(OH)4]2-"
+    },
+    "notes": "Amphoteric behavior distinguishes Zn2+ from most other cations whose hydroxide precipitates do not dissolve in excess NaOH."
+  },
+  {
+    "id": "ca2_ion",
+    "name": "Calcium Ion (Ca2+)",
+    "category": "Cation",
+    "dry_test": {
+      "procedure": "Flame Test: Dip a nichrome wire in concentrated HCl, then in the salt, and hold in a roaring Bunsen flame.",
+      "result": "Produces a brick red / orange-red flame."
+    },
+    "wet_test": {
+      "procedure": "Add aqueous Sodium Hydroxide (NaOH) solution.",
+      "result": "No precipitate forms (or at most a very slight milky appearance).",
+      "equation": null
+    },
+    "notes": "Calcium hydroxide is sparingly soluble, so no visible precipitate forms. The flame test is the definitive identification."
+  },
+  {
+    "id": "pb2_ion",
+    "name": "Lead(II) Ion (Pb2+)",
+    "category": "Cation",
+    "dry_test": null,
+    "wet_test": {
+      "procedure": "Add dilute Hydrochloric Acid (HCl) to form a white precipitate. Alternatively, add Potassium Iodide (KI) solution to form a bright yellow precipitate.",
+      "result": "With HCl: white precipitate of PbCl2 (soluble in hot water, re-crystallizes on cooling). With KI: bright yellow precipitate of PbI2.",
+      "equation": "Pb2+ + 2Cl- -> PbCl2; Pb2+ + 2I- -> PbI2"
+    },
+    "notes": "PbCl2 is unusual in being more soluble in hot water than cold. The yellow PbI2 precipitate is a distinctive confirmatory test."
+  },
+  {
+    "id": "fe2_ion",
+    "name": "Iron(II) Ion (Fe2+)",
+    "category": "Cation",
+    "dry_test": null,
+    "wet_test": {
+      "procedure": "Add aqueous Sodium Hydroxide (NaOH) dropwise. Alternatively, add Potassium Ferricyanide (K3Fe(CN)6) solution.",
+      "result": "With NaOH: a green precipitate of Fe(OH)2 forms, which turns brown on exposure to air. With K3Fe(CN)6: a dark blue precipitate (Turnbull's blue) forms.",
+      "equation": "Fe2+ + 2OH- -> Fe(OH)2; 3Fe2+ + 2[Fe(CN)6]3- -> Fe3[Fe(CN)6]2"
+    },
+    "notes": "The air oxidation of the green Fe(OH)2 precipitate to brown Fe(OH)3 is a key distinguishing feature from Fe3+."
+  },
+  {
+    "id": "mg2_ion",
+    "name": "Magnesium Ion (Mg2+)",
+    "category": "Cation",
+    "dry_test": null,
+    "wet_test": {
+      "procedure": "Add aqueous Sodium Hydroxide (NaOH) dropwise, then add excess NaOH.",
+      "result": "A white precipitate of Mg(OH)2 forms and is insoluble in excess NaOH.",
+      "equation": "Mg2+ + 2OH- -> Mg(OH)2"
+    },
+    "notes": "Distinguishes from Zn2+ and Al3+ (both amphoteric — their precipitates dissolve in excess NaOH). Mg(OH)2 is not amphoteric."
+  },
+  {
+    "id": "al3_ion",
+    "name": "Aluminum Ion (Al3+)",
+    "category": "Cation",
+    "dry_test": null,
+    "wet_test": {
+      "procedure": "Add aqueous Sodium Hydroxide (NaOH) dropwise, then add excess NaOH.",
+      "result": "A white gelatinous precipitate forms initially, which dissolves in excess NaOH.",
+      "equation": "Al3+ + 3OH- -> Al(OH)3; Al(OH)3 + OH- -> [Al(OH)4]-"
+    },
+    "notes": "Amphoteric, with identical NaOH behavior to Zn2+. Distinguished by: (1) flame test — Al gives no color; (2) adding excess NH3 — Al precipitate does NOT dissolve, but Zn precipitate does."
+  },
+  {
+    "id": "ag_ion",
+    "name": "Silver Ion (Ag+)",
+    "category": "Cation",
+    "dry_test": null,
+    "wet_test": {
+      "procedure": "Add dilute Hydrochloric Acid (HCl) to the solution.",
+      "result": "A white curdy precipitate of Silver Chloride (AgCl) forms, which dissolves in dilute aqueous ammonia.",
+      "equation": "Ag+ + Cl- -> AgCl"
+    },
+    "notes": "AgCl darkens on exposure to light due to photodecomposition to silver metal. This is the basis of traditional photography."
+  },
+  {
+    "id": "k_ion",
+    "name": "Potassium Ion (K+)",
+    "category": "Cation",
+    "dry_test": {
+      "procedure": "Flame Test: Dip a nichrome wire in concentrated HCl, then in the salt, and hold in a roaring Bunsen flame. View through cobalt blue glass.",
+      "result": "Produces a lilac / pale violet flame (visible through cobalt blue glass)."
+    },
+    "wet_test": null,
+    "notes": "The cobalt blue glass filter is essential to mask any sodium contamination, which would otherwise overpower the faint lilac flame."
+  }
+]
