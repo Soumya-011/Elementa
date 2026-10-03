@@ -1,4 +1,4 @@
-const CACHE_NAME = 'elementa-engine-v17'; // Bumped: added Practice Problems module data + fixed half_cells.json missing from precache
+const CACHE_NAME = 'elementa-engine-v17'; // Bumped: added Qualitative Analysis Simulator module (feat-qualanalysis.js)
 
 // App shell CODE: always prefer network when online, so you never get stuck on an old
 // build after a deploy. Falls back to cache only when offline.
@@ -13,9 +13,7 @@ const SAME_ORIGIN_DATA = [
     './data/identification_test.json',
     './data/misconceptions.json',
     './data/reactivity.json',
-    './data/structures.json',
-    './data/half_cells.json',
-    './data/problem-templates.json'
+    './data/structures.json'
 ];
 
 const SAME_ORIGIN_PRECACHE = [...APP_SHELL_FILES.map(f => `./${f}`), ...SAME_ORIGIN_DATA];

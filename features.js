@@ -13,6 +13,7 @@ import { mountCompounds, mountReactions, mountPreparations, mountIdentificationT
 import { mountPeriodicTable, mountReactivity, mountMolecularOrbitals, mountVSEPR, mountFlameTests, mountSolubilityRules } from './feat-theory.js';
 import { mountCalculators, mountUnitConverter, upgradeCalculators, upgradeLayout, addCommonIonEffect, addElectrochemicalSeries } from './feat-compute.js';
 import { mountProblems } from './feat-problems.js';
+import { mountQualAnalysis } from './feat-qualanalysis.js';
 
 import './feat-helpers.js';
 
@@ -22,6 +23,7 @@ try {
   registerModule('reactions', 'Reaction Mechanics', mountReactions, { icon: '⚗️', accent: 'lithium' });
   registerModule('preparations', 'Synthesis Protocols', mountPreparations, { icon: '🏭', accent: 'lithium' });
   registerModule('idtests', 'Identification Analysis', mountIdentificationTests, { icon: '🔬', accent: 'lithium' });
+  registerModule('qualanalysis', 'Qual. Analysis Sim', mountQualAnalysis, { icon: '🧫', accent: 'lithium' });
   registerModule('molecularorbitals', 'Molecular Orbitals', mountMolecularOrbitals, { icon: '🧲', accent: 'potassium' });
   registerModule('vsepr', 'VSEPR Theory', mountVSEPR, { icon: '🔷', accent: 'potassium' });
   registerModule('flametests', 'Flame Tests', mountFlameTests, { icon: '🔥', accent: 'lithium' });

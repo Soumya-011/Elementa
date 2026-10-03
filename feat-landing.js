@@ -126,6 +126,11 @@ export async function mountLanding(container) {
         <h3>Identification Analysis</h3>
         <p>Dry & wet qualitative tests</p>
       </button>
+      <button class="module-card" id="card-qualanalysis" style="--mc-accent:var(--accent-lithium); --mc-accent-dim:var(--accent-lithium-dim);">
+        <div class="icon-badge">🧫</div>
+        <h3>Qual. Analysis Sim</h3>
+        <p>Identify a hidden unknown sample</p>
+      </button>
       <button class="module-card" id="card-reactivity" style="--mc-accent:var(--accent-potassium); --mc-accent-dim:var(--accent-potassium-dim);">
         <div class="icon-badge">📈</div>
         <h3>Reactivity Series</h3>
@@ -150,6 +155,7 @@ export async function mountLanding(container) {
   document.getElementById("card-unit").addEventListener("click", () => navigateTo("unitconverter"));
   document.getElementById("card-prep").addEventListener("click", () => navigateTo("preparations"));
   document.getElementById("card-idtests").addEventListener("click", () => navigateTo("idtests"));
+  document.getElementById("card-qualanalysis").addEventListener("click", () => navigateTo("qualanalysis"));
   document.getElementById("card-reactivity").addEventListener("click", () => navigateTo("reactivity"));
   document.getElementById("card-problems").addEventListener("click", () => navigateTo("problems"));
 }

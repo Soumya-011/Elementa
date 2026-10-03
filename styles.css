@@ -585,7 +585,7 @@ sup { font-size: 0.72em; }
 
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 100; opacity: 0; pointer-events: none; transition: opacity 0.25s ease; }
 .modal-overlay.active { opacity: 1; pointer-events: auto; }
-.modal-content { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 32px; width: 90%; max-width: 480px; max-height: 85vh; overflow-y: auto; -webkit-overflow-scrolling: touch; position: relative; box-shadow: var(--shadow-modal); transform: translateY(20px); transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, border-color 0.3s ease; }
+.modal-content { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 32px; width: 90%; max-width: 480px; position: relative; box-shadow: var(--shadow-modal); transform: translateY(20px); transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, border-color 0.3s ease; }
 .modal-overlay.active .modal-content { transform: translateY(0); }
 .modal-close { position: absolute; top: 16px; right: 20px; background: var(--color-surface-alt); border: none; color: var(--color-text-muted); font-size: 1.2rem; cursor: pointer; padding: 4px 10px; border-radius: 50%; transition: all 0.2s ease; }
 .modal-close:hover { background: var(--color-border); color: var(--color-heading); }
@@ -749,3 +749,21 @@ sup { font-size: 0.72em; }
 .cie-bar-fill { height: 100%; border-radius: var(--radius-sm); transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); display: flex; align-items: center; padding-left: 10px; font-size: 0.8rem; font-weight: 700; color: #fff; min-width: fit-content; }
 .cie-bar-fill.pure { background: var(--color-primary); }
 .cie-bar-shift { margin-top: 20px; padding: 16px; background: var(--color-surface-alt); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 0.9rem; }
+/* =========================================
+   16. QUALITATIVE ANALYSIS SIMULATOR
+   ========================================= */
+.qa-stats { display: flex; justify-content: center; gap: 40px; }
+.qa-stat { text-align: center; }
+.qa-stat-val { font-size: 1.6rem; font-weight: 800; color: var(--color-primary); }
+.qa-stat-lbl { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); }
+.qa-category-select { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.qa-category-select .qa-cat-btn { min-width: 140px; width: auto; padding: 14px 28px; }
+.qa-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+.qa-actions .qa-test-btn { padding: 10px 20px; }
+@media (max-width: 560px) {
+  .qa-stats { gap: 24px; }
+  .qa-actions { flex-direction: column; }
+  .qa-actions .qa-test-btn { width: 100% !important; }
+  .qa-category-select { flex-direction: column; align-items: stretch; }
+  .qa-category-select .qa-cat-btn { width: 100% !important; }
+}
