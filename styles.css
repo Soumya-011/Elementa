@@ -749,6 +749,7 @@ sup { font-size: 0.72em; }
 .cie-bar-fill { height: 100%; border-radius: var(--radius-sm); transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); display: flex; align-items: center; padding-left: 10px; font-size: 0.8rem; font-weight: 700; color: #fff; min-width: fit-content; }
 .cie-bar-fill.pure { background: var(--color-primary); }
 .cie-bar-shift { margin-top: 20px; padding: 16px; background: var(--color-surface-alt); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 0.9rem; }
+
 /* =========================================
    16. QUALITATIVE ANALYSIS SIMULATOR
    ========================================= */
@@ -766,4 +767,47 @@ sup { font-size: 0.72em; }
   .qa-actions .qa-test-btn { width: 100% !important; }
   .qa-category-select { flex-direction: column; align-items: stretch; }
   .qa-category-select .qa-cat-btn { width: 100% !important; }
+}
+
+/* =========================================
+   17. SHARED CHART ENGINE (Phase 3)
+   ========================================= */
+.chart-wrap { position: relative; width: 100%; }
+.chart-svg { display: block; width: 100%; }
+.chart-gridline { stroke: var(--color-border); stroke-width: 1; }
+.chart-gridline-v { stroke-dasharray: 2 4; opacity: 0.6; }
+.chart-tick-label { font-size: 11px; fill: var(--color-text-muted); font-family: var(--font-mono); }
+.chart-axis-line { stroke: var(--color-text-muted); stroke-width: 1.5; }
+.chart-title { font-size: 14px; font-weight: 700; fill: var(--color-heading); font-family: var(--font-display); }
+.chart-axis-label { font-size: 12px; font-weight: 600; fill: var(--color-text-muted); }
+.chart-line { stroke-width: 2.5; }
+.chart-point { stroke: var(--color-surface); stroke-width: 1; }
+.chart-marker-line { stroke-width: 1.5; stroke-dasharray: 5 4; }
+.chart-marker-label { font-size: 11px; font-weight: 700; }
+.chart-legend-label { font-size: 11px; fill: var(--color-text); font-family: var(--font-sans); }
+.chart-crosshair { stroke: var(--color-text-muted); stroke-width: 1; stroke-dasharray: 3 3; display: none; pointer-events: none; }
+.chart-hit-rect { cursor: crosshair; }
+.chart-empty-text { fill: var(--color-text-muted); font-size: 14px; }
+.chart-tooltip {
+  position: absolute; transform: translate(-50%, -120%);
+  background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm);
+  padding: 6px 10px; font-size: 0.78rem; line-height: 1.4; color: var(--color-text);
+  box-shadow: var(--shadow-hover); pointer-events: none; white-space: nowrap; z-index: 5;
+}
+@media (max-width: 560px) {
+  .chart-tick-label { font-size: 9px; }
+  .chart-axis-label { font-size: 10px; }
+}
+
+/* =========================================
+   18. TITRATION SIMULATOR (Phase 4)
+   ========================================= */
+#titration-setup h3 { color: var(--color-primary); }
+#tt-flask { display: block; margin: 0 auto; }
+#tt-flask-liquid { transition: fill 0.25s ease; }
+.badge-primary { background: var(--badge-primary-bg, rgba(99,102,241,0.15)); color: var(--color-primary); }
+#tt-slider { accent-color: var(--color-primary); cursor: pointer; }
+@media (max-width: 640px) {
+  #titration-run .card > div[style*="display:flex"] { flex-direction: column; text-align: center; }
+  #titration-run .qa-stats { justify-content: center !important; }
 }

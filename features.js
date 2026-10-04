@@ -14,6 +14,7 @@ import { mountPeriodicTable, mountReactivity, mountMolecularOrbitals, mountVSEPR
 import { mountCalculators, mountUnitConverter, upgradeCalculators, upgradeLayout, addCommonIonEffect, addElectrochemicalSeries } from './feat-compute.js';
 import { mountProblems } from './feat-problems.js';
 import { mountQualAnalysis } from './feat-qualanalysis.js';
+import { mountTitration } from './feat-titration.js';
 
 import './feat-helpers.js';
 
@@ -24,6 +25,7 @@ try {
   registerModule('preparations', 'Synthesis Protocols', mountPreparations, { icon: '🏭', accent: 'lithium' });
   registerModule('idtests', 'Identification Analysis', mountIdentificationTests, { icon: '🔬', accent: 'lithium' });
   registerModule('qualanalysis', 'Qual. Analysis Sim', mountQualAnalysis, { icon: '🧫', accent: 'lithium' });
+  registerModule('titration', 'Titration Simulator', mountTitration, { icon: '🧪', accent: 'lithium' });
   registerModule('molecularorbitals', 'Molecular Orbitals', mountMolecularOrbitals, { icon: '🧲', accent: 'potassium' });
   registerModule('vsepr', 'VSEPR Theory', mountVSEPR, { icon: '🔷', accent: 'potassium' });
   registerModule('flametests', 'Flame Tests', mountFlameTests, { icon: '🔥', accent: 'lithium' });

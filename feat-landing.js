@@ -40,7 +40,7 @@ export async function mountLanding(container) {
     { text: "Nothing in life is to be feared, it is only to be understood. Now one can understand the structure of matter.", author: "Marie Curie" },
     { text: "In the field of observation, chance favors only the prepared mind.", author: "Louis Pasteur" },
     { text: "Chemistry is necessarily an experimental science: its conclusions are drawn from data, and its principles supported by evidence from facts.", author: "Michael Faraday" },
-    { text: "The most exciting phrase to hear in science is not \u2018Eureka!\u2019 but \u2018That\u2019s funny...\u2019", author: "Isaac Asimov" },
+    { text: "The most exciting phrase to hear in science is not ‘Eureka!’ but ‘That’s funny...’", author: "Isaac Asimov" },
   ];
   const quote = quotes[Math.floor(Math.random() * quotes.length)];
 
@@ -131,6 +131,11 @@ export async function mountLanding(container) {
         <h3>Qual. Analysis Sim</h3>
         <p>Identify a hidden unknown sample</p>
       </button>
+      <button class="module-card" id="card-titration" style="--mc-accent:var(--accent-lithium); --mc-accent-dim:var(--accent-lithium-dim);">
+        <div class="icon-badge">🧪</div>
+        <h3>Titration Simulator</h3>
+        <p>pH curves · equivalence · indicators</p>
+      </button>
       <button class="module-card" id="card-reactivity" style="--mc-accent:var(--accent-potassium); --mc-accent-dim:var(--accent-potassium-dim);">
         <div class="icon-badge">📈</div>
         <h3>Reactivity Series</h3>
@@ -156,6 +161,7 @@ export async function mountLanding(container) {
   document.getElementById("card-prep").addEventListener("click", () => navigateTo("preparations"));
   document.getElementById("card-idtests").addEventListener("click", () => navigateTo("idtests"));
   document.getElementById("card-qualanalysis").addEventListener("click", () => navigateTo("qualanalysis"));
+  document.getElementById("card-titration").addEventListener("click", () => navigateTo("titration"));
   document.getElementById("card-reactivity").addEventListener("click", () => navigateTo("reactivity"));
   document.getElementById("card-problems").addEventListener("click", () => navigateTo("problems"));
 }
@@ -212,7 +218,7 @@ export async function mountSearch(container) {
     const q = e.target.value.toLowerCase().trim();
     if(q.length < 2) { suggestionsDiv.style.display = "none"; resultsDiv.innerHTML = ""; return; }
     currentSuggestions = [];
-    
+
     compounds.filter(c => c.name.toLowerCase().includes(q) || c.formula.toLowerCase().includes(q)).forEach(c => currentSuggestions.push({
         plainLabel: c.name, label: `🧪 <strong>${c.name}</strong> <span class="text-muted">(${formatFormula(c.formula)})</span>`,
         card: createInfoCard({ title: c.name, badgeText: formatFormula(c.formula), badgeType: "info", rows: [`<div class="result-row">${resultField("Class", titleCase(c.class))}</div>`] }).outerHTML
