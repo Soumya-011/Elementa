@@ -1,4 +1,4 @@
-const CACHE_NAME = 'elementa-engine-v19'; // Bumped: added Titration Simulator (feat-titration.js), removed dev chart-demo scaffold
+const CACHE_NAME = 'elementa-engine-v20'; // Bumped: added Kinetics Grapher (feat-kinetics.js)
 
 // App shell CODE: always prefer network when online, so you never get stuck on an old
 // build after a deploy. Falls back to cache only when offline.

@@ -811,3 +811,15 @@ sup { font-size: 0.72em; }
   #titration-run .card > div[style*="display:flex"] { flex-direction: column; text-align: center; }
   #titration-run .qa-stats { justify-content: center !important; }
 }
+
+/* =========================================
+   19. KINETICS GRAPHER (Phase 5)
+   ========================================= */
+#kin-explorer h3, #kin-determine h3, #kin-arrhenius h3 { color: var(--color-primary); }
+#det-charts .card { border-width: 1px; transition: border-color 0.2s ease, border-width 0.2s ease; }
+#arr-rows .btn-primary.arr-remove-row { background: var(--color-surface-alt); color: var(--color-danger); border: 1px solid var(--color-danger); }
+#arr-rows .btn-primary.arr-remove-row:disabled { opacity: 0.4; cursor: not-allowed; }
+@media (max-width: 640px) {
+  #kin-arrhenius .form-grid[style*="grid-template-columns: 1fr 1fr auto"] { grid-template-columns: 1fr 1fr; }
+  #arr-rows .arr-remove-row { grid-column: span 2; width: 100% !important; }
+}

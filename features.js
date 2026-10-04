@@ -15,6 +15,7 @@ import { mountCalculators, mountUnitConverter, upgradeCalculators, upgradeLayout
 import { mountProblems } from './feat-problems.js';
 import { mountQualAnalysis } from './feat-qualanalysis.js';
 import { mountTitration } from './feat-titration.js';
+import { mountKinetics } from './feat-kinetics.js';
 
 import './feat-helpers.js';
 
@@ -26,6 +27,7 @@ try {
   registerModule('idtests', 'Identification Analysis', mountIdentificationTests, { icon: '🔬', accent: 'lithium' });
   registerModule('qualanalysis', 'Qual. Analysis Sim', mountQualAnalysis, { icon: '🧫', accent: 'lithium' });
   registerModule('titration', 'Titration Simulator', mountTitration, { icon: '🧪', accent: 'lithium' });
+  registerModule('kinetics', 'Kinetics Grapher', mountKinetics, { icon: '📉', accent: 'potassium' });
   registerModule('molecularorbitals', 'Molecular Orbitals', mountMolecularOrbitals, { icon: '🧲', accent: 'potassium' });
   registerModule('vsepr', 'VSEPR Theory', mountVSEPR, { icon: '🔷', accent: 'potassium' });
   registerModule('flametests', 'Flame Tests', mountFlameTests, { icon: '🔥', accent: 'lithium' });
