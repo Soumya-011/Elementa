@@ -1,4 +1,4 @@
-const CACHE_NAME = 'elementa-engine-v4'; // Bumped: Phase 9 cross-module links (feat-helpers, features, feat-database, feat-theory, feat-titration, feat-compute, feat-qualanalysis, styles.css)
+const CACHE_NAME = 'elementa-engine-v5'; // Bumped: Phase 10 landing workflows + scrollable periodic-table popup (feat-landing.js, feat-theory.js, styles.css)
 
 // App shell CODE: always prefer network when online, so you never get stuck on an old
 // build after a deploy. Falls back to cache only when offline.

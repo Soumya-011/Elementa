@@ -884,3 +884,17 @@ sup { font-size: 0.72em; }
 .card .jump-row { margin-top: 12px; }
 .sol-rule .jump-btn { margin-left: auto; }
 .ladder-details .jump-btn { font-size: 0.7rem; padding: 3px 8px; }
+
+/* =====================================================================
+   24. PHASE 10 — SCROLLABLE PERIODIC-TABLE POPUP
+   ===================================================================== */
+.modal-overlay { padding: 16px; box-sizing: border-box; }
+.modal-content {
+  max-height: 90vh;
+  max-height: 90dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+.modal-close { position: sticky; top: 0; float: right; z-index: 2; margin: -16px -12px 0 0; }

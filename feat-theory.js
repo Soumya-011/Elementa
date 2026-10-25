@@ -231,7 +231,18 @@ export async function mountPeriodicTable(container) {
   // Click outside modal content to close
   modal.addEventListener('click', (e) => {
     if (e.target === modal) modal.classList.remove('active');
+    // Phase 10: a jump button inside the popup navigates away — close the overlay too.
+    if (e.target.closest('.jump-btn')) modal.classList.remove('active');
   });
+  // Escape closes the popup (keyboard users).
+  const onEsc = (e) => { if (e.key === 'Escape') modal.classList.remove('active'); };
+  document.removeEventListener('keydown', window.__ptModalEsc || (() => {}));
+  window.__ptModalEsc = onEsc;
+  document.addEventListener('keydown', onEsc);
+  // Reset scroll position each time a new element is opened.
+  container.querySelectorAll('.pt-element').forEach(el => el.addEventListener('click', () => {
+    const mc = modal.querySelector('.modal-content'); if (mc) mc.scrollTop = 0;
+  }));
 }
 /* =====================================================================
    9. REACTIVITY LADDER MODULE

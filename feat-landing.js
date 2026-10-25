@@ -8,7 +8,7 @@ import {
   navigateTo, formatEquation, formatFormula
 } from './core.js';
 
-import { createInfoCard, resultField, titleCase } from './feat-helpers.js';
+import { createInfoCard, resultField, titleCase, jumpButtonHTML } from './feat-helpers.js';
 
 // Local helpers (also defined in feat-database.js to avoid cross-module imports)
 function displayReagentPlain(str, compoundsById = new Map()) {
@@ -156,6 +156,18 @@ export async function mountLanding(container) {
         <h3>Atomic Orbitals 3D</h3>
         <p>s/p/d/f electron clouds</p>
       </button>
+    </div>
+    <div class="panel" style="margin-top:20px;">
+      <h3 style="margin-bottom:10px;">Quick connected workflows</h3>
+      <div class="jump-row">
+        ${jumpButtonHTML('Titrate acetic acid', 'titration', 'acetic_acid', '🧪', { analyte: 'acetic_acid' })}
+        ${jumpButtonHTML('Electrochemical cell', 'calculators', '', '🔋', { tab: 'electro' })}
+        ${jumpButtonHTML('Ksp solubility', 'calculators', '', '🧮', { tab: 'ksp' })}
+        ${jumpButtonHTML('Iron compounds', 'compounds', 'Fe', '🧪')}
+        ${jumpButtonHTML('Copper(II) tests', 'idtests', 'cu2_ion', '🔬')}
+        ${jumpButtonHTML('Ammonia synthesis', 'preparations', 'nh3', '🏭')}
+        ${jumpButtonHTML('3d orbitals', 'orbitals3d', '3dz2', '⚛️')}
+      </div>
     </div>
   `;
 
