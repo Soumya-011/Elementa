@@ -14,7 +14,7 @@ document.head.appendChild(style);
 export let activeSmilesDrawers = [];
 
 window.addEventListener('themeChanged', (e) => {
-    const theme = e.detail.theme; 
+    const theme = e.detail.theme;
     activeSmilesDrawers.forEach(item => {
         item.drawer.draw(item.tree, item.canvasId, theme, false);
     });
@@ -23,11 +23,11 @@ window.addEventListener('themeChanged', (e) => {
 export function drawSmiles(smilesStr, canvasId, width = 300, height = 250) {
     if (typeof SmilesDrawer === 'undefined') return;
     const canvas = document.getElementById(canvasId);
-    if (!canvas) return; 
+    if (!canvas) return;
 
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     const theme = isDark ? 'dark' : 'light';
-    
+
     try {
         let drawer = new SmilesDrawer.Drawer({ width: width, height: height });
         SmilesDrawer.parse(smilesStr, function(tree) {
@@ -79,4 +79,24 @@ export function moduleHeaderHTML(icon, title, description, accent) {
       </div>
     </div>
   `;
+}
+
+/* =====================================================================
+   2. CROSS-MODULE DEEP-LINK BUTTON (Phase 7 interlinking infra)
+   Renders a button carrying data-jump-module / data-jump-focus attributes.
+   The actual click handling lives in features.js as a single delegated
+   listener (navigateTo(moduleId, { focus })) — this file stays free of
+   core.js imports, same as every other export here.
+   Escaping: focusId/moduleId go into an HTML attribute (quote-escaped
+   only); label goes into text content (angle-bracket-escaped) since it's
+   always a short plain string the caller controls, never user input.
+   ===================================================================== */
+export function jumpButtonHTML(label, moduleId, focusId, icon = '→', extraParams = null) {
+  const escAttr = (v) => String(v).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+  const escText = (v) => String(v).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  // Phase 9: optional extraParams (plain object) is carried as JSON in
+  // data-jump-params and merged into the navigateTo params by the delegated
+  // click handler in features.js. `focus` stays the simple single-id channel.
+  const extraAttr = extraParams ? ` data-jump-params="${escAttr(JSON.stringify(extraParams))}"` : '';
+  return `<button type="button" class="jump-btn" data-jump-module="${escAttr(moduleId)}" data-jump-focus="${escAttr(focusId ?? '')}"${extraAttr}>${escText(label)} <span class="jump-btn-icon">${icon}</span></button>`;
 }

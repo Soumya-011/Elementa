@@ -183,7 +183,7 @@ export function isIndicatorSuitable(indicator, equivalencePH) {
 /* =====================================================================
    MODULE
    ===================================================================== */
-export async function mountTitration(container) {
+export async function mountTitration(container, params = null) {
   container.innerHTML = moduleHeaderHTML(
     '🧪',
     'Titration Simulator',
@@ -259,6 +259,19 @@ export async function mountTitration(container) {
   }
   modeSelect.addEventListener('change', populateSelectors);
   populateSelectors();
+
+  // Phase 9: Reaction Mechanics / Compounds deep link — params.analyte is an
+  // ACIDS/BASES id; pick the matching mode and pre-select it. Unknown ids are ignored.
+  const wantedId = params?.analyte || params?.focus;
+  if (wantedId) {
+    const asAcid = ACIDS.find(a => a.id === wantedId);
+    const asBase = BASES.find(b => b.id === wantedId);
+    if (asAcid || asBase) {
+      modeSelect.value = asAcid ? 'acid-analyte' : 'base-analyte';
+      populateSelectors();
+      analyteSelect.value = wantedId;
+    }
+  }
 
   document.getElementById('tt-start').addEventListener('click', () => {
     mode = modeSelect.value;

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'elementa-engine-v21'; // Bumped: added Orbital Visualization (feat-orbitals.js, orbital-math.js) + three.js CDN precache
+const CACHE_NAME = 'elementa-engine-v4'; // Bumped: Phase 9 cross-module links (feat-helpers, features, feat-database, feat-theory, feat-titration, feat-compute, feat-qualanalysis, styles.css)
 
 // App shell CODE: always prefer network when online, so you never get stuck on an old
 // build after a deploy. Falls back to cache only when offline.

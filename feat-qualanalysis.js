@@ -11,7 +11,7 @@
  */
 
 import { getIdTests, getMisconceptions, formatMultiEquation } from './core.js';
-import { createInfoCard, resultField, titleCase, moduleHeaderHTML } from './feat-helpers.js';
+import { createInfoCard, resultField, titleCase, moduleHeaderHTML, jumpButtonHTML } from './feat-helpers.js';
 
 const CATEGORIES = ['Cation', 'Anion', 'Gas'];
 const CATEGORY_ICON = { Cation: '➕', Anion: '➖', Gas: '💨' };
@@ -211,6 +211,7 @@ export async function mountQualAnalysis(container) {
           </p>
           ${state.target.notes ? `<div class="explanation-box"><strong>Mechanistic Note:</strong> ${state.target.notes}</div>` : ''}
           ${mis ? `<div class="misconception-box"><strong>⚠️ Misconception Alert:</strong> <s>${mis.misconception}</s><br><em>Fact:</em> ${mis.correction}</div>` : ''}
+          <div class="jump-row" style="margin-top:12px;">${jumpButtonHTML('Full reference entry', 'idtests', state.target.id, '🔬')}</div>
           <button class="btn-primary" id="qa-next-btn" style="margin-top:16px; max-width: 260px;">🔄 Try Another Unknown</button>
         </div>
       `;

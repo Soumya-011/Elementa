@@ -829,3 +829,58 @@ sup { font-size: 0.72em; }
    ========================================= */
 #orb-canvas-container canvas { display: block; touch-action: none; }
 #orb-status { font-family: var(--font-mono); }
+
+/* =====================================================================
+   21. CROSS-MODULE JUMP LINKS (Phase 7 interlinking infra)
+   ===================================================================== */
+.jump-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: var(--radius-sm, 6px);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-secondary, var(--color-surface, transparent));
+  color: var(--color-text);
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.jump-btn:hover {
+  border-color: var(--accent-potassium);
+  transform: translateY(-1px);
+}
+.jump-btn:active {
+  transform: translateY(0);
+}
+.jump-btn-icon {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* =====================================================================
+   22. PHASE 8 — PERIODIC TABLE HUB LINKS
+   ===================================================================== */
+.jump-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.flame-card-highlight {
+  outline: 3px solid var(--accent-lithium, #c0392b);
+  outline-offset: 2px;
+  box-shadow: 0 0 18px rgba(192, 57, 43, 0.45);
+  animation: flame-pulse 1.4s ease-in-out 3;
+}
+@keyframes flame-pulse {
+  50% { box-shadow: 0 0 30px rgba(192, 57, 43, 0.8); }
+}
+
+/* =====================================================================
+   23. PHASE 9 — CROSS-MODULE LINK ROWS
+   ===================================================================== */
+.card .jump-row { margin-top: 12px; }
+.sol-rule .jump-btn { margin-left: auto; }
+.ladder-details .jump-btn { font-size: 0.7rem; padding: 3px 8px; }

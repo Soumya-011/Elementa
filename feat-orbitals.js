@@ -27,7 +27,10 @@ const POSITIVE_COLOR = 0x4f8fff; // blue lobe (phase +)
 const NEGATIVE_COLOR = 0xff5c7a; // red/pink lobe (phase -)
 const NUCLEUS_COLOR = 0xffd24a;
 
-export async function mountOrbitals(container) {
+export async function mountOrbitals(container, params = null) {
+  // Phase 8a: a periodic-table jump button passes params.focus = an orbital id
+  // (e.g. '3dz2'); fall back to the default 2pz if it isn't in the library.
+  const initialOrbitalId = (params?.focus && ORBITAL_LIBRARY.some(o => o.id === params.focus)) ? params.focus : '2pz';
   container.innerHTML = moduleHeaderHTML(
     '⚛️',
     'Orbital Visualization',
@@ -43,7 +46,7 @@ export async function mountOrbitals(container) {
           <select id="orb-select">
             ${['s', 'p', 'd', 'f'].map(g => `
               <optgroup label="${GROUP_LABELS[g]}">
-                ${ORBITAL_LIBRARY.filter(o => o.group === g).map(o => `<option value="${o.id}" ${o.id === '2pz' ? 'selected' : ''}>${o.label}</option>`).join('')}
+                ${ORBITAL_LIBRARY.filter(o => o.group === g).map(o => `<option value="${o.id}" ${o.id === initialOrbitalId ? 'selected' : ''}>${o.label}</option>`).join('')}
               </optgroup>
             `).join('')}
           </select>

@@ -34,7 +34,7 @@ async function loadHalfCells() {
 /* =====================================================================
    10. CALCULATORS MODULE (Upgraded with Phase 3.2 Nernst Engine)
    ===================================================================== */
-export async function mountCalculators(container) {
+export async function mountCalculators(container, params = null) {
   container.innerHTML = `<div class="placeholder-note">Booting mathematical engine...</div>`;
   let elementsData = [];
   try { elementsData = await getElements(); } catch (e) {}
@@ -46,7 +46,7 @@ export async function mountCalculators(container) {
       <div class="mh-icon">🧮</div>
       <div class="mh-text"><h2>Calculators</h2><p>Thermodynamic, stoichiometric, and topological models.</p></div>
     </div>
-    
+
     <div class="calc-nav" style="margin-bottom: 20px; max-width: 360px; margin-left: auto; margin-right: auto;">
       <div class="field" style="margin-bottom: 0;">
         <label style="font-weight: 600; margin-bottom: 4px; display: block; text-align: center;">Calculator</label>
@@ -146,7 +146,7 @@ export async function mountCalculators(container) {
       <button class="btn-primary" id="btn-solve-ideal" style="margin-top:20px; width: 100%;">Solve State Matrix</button>
       <div id="gas-ideal-result" style="margin-top: 24px;"></div>
     </div>
-    
+
 
 
     <div id="calc-ph" class="calc-panel hidden">
@@ -170,7 +170,7 @@ export async function mountCalculators(container) {
       <div class="ph-scale"><div class="ph-indicator" id="ph-indicator" style="left: 50%;"></div></div>
       <div class="ph-labels"><span>0 (Acidic)</span><span>7 (Neutral)</span><span>14 (Basic)</span></div>
     </div>
-    
+
     <div id="calc-ksp" class="calc-panel hidden">
       <h3 style="color: var(--color-primary); margin-bottom: 4px;"><span class="calc-icon">💧</span> Solubility Product (K<sub>sp</sub>) Evaluator</h3>
       <p class="calc-subtitle">Predict precipitation and calculate molar solubility from Ksp.</p>
@@ -210,7 +210,7 @@ export async function mountCalculators(container) {
                  <input type="number" id="electro-anode-conc" value="1.0" step="any" min="1e-10"/>
              </div>
          </div>
-         
+
          <div style="flex: 1; min-width: 250px; background: var(--color-surface-alt); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
              <h4 style="margin-bottom: 12px; color: var(--color-primary);">Cathode (Reduction)</h4>
              <div class="field">
@@ -327,7 +327,7 @@ export async function mountCalculators(container) {
   // --- Matrix Balancer Logic ---
   document.getElementById("btn-balance").addEventListener("click", async () => {
     const inputStr = document.getElementById("balancer-input").value.trim();
-    const resDiv = document.getElementById("balancer-result"); 
+    const resDiv = document.getElementById("balancer-result");
     if (!inputStr) return;
     resDiv.innerHTML = `<div class="explanation-box" style="text-align: center; border-color: var(--color-primary);"><span style="display:inline-block; animation: spin 1s linear infinite; margin-right: 8px;">⚙️</span><strong>Routing matrix to background thread...</strong></div>`;
     try {
@@ -452,14 +452,14 @@ export async function mountCalculators(container) {
     const resDiv = document.getElementById("gas-ideal-result");
     if (result) {
       let html = `<div class="result-row" style="background: var(--color-surface-alt); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--color-primary); margin-bottom: 12px;"><div class="result-field"><div class="label">Governing Law</div><div class="value" style="font-weight: 600;">${lawUsed}</div></div><div class="result-field"><div class="label">Derived ${result.var}</div><div class="value" style="font-size: 1.5rem; font-weight: bold; color: var(--color-primary);">${result.val.toFixed(4)}</div></div></div>`;
-      
+
       const varMapping = { "P1": "gas-p1", "V1": "gas-v1", "T1": "gas-t1", "P2": "gas-p2", "V2": "gas-v2", "T2": "gas-t2", "V1 (L)": "gas-v1", "n1 (mol)": "gas-n1", "V2 (L)": "gas-v2", "n2 (mol)": "gas-n2", "P (atm)": lawUsed.includes("State 2") ? "gas-p2" : "gas-p1", "V (L)": lawUsed.includes("State 2") ? "gas-v2" : "gas-v1", "n (mol)": lawUsed.includes("State 2") ? "gas-n2" : "gas-n1", "T (K)": lawUsed.includes("State 2") ? "gas-t2" : "gas-t1" };
       if (varMapping[result.var]) {
           document.getElementById(varMapping[result.var]).value = result.val.toFixed(4);
           if (varMapping[result.var] === "gas-n1") n1 = result.val;
           if (varMapping[result.var] === "gas-n2") n2 = result.val;
       }
-      
+
       const activeMoles = n1 !== null ? n1 : (n2 !== null ? n2 : null);
       const formula = gasFormulaInput.value.trim();
       if (activeMoles !== null && activeMoles > 0 && formula) {
@@ -480,7 +480,7 @@ export async function mountCalculators(container) {
   const phBox = document.getElementById("ph-result-text");
   const strengthSelect = document.getElementById("ph-strength");
   const kField = document.getElementById("ph-k-field");
-  
+
   strengthSelect.addEventListener("change", (e) => {
     kField.classList.toggle("hidden", e.target.value === "strong");
     updatePH(); // Recalculate
@@ -503,7 +503,7 @@ export async function mountCalculators(container) {
           h = (acidConc + Math.sqrt(acidConc * acidConc + 4 * Kw)) / 2;
         }
         ph = -Math.log10(h); poh = 14 - ph; oh = Kw / h;
-      } 
+      }
       else if (source === 'oh' && !isNaN(baseConc) && baseConc > 0) {
         if (isWeak && K_val > 0) {
           oh = (-K_val + Math.sqrt(K_val * K_val + 4 * K_val * baseConc)) / 2;
@@ -511,7 +511,7 @@ export async function mountCalculators(container) {
           oh = (baseConc + Math.sqrt(baseConc * baseConc + 4 * Kw)) / 2;
         }
         poh = -Math.log10(oh); ph = 14 - poh; h = Kw / oh;
-      } 
+      }
       else {
         return resetPH();
       }
@@ -529,7 +529,7 @@ export async function mountCalculators(container) {
   };
 
   const resetPH = () => { phBox.style.display = "none"; document.getElementById("calc-ph-val").value = ""; document.getElementById("calc-poh-val").value = ""; };
-  
+
   document.getElementById("calc-hplus").addEventListener("input", () => updatePH('h'));
   document.getElementById("calc-ohminus").addEventListener("input", () => updatePH('oh'));
   document.getElementById("calc-k-val").addEventListener("input", () => {
@@ -585,7 +585,7 @@ export async function mountCalculators(container) {
   [kspX, kspY, kspVal, kspAConc, kspBConc].forEach(el => el.addEventListener("input", updateKsp));
 
   // --- PHASE 3.2: ELECTROCHEMICAL NERNST ENGINE ---
-  
+
   const halfCells = await loadHalfCells();
 
   const anodeSelect = document.getElementById("electro-anode");
@@ -603,7 +603,7 @@ export async function mountCalculators(container) {
   });
   anodeSelect.innerHTML = optionsHtml;
   cathodeSelect.innerHTML = optionsHtml;
-  
+
   // Set Defaults: Classic Zinc-Copper Daniell Cell
   anodeSelect.value = "zn";
   cathodeSelect.value = "cu";
@@ -611,7 +611,7 @@ export async function mountCalculators(container) {
   const updateElectro = () => {
       const anRef = halfCells.find(h => h.id === anodeSelect.value);
       const catRef = halfCells.find(h => h.id === cathodeSelect.value);
-      
+
       const cAn = parseFloat(anodeConc.value) || 1.0;
       const cCat = parseFloat(cathodeConc.value) || 1.0;
       const t = parseFloat(tempK.value) || 298.15;
@@ -677,7 +677,7 @@ export async function mountCalculators(container) {
   };
 
   [anodeSelect, cathodeSelect, anodeConc, cathodeConc, tempK].forEach(el => el.addEventListener("input", updateElectro));
-  
+
   // Initial Boot Render
   updateElectro();
 
@@ -686,6 +686,39 @@ export async function mountCalculators(container) {
   addCommonIonEffect();
   addElectrochemicalSeries();
   upgradeLayout();
+
+  // Phase 8f: a periodic-table jump button passes params.focus = an element
+  // symbol — prefill the 3D Viewer and the Molar Mass field with it, switch
+  // to the 3D Viewer tab, and run the lookup immediately.
+  // Phase 9: structured prefill. params.tab selects the tab; the rest are
+  // tab-specific. Takes priority over the legacy element-symbol `focus`.
+  const fire = (el) => el && el.dispatchEvent(new Event('input'));
+  if (params?.tab === 'electro') {
+    tabSelect.value = 'electro'; switchTab('electro');
+    // params.half = a half_cells.json id (from Reactivity Series). The partner
+    // is chosen so the cell is spontaneous: more-negative E° half -> anode vs Cu,
+    // otherwise it becomes the cathode vs Zn.
+    const hc = halfCells.find(h => h.id === params.half);
+    const cu = halfCells.find(h => h.id === 'cu'), zn = halfCells.find(h => h.id === 'zn');
+    if (hc && cu && zn) {
+      const [an, ca] = hc.e0 < cu.e0 ? [hc, cu] : [zn, hc];
+      if (an.id !== ca.id) { anodeSelect.value = an.id; cathodeSelect.value = ca.id; fire(anodeSelect); fire(cathodeSelect); }
+    }
+  } else if (params?.tab === 'ksp') {
+    tabSelect.value = 'ksp'; switchTab('ksp');
+    const x = parseInt(params.x), y = parseInt(params.y), k = parseFloat(params.ksp);
+    if (x >= 1) kspX.value = x;
+    if (y >= 1) kspY.value = y;
+    if (k > 0) kspVal.value = k;
+    fire(kspX); fire(kspVal);
+  } else if (params?.focus) {
+    tabSelect.value = '3dviewer';
+    switchTab('3dviewer');
+    structureInput.value = params.focus;
+    formStoich.value = params.focus;
+    updateStoich();
+    runLookup();
+  }
 }
 
 /* =====================================================================

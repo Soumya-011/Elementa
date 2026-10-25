@@ -41,6 +41,25 @@ try {
   registerModule('problems', 'Practice Problems', mountProblems, { icon: '🧩', accent: 'sodium' });
   registerModule('search', 'Global Search', mountSearch, { icon: '🔍', accent: 'sodium' });
 
+  // Phase 7 — generic cross-module deep-link infra. navigateTo(id, params)
+  // already remounts a module with params when params is truthy (core.js);
+  // this delegated listener is the other half: any module can render
+  // `jumpButtonHTML(label, moduleId, focusId)` (feat-helpers.js) and clicking
+  // it calls navigateTo(moduleId, { focus: focusId }). Consuming modules
+  // (Phase 8+) read params.focus from their own mountFn(container, params)
+  // to pre-select the right element/compound/ion. One listener here, not one
+  // per module, since feat-helpers.js intentionally has no core.js import.
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-jump-module]');
+    if (!btn) return;
+    const moduleId = btn.dataset.jumpModule;
+    const focus = btn.dataset.jumpFocus || null;
+    // Phase 9: optional JSON extras (data-jump-params) merge over { focus }.
+    let extra = {};
+    try { if (btn.dataset.jumpParams) extra = JSON.parse(btn.dataset.jumpParams) || {}; } catch (_) { extra = {}; }
+    navigateTo(moduleId, { focus, ...extra });
+  });
+
   startRouter('landing');
 } catch (err) {
   console.error('[Elementa] Fatal init error:', err);

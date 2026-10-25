@@ -8,7 +8,17 @@ import {
   formatEquation, formatMultiEquation, formatFormula, navigateTo
 } from './core.js';
 
-import { createInfoCard, resultField, drawSmiles, titleCase, activeSmilesDrawers } from './feat-helpers.js';
+import { createInfoCard, resultField, drawSmiles, titleCase, activeSmilesDrawers, jumpButtonHTML } from './feat-helpers.js';
+import { ACIDS, BASES } from './feat-titration.js';
+
+// Phase 9: shared id normaliser — reactions.json uses "acetic acid" while
+// compounds.json / titration use "acetic_acid".
+const normId = (v) => String(v ?? '').trim().toLowerCase().replace(/\s+/g, '_');
+const titratableId = (id) => {
+  const n = normId(id);
+  return ACIDS.some(a => a.id === n) || BASES.some(b => b.id === n) ? n : null;
+};
+const jumpRow = (buttons) => buttons.length ? `<div class="jump-row">${buttons.join('')}</div>` : '';
 
 /* =====================================================================
    3. REACTIONS MODULE
@@ -29,7 +39,7 @@ function displayReagentHtml(str, compoundsById = new Map()) {
 function uniqueSorted(values) {
   return [...new Set(values.map(v => String(v)))].sort();
 }
-export async function mountReactions(container) {
+export async function mountReactions(container, params = null) {
   container.innerHTML = `<div class="placeholder-note">Loading reaction database...</div>`;
   let reactions, misconceptions, compounds;
   try { reactions = await getReactions(); } catch (err) { container.innerHTML = `<div class="placeholder-note">Error: ${err.message}</div>`; return; }
@@ -132,7 +142,7 @@ export async function mountReactions(container) {
           String(r.concentration).trim().toLowerCase() === String(concentrationSelect.value).trim().toLowerCase() &&
           String(r.temperature).trim().toLowerCase() === String(temperatureSelect.value).trim().toLowerCase()
       );
-      
+
       if (!match) {
         resultContainer.appendChild(createInfoCard({
           title: "No matching entry", badgeText: "Not in database", badgeType: "warning",
@@ -143,9 +153,9 @@ export async function mountReactions(container) {
 
       const isReaction = match.result === "reaction";
       let bodyHtml = "";
-      
+
       if (match.balanced_equation) {
-        try { bodyHtml += `<div class="equation-box">${formatEquation(match.balanced_equation)}</div>`; } 
+        try { bodyHtml += `<div class="equation-box">${formatEquation(match.balanced_equation)}</div>`; }
         catch (eqErr) { bodyHtml += `<div class="equation-box">${match.balanced_equation}</div>`; }
       }
 
@@ -161,6 +171,16 @@ export async function mountReactions(container) {
         const mis = getMisconception(match.reactant_id) || getMisconception(match.reagent_id);
         if (mis) bodyHtml += `<div class="misconception-box"><strong>⚠️ Misconception Alert:</strong> <s>${mis.misconception}</s><br><em>Fact:</em> ${mis.correction}</div>`;
       } catch (misErr) {}
+
+      // Phase 9: cross-links — reagent's compound entry, and titration for acids/bases.
+      {
+        const btns = [];
+        const rid = normId(match.reagent_id);
+        if (compoundsById.has(rid)) btns.push(jumpButtonHTML(`${displayReagentPlainFmt(match.reagent_id)} in Compounds`, 'compounds', rid, '🧪', { compoundId: rid }));
+        const tid = titratableId(match.reagent_id);
+        if (tid) btns.push(jumpButtonHTML('Try titrating this', 'titration', tid, '⚗️', { analyte: tid }));
+        if (btns.length) bodyHtml += jumpRow(btns);
+      }
 
       if (!isReaction && match.explanation && match.explanation.toLowerCase().includes("reactivity")) {
           bodyHtml += `<button class="btn-primary" id="btn-see-reactivity" style="margin-top: 14px; background: var(--color-surface-alt); color: var(--color-text); border: 1px solid var(--color-border); box-shadow: none;">See Why on Reactivity Series</button>`;
@@ -186,14 +206,39 @@ export async function mountReactions(container) {
       resultContainer.innerHTML = `<div class="misconception-box"><strong>UI Error:</strong> ${err.message}</div>`;
     }
   });
+  // Phase 9: Compounds DB deep link — params.reagent (or params.reactant) is an
+  // id; pre-select it, cascade the dependent dropdowns, and show the first match.
+  // Unknown ids are ignored (dropdowns keep their defaults).
+  if (params?.reagent) {
+    const raw = allReagents.find(r => normId(r) === normId(params.reagent));
+    if (raw) { reagentSelect.value = raw; reagentSelect.dispatchEvent(new Event("change")); button.click(); }
+  } else if (params?.reactant) {
+    const raw = allReactants.find(r => normId(r) === normId(params.reactant));
+    if (raw) { reactantSelect.value = raw; reactantSelect.dispatchEvent(new Event("change")); button.click(); }
+  }
 }
 
-export async function mountCompounds(container) {
+export async function mountCompounds(container, params = null) {
   container.innerHTML = `<div class="placeholder-note">Loading compounds...</div>`;
   let compounds, misconceptions;
   try { compounds = await getCompounds(); } catch (e) { container.innerHTML = `<div class="placeholder-note">Failed to load compounds.</div>`; return; }
   try { misconceptions = await getMisconceptions(); } catch (e) { misconceptions = []; }
-  
+  // Phase 9: reverse-link sources (best-effort; a failed load just hides that link).
+  let preps = [], rxns = [], idTests = [];
+  try { preps = await getPreparations(); } catch (e) {}
+  try { rxns = await getReactions(); } catch (e) {}
+  try { idTests = await getIdTests(); } catch (e) {}
+  const compoundLinkRow = (comp) => {
+    const id = normId(comp.id);
+    const btns = [];
+    if (preps.some(p => normId(p.target_id) === id)) btns.push(jumpButtonHTML('Synthesis', 'preparations', id, '🏭'));
+    if (rxns.some(r => normId(r.reagent_id) === id)) btns.push(jumpButtonHTML('Reactions', 'reactions', id, '⚗️', { reagent: id }));
+    if (idTests.some(t => normId(t.id) === id)) btns.push(jumpButtonHTML('Identification', 'idtests', id, '🔬'));
+    const tid = titratableId(id);
+    if (tid) btns.push(jumpButtonHTML('Titrate', 'titration', tid, '🧪', { analyte: tid }));
+    return jumpRow(btns);
+  };
+
   activeSmilesDrawers.length = 0;
 
   const fallbackSmiles = {
@@ -206,7 +251,7 @@ export async function mountCompounds(container) {
     let html = "";
     let targetsToDraw = [];
     const filtered = filterId === "all" ? compounds : compounds.filter(c => c.id === filterId);
-    
+
     for(let comp of filtered) {
       let bodyHtml = "";
       const mis = misconceptions.find(m => m.target_id === comp.id);
@@ -225,6 +270,7 @@ export async function mountCompounds(container) {
           targetsToDraw.push({ id: canvasId, smiles: smilesString });
       }
 
+      bodyHtml += compoundLinkRow(comp);
       const card = createInfoCard({
         title: comp.name,
         badgeText: formatFormula(comp.formula),
@@ -242,6 +288,16 @@ export async function mountCompounds(container) {
     return { html, targetsToDraw };
   };
 
+  // Phase 8e: filter compounds by element symbol (periodic table deep link).
+  // Matches the symbol as a standalone element token in the formula —
+  // e.g. "Fe" matches Fe2(SO4)3 but not a hypothetical "Fer..." token —
+  // using the same capital-letter-starts-a-new-element rule core.js's own
+  // formula parsers (calculateMolarMass/countAtoms) rely on.
+  function compoundsContainingElement(symbol) {
+    const re = new RegExp(`${symbol}(?![a-z])`);
+    return compounds.filter(c => c.formula && re.test(c.formula));
+  }
+
   container.innerHTML = `
     <div class="module-header" style="--mh-accent: var(--accent-copper); --mh-accent-dim: var(--accent-copper-dim);">
       <div class="mh-icon">🧪</div>
@@ -256,8 +312,12 @@ export async function mountCompounds(container) {
         </select>
       </div>
     </div>
+    <div id="compounds-element-banner"></div>
     <div class="search-grid" id="compounds-grid"></div>
   `;
+
+  const bannerEl = document.getElementById("compounds-element-banner");
+  const filterSelect = document.getElementById("compound-filter");
 
   const injectAndDraw = (filterId) => {
       const grid = document.getElementById("compounds-grid");
@@ -268,75 +328,75 @@ export async function mountCompounds(container) {
       }, 150);
   };
 
-  document.getElementById("compound-filter").addEventListener("change", (e) => injectAndDraw(e.target.value));
-  injectAndDraw("all");
+  const injectElementFiltered = (symbol) => {
+      const grid = document.getElementById("compounds-grid");
+      const matches = compoundsContainingElement(symbol);
+      bannerEl.innerHTML = `
+        <div class="panel" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+          <span>Showing ${matches.length} compound${matches.length === 1 ? '' : 's'} containing <strong>${symbol}</strong></span>
+          <button type="button" class="btn-primary" id="compounds-clear-filter" style="width:auto; padding:6px 16px; background: var(--color-surface-alt); color: var(--color-text); border: 1px solid var(--color-border); box-shadow:none;">Show All Compounds</button>
+        </div>`;
+      document.getElementById('compounds-clear-filter').addEventListener('click', () => {
+        bannerEl.innerHTML = '';
+        filterSelect.value = 'all';
+        injectAndDraw('all');
+      });
+      if (matches.length === 0) {
+        grid.innerHTML = `<div class="placeholder-note">No compounds in the database contain ${symbol}.</div>`;
+        return;
+      }
+      let targetsToDraw = [];
+      grid.innerHTML = matches.map(comp => {
+        const mis = misconceptions.find(m => m.target_id === comp.id);
+        let bodyHtml = mis ? `<div class="misconception-box"><strong>⚠️ Misconception Alert:</strong> <s>${mis.misconception}</s><br><em>Fact:</em> ${mis.correction}</div>` : "";
+        const smilesString = comp.smiles || fallbackSmiles[comp.id.toLowerCase()];
+        if (smilesString) {
+          const canvasId = `smiles-comp-${comp.id}`;
+          bodyHtml += `<div style="text-align: center; background: var(--color-surface); border: 1px solid var(--color-border); padding: 10px; border-radius: 8px; margin-top: 16px;"><p class="text-muted" style="font-size: 0.8rem; margin-bottom: 6px;">2D Topology (SMILES: ${smilesString})</p><canvas id="${canvasId}" width="250" height="200" style="width: 250px; height: 200px; max-width: 100%;"></canvas></div>`;
+          targetsToDraw.push({ id: canvasId, smiles: smilesString });
+        }
+        bodyHtml += compoundLinkRow(comp);
+        return createInfoCard({
+          title: comp.name, badgeText: formatFormula(comp.formula), badgeType: "info",
+          rows: [`<div class="result-row">${resultField("Class", titleCase(comp.class))}${resultField("Molar Mass", `${comp.molar_mass_g_mol} g/mol`)}${resultField("State at RTP", titleCase(comp.state_at_rtp))}${resultField("Melting Pt", `${comp.melting_point_c}&deg;C`)}</div>`],
+          bodyHtml
+        }).outerHTML;
+      }).join("");
+      setTimeout(() => targetsToDraw.forEach(t => drawSmiles(t.smiles, t.id, 250, 200)), 150);
+  };
+
+  filterSelect.addEventListener("change", (e) => { bannerEl.innerHTML = ''; injectAndDraw(e.target.value); });
+
+  // Phase 8e: a periodic-table jump button passes params.focus = an element
+  // symbol (e.g. 'Fe') — open straight into the element-filtered view instead
+  // of "Show All Compounds". (This wiring was missing before Phase 8 — the
+  // filter machinery above existed but nothing ever called it.)
+  // Phase 9: params.compoundId opens a single compound (select + filter).
+  if (params?.compoundId && compounds.some(c => c.id === params.compoundId)) {
+    filterSelect.value = params.compoundId;
+    injectAndDraw(params.compoundId);
+  } else if (params?.focus && !params?.tab) {
+    injectElementFiltered(params.focus);
+  } else {
+    injectAndDraw("all");
+  }
 }
-
-/* =====================================================================
-   4. SYNTHESIS PROTOCOLS MODULE
-   ===================================================================== */
-
-// target_ids that are formulas but aren't full entries in compounds.json
-// (elemental gases, bare metals, and mixtures). Keys are the raw target_id
-// (lowercase); values are the correctly-cased formula (or, for non-formula
-// names, the display text directly).
-const PREP_TARGET_FORMULA_OVERRIDES = {
-  h2: "H2",
-  o2: "O2",
-  n2: "N2",
-  co2: "CO2",
-  na: "Na",
-  h2s: "H2S",
-};
-const PREP_TARGET_NAME_OVERRIDES = {
-  aqua_regia: "Aqua Regia",
-};
-// preparations.json has a stray "pbno3" target_id that doesn't match the
-// "pbno32" id used for the same compound in compounds.json — remap for lookup only.
-const PREP_TARGET_ID_ALIASES = {
-  pbno3: "pbno32",
-};
-
-/**
- * Renders a preparation's target_id (e.g. "fe", "cao", "h2") as a properly
- * cased chemical formula/name — never a naive uppercase/titlecase guess.
- * Prefers the compounds.json entry (source of truth for casing), falls back
- * to a small explicit override table for ids that aren't in compounds.json,
- * and only falls back to titleCase as a last resort for unknown ids.
- */
-function formatPrepTarget(rawId, compoundsById = new Map()) {
-  const key = String(rawId).toLowerCase();
-  const lookupKey = PREP_TARGET_ID_ALIASES[key] || key;
-
-  const compound = compoundsById.get(lookupKey);
-  if (compound && compound.formula) return formatFormula(compound.formula);
-
-  if (PREP_TARGET_FORMULA_OVERRIDES[lookupKey]) return formatFormula(PREP_TARGET_FORMULA_OVERRIDES[lookupKey]);
-  if (PREP_TARGET_NAME_OVERRIDES[lookupKey]) return PREP_TARGET_NAME_OVERRIDES[lookupKey];
-
-  return titleCase(rawId);
-}
-
-export async function mountPreparations(container) {
+export async function mountPreparations(container, params = null) {
   container.innerHTML = `<div class="placeholder-note">Loading preparations...</div>`;
-  let preps, compounds;
+  let preps;
   try { preps = await getPreparations(); } catch (e) {
     container.innerHTML = `<div class="placeholder-note">Failed to load preparations.</div>`;
     return;
   }
-  try { compounds = await getCompounds(); } catch (e) { compounds = []; }
 
-  const compoundsById = new Map(compounds.map(c => [String(c.id).toLowerCase(), c]));
-  const formatTarget = (t) => formatPrepTarget(t, compoundsById);
-
+  let compoundIds = new Set();
+  try { compoundIds = new Set((await getCompounds()).map(c => normId(c.id))); } catch (e) {}
+  const formatPrepTarget = (t) => t.length <= 5 ? t.toUpperCase() : titleCase(t);
   const uniqueTargets = [...new Set(preps.map(p => p.target_id))].sort();
 
   const renderCards = (filterId) => {
     let html = "";
-    // NOTE: previously `filtered = preps` (same reference) when filterId === "all",
-    // then `.sort()` mutated the shared `preps` array in place on every render.
-    // Copy it instead so re-renders don't silently reorder the source data.
-    let filtered = filterId === "all" ? preps.slice() : preps.filter(p => p.target_id === filterId);
+    let filtered = filterId === "all" ? preps : preps.filter(p => p.target_id === filterId);
 
     filtered = filtered.sort((a, b) => {
       const aIsLab = a.method.toLowerCase().includes('lab');
@@ -349,9 +409,10 @@ export async function mountPreparations(container) {
       bodyHtml += formatMultiEquation(prep.equation);
       if (prep.notes) bodyHtml += `<div class="explanation-box"><strong>Notes:</strong> ${prep.notes}</div>`;
 
+      if (compoundIds.has(normId(prep.target_id))) bodyHtml += jumpRow([jumpButtonHTML(`${formatPrepTarget(prep.target_id)} in Compounds`, 'compounds', prep.target_id, '🧪', { compoundId: normId(prep.target_id) })]);
       const card = createInfoCard({
         title: prep.method, badgeText: titleCase(prep.type) + " Prep", badgeType: "primary",
-        rows: [`<div class="result-row">${resultField("Target", formatTarget(prep.target_id))}${resultField("Category", titleCase(prep.type))}${resultField("Collection", prep.collection)}</div>`],
+        rows: [`<div class="result-row">${resultField("Target", formatPrepTarget(prep.target_id))}${resultField("Category", titleCase(prep.type))}${resultField("Collection", prep.collection)}</div>`],
         bodyHtml: bodyHtml
       });
       html += card.outerHTML;
@@ -367,15 +428,21 @@ export async function mountPreparations(container) {
     <div class="panel">
       <div class="field" style="margin-bottom: 0;">
         <label>Select Preparation to View</label>
-        <select id="prep-filter"><option value="all">Show All Preparations</option>${uniqueTargets.map(t => `<option value="${t}">Preparation of ${formatTarget(t)}</option>`).join("")}</select>
+        <select id="prep-filter"><option value="all">Show All Preparations</option>${uniqueTargets.map(t => `<option value="${t}">Preparation of ${formatPrepTarget(t)}</option>`).join("")}</select>
       </div>
     </div>
     <div class="stacked-cards" id="preps-grid">${renderCards("all")}</div>
   `;
-  document.getElementById("prep-filter").addEventListener("change", (e) => { document.getElementById("preps-grid").innerHTML = renderCards(e.target.value); });
+  const prepFilter = document.getElementById("prep-filter");
+  prepFilter.addEventListener("change", (e) => { document.getElementById("preps-grid").innerHTML = renderCards(e.target.value); });
+  // Phase 9: params.focus = a target_id; ignored if there are no preparations for it.
+  if (params?.focus) {
+    const t = uniqueTargets.find(x => normId(x) === normId(params.focus));
+    if (t) { prepFilter.value = t; document.getElementById("preps-grid").innerHTML = renderCards(t); }
+  }
 }
 
-export async function mountIdentificationTests(container) {
+export async function mountIdentificationTests(container, params = null) {
   container.innerHTML = `<div class="placeholder-note">Compiling qualitative matrices...</div>`;
   let tests;
   try { tests = await getIdTests(); } catch (e) {
@@ -387,10 +454,12 @@ export async function mountIdentificationTests(container) {
     return;
   }
 
+  let compoundIds = new Set();
+  try { compoundIds = new Set((await getCompounds()).map(c => normId(c.id))); } catch (e) {}
   const renderCards = (filterCategory) => {
     const list = filterCategory === "all" ? tests : tests.filter(t => String(t.category).toLowerCase() === String(filterCategory).toLowerCase());
     if(list.length === 0) return `<div class="placeholder-note">No analytical data matches.</div>`;
-    
+
     return list.map(test => {
       let bodyHtml = "";
       if (test.dry_test) {
@@ -407,7 +476,8 @@ export async function mountIdentificationTests(container) {
           </div>`;
       }
       if (test.notes) bodyHtml += `<div class="explanation-box" style="margin-top: 0;"><strong>Mechanistic Note:</strong> ${test.notes}</div>`;
-      return createInfoCard({ title: test.name, badgeText: test.category, badgeType: "alert", bodyHtml: bodyHtml }).outerHTML;
+      if (compoundIds.has(normId(test.id))) bodyHtml += jumpRow([jumpButtonHTML(`${titleCase(test.name)} in Compounds`, 'compounds', test.id, '🧪', { compoundId: normId(test.id) })]);
+      return `<div data-idtest-id="${test.id}">` + createInfoCard({ title: test.name, badgeText: test.category, badgeType: "alert", bodyHtml: bodyHtml }).outerHTML + `</div>`;
     }).join("");
   };
 
@@ -424,5 +494,21 @@ export async function mountIdentificationTests(container) {
     </div>
     <div class="stacked-cards" id="idtests-grid">${renderCards("all")}</div>
   `;
-  document.getElementById("idtest-filter").addEventListener("change", (e) => { document.getElementById("idtests-grid").innerHTML = renderCards(e.target.value); });
+  const idFilter = document.getElementById("idtest-filter");
+  idFilter.addEventListener("change", (e) => { document.getElementById("idtests-grid").innerHTML = renderCards(e.target.value); });
+  // Phase 9: params.focus = a test id (from Qual Analysis / Compounds). Switch the
+  // category filter to the test's own category, then highlight + scroll to its card.
+  if (params?.focus) {
+    const target = tests.find(t => normId(t.id) === normId(params.focus));
+    if (target) {
+      const cat = String(target.category).toLowerCase();
+      if ([...idFilter.options].some(o => o.value === cat)) idFilter.value = cat;
+      document.getElementById("idtests-grid").innerHTML = renderCards(idFilter.value);
+      const el = document.querySelector(`[data-idtest-id="${CSS.escape(String(target.id))}"]`);
+      if (el) {
+        el.classList.add("flame-card-highlight");
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "center" }), 100);
+      }
+    }
+  }
 }

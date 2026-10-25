@@ -5,10 +5,10 @@
  */
 
 import {
-  getElements, getMisconceptions, getReactions, getReactivity, navigateTo
+  getElements, getMisconceptions, getReactions, getReactivity, getCompounds, navigateTo
 } from './core.js';
 
-import { resultField, moduleHeaderHTML, titleCase } from './feat-helpers.js';
+import { resultField, moduleHeaderHTML, titleCase, jumpButtonHTML } from './feat-helpers.js';
 
 /* =====================================================================
    8. PERIODIC TABLE MODULE
@@ -88,26 +88,60 @@ function getElectronConfiguration(z) {
   });
   return configStr.split(" ").map(f => f.replace(/(\d[spdf])(\d+)/, "$1<sup>$2</sup>")).join(" ");
 }
+
+/* =====================================================================
+   PHASE 8 INTERLINKING HELPERS
+   ===================================================================== */
+const FLAME_TEST_IONS = new Set(['lithium', 'sodium', 'potassium', 'calcium', 'copper', 'barium', 'strontium', 'rubidium', 'cesium', 'boron', 'lead']);
+const DIATOMIC_MOLECULE_MAP = { hydrogen: 'H2', helium: 'He2', lithium: 'Li2', boron: 'B2', carbon: 'C2', nitrogen: 'N2', oxygen: 'O2', fluorine: 'F2', neon: 'Ne2' };
+
+/**
+ * Phase 8a: map an element's valence block to the closest entry the orbital
+ * library actually has. ORBITAL_LIBRARY only goes up to n=4 and carries one
+ * representative orbital per block (s/p/d/f) — this is a best-effort
+ * approximation (e.g. a period-6 p-block element shows 3pz, not its true 6p),
+ * not every element's literal valence shell.
+ */
+function elementToOrbitalId(z) {
+  const block = getBlock(z);
+  const pos = getGridPos(z);
+  const period = pos ? pos.r : 1;
+  if (block === 'f') return '4fz3';
+  if (block === 'd') return '3dz2';
+  if (block === 'p') return period <= 2 ? '2pz' : '3pz';
+  if (z <= 2) return '1s';
+  return period <= 2 ? '2s' : '3s';
+}
+
+/** Phase 8e: does a formula contain this element symbol as a standalone token? */
+function formulaContainsElement(formula, symbol) {
+  if (!formula) return false;
+  const tokens = String(formula).match(/[A-Z][a-z]?/g) || [];
+  return tokens.includes(symbol);
+}
+
 export async function mountPeriodicTable(container) {
   container.innerHTML = `<div class="placeholder-note">Loading periodic table...</div>`;
-  let elementsData, misconceptions, reactionsData;
+  let elementsData, misconceptions, reactionsData, reactivityData, compoundsData;
   try { elementsData = await getElements(); } catch (e) { container.innerHTML = `<div class="placeholder-note">Failed to load elements.</div>`; return; }
   try { misconceptions = await getMisconceptions(); } catch (e) { misconceptions = []; }
   try { reactionsData = await getReactions(); } catch (e) { reactionsData = []; }
-  
+  try { reactivityData = await getReactivity(); } catch (e) { reactivityData = []; }
+  try { compoundsData = await getCompounds(); } catch (e) { compoundsData = []; }
+
   let gridHtml = `<div class="pt-container"><div class="pt-grid">`;
-  
+
   elements118Str.split('|').forEach(part => {
     const [zStr, sym, name] = part.split(',');
     const z = parseInt(zStr);
     const pos = getGridPos(z);
     const cat = getCategoryMatch(z);
-    
+
     const dbRef = elementsData.find(e => e.atomic_number === z);
     const boxShadowStr = dbRef ? "box-shadow: inset 0 0 0 2px rgba(255,255,255,0.4);" : "";
-    
+
     gridHtml += `
-      <div class="pt-element cat-${cat.cls}" 
+      <div class="pt-element cat-${cat.cls}"
            style="grid-row: ${pos.r}; grid-column: ${pos.c}; ${boxShadowStr}"
            data-z="${z}" data-sym="${sym}" data-name="${name}" data-cat="${cat.lbl}">
         <div class="pt-num">${z}</div>
@@ -130,7 +164,7 @@ export async function mountPeriodicTable(container) {
 
   const modal = document.getElementById('pt-modal');
   const modalBody = document.getElementById('pt-modal-body');
-  
+
   container.querySelectorAll('.pt-element').forEach(el => {
     el.addEventListener('click', () => {
       const z = parseInt(el.dataset.z);
@@ -139,7 +173,7 @@ export async function mountPeriodicTable(container) {
       const catLabel = el.dataset.cat;
       const dbRef = elementsData.find(e => e.atomic_number === z);
       const hasReactions = reactionsData.some(r => r.reactant_id === dbRef?.id || r.reagent_id === dbRef?.id);
-      
+
       let body = `<h2 style="margin-bottom:4px; display:flex; justify-content:space-between;"><span>${name} (${sym})</span> <span>Z=${z}</span></h2><p class="text-muted" style="margin-bottom:12px;">${catLabel}</p>`;
       const block = getBlock(z);
       body += `<div class="result-row" style="background: var(--color-surface-alt); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px;">
@@ -150,11 +184,11 @@ export async function mountPeriodicTable(container) {
 
       const configStr = getElectronConfiguration(z);
       let stabilityNote = [24, 29, 42, 47, 79].includes(z) ? `<div style="font-size: 0.8rem; color: var(--color-success); margin-top: 8px;">* Note: This element borrows an s-electron to feature a more stable half-filled or fully-filled d-orbital configuration.</div>` : "";
-      
+
       body += `<div class="result-field" style="margin-bottom:14px; background: var(--color-surface-alt); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
         <div class="label">Electron Configuration</div><div class="value" style="font-family: var(--font-mono); font-size: 1.05rem; line-height: 1.6; word-break: break-word;">${configStr}</div>${stabilityNote}
       </div>`;
-      
+
       if(dbRef) {
         body += `<div class="result-field" style="margin-bottom:12px;"><div class="label">Chemical Properties</div>`;
         if (dbRef.atomic_mass) body += `<div class="value" style="font-size: 0.95rem; margin-top: 6px;"><strong>Mass:</strong> ${dbRef.atomic_mass} amu (${dbRef.atomic_mass} g/mol)</div>`;
@@ -172,10 +206,20 @@ export async function mountPeriodicTable(container) {
         if (mis) body += `<div class="misconception-box" style="margin-bottom: 16px;"><strong>⚠️ Misconception Alert:</strong> <s>${mis.misconception}</s><br><br><em>Fact:</em> ${mis.correction}</div>`;
         if (hasReactions) body += `<button class="btn-primary" id="btn-pt-rxn" style="margin-top: 10px;">Find Reactions</button>`;
         else body += `<p class="text-muted" style="font-size:0.85rem; margin-top:16px;">We haven't added specific reaction equations for ${name} to the database yet.</p>`;
+
+        // Phase 8: cross-module jump buttons
+        const jumpButtons = [];
+        jumpButtons.push(jumpButtonHTML('Atomic Orbitals 3D', 'orbitals3d', elementToOrbitalId(z), '⚛️'));
+        if (reactivityData.some(r => r.id === dbRef.id)) jumpButtons.push(jumpButtonHTML('Reactivity Series', 'reactivity', dbRef.id, '📈'));
+        if (DIATOMIC_MOLECULE_MAP[dbRef.id]) jumpButtons.push(jumpButtonHTML('Molecular Orbitals', 'molecularorbitals', DIATOMIC_MOLECULE_MAP[dbRef.id], '🧲'));
+        if (FLAME_TEST_IONS.has(dbRef.id)) jumpButtons.push(jumpButtonHTML('Flame Test', 'flametests', dbRef.id, '🔥'));
+        if (compoundsData.some(c => formulaContainsElement(c.formula, sym))) jumpButtons.push(jumpButtonHTML(`Compounds with ${sym}`, 'compounds', sym, '🧪'));
+        jumpButtons.push(jumpButtonHTML('Calculators', 'calculators', sym, '🧮'));
+        body += `<div class="jump-row" style="margin-top:14px;">${jumpButtons.join('')}</div>`;
       } else {
         body += `<p class="text-muted" style="font-size:0.9rem; margin-top:16px;">Detailed chemical properties are not yet mapped for this element in the database.</p>`;
       }
-      
+
       modalBody.innerHTML = body;
       modal.classList.add('active');
 
@@ -192,6 +236,15 @@ export async function mountPeriodicTable(container) {
 /* =====================================================================
    9. REACTIVITY LADDER MODULE
    ===================================================================== */
+// Phase 9: reactivity-series element symbol -> half_cells.json id (not 1:1: Fe is 'fe2').
+// Unknown symbols return null so no dead button is rendered.
+const HALF_CELL_IDS = new Set(['li','k','ca','na','mg','al','zn','fe2','ni','sn','pb','cu','ag','hg','au']);
+export function reactivityToHalfCellId(symbol) {
+  const s = String(symbol ?? '').trim().toLowerCase();
+  const id = s === 'fe' ? 'fe2' : s;
+  return HALF_CELL_IDS.has(id) ? id : null;
+}
+
 export async function mountReactivity(container, params = null) {
   container.innerHTML = `<div class="placeholder-note">Loading reactivity data...</div>`;
   let reactivityData;
@@ -212,13 +265,20 @@ export async function mountReactivity(container, params = null) {
     <div class="reactivity-container"><div class="reactivity-ladder" id="ladder-grid"></div></div>
   `;
   const grid = document.getElementById("ladder-grid");
-  const highlightIds = params?.highlight || [];
-  
+  // Phase 7/8: accept either the module's own `highlight` array (legacy,
+  // still used by the Reaction Mechanics "See Why" button) or the generic
+  // Phase 7 `focus` single-id convention from a periodic-table jump button —
+  // merge both so either caller works.
+  const highlightIds = [
+    ...(params?.highlight || []),
+    ...(params?.focus ? [params.focus] : [])
+  ];
+
   reactivityData.forEach(item => {
     const isHighlight = highlightIds.includes(item.id);
     const isRef = item.is_reference;
     const cls = `ladder-item ${isHighlight ? 'highlight' : ''} ${isRef ? 'reference' : ''}`;
-    
+
     let symColor = 'var(--color-heading)';
     if (isRef) symColor = 'var(--color-text-muted)';
     else if (item.id === 'gold' || item.id === 'platinum' || item.id === 'silver') symColor = 'var(--color-warning)';
@@ -226,13 +286,13 @@ export async function mountReactivity(container, params = null) {
 
     const el = document.createElement("div");
     el.className = cls;
-    el.innerHTML = `<div class="ladder-sym" style="color: ${symColor};">${item.symbol}</div><div class="ladder-details"><div class="ladder-name">${item.name}</div><div class="ladder-extraction">Extraction: ${item.extraction || "N/A"}</div></div>`;
+    el.innerHTML = `<div class="ladder-sym" style="color: ${symColor};">${item.symbol}</div><div class="ladder-details"><div class="ladder-name">${item.name}</div><div class="ladder-extraction">Extraction: ${item.extraction || "N/A"}</div>${(() => { const hid = isRef ? null : reactivityToHalfCellId(item.symbol); return hid ? `<div class="jump-row" style="margin-top:6px;">${jumpButtonHTML('Electrochemistry', 'calculators', hid, '🔋', { tab: 'electro', half: hid })}</div>` : ''; })()}</div>`;
     grid.appendChild(el);
 
     if (isHighlight) setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
   });
 }
-export async function mountMolecularOrbitals(container) {
+export async function mountMolecularOrbitals(container, params = null) {
   container.innerHTML = `<div class="placeholder-note">Loading MO diagrams...</div>`;
 
   // ── Orbital data for each homonuclear diatomic ──────────────────────
@@ -472,9 +532,11 @@ export async function mountMolecularOrbitals(container) {
     renderDiagram(btn.dataset.mol);
   });
 
-  // Default selection
-  document.querySelector('.mo-btn[data-mol="N2"]')?.classList.add('active');
-  renderDiagram('N2');
+  // Default selection — Phase 8d: a periodic-table jump button can preselect
+  // one of the 9 supported diatomics via params.focus (e.g. 'O2').
+  const initialMol = (params?.focus && molecules[params.focus]) ? params.focus : 'N2';
+  document.querySelector(`.mo-btn[data-mol="${initialMol}"]`)?.classList.add('active');
+  renderDiagram(initialMol);
 }
 
 
@@ -615,7 +677,7 @@ export async function mountVSEPR(container) {
  * Displays a grid of flame test cards with colored swatches,
  * ion names, formulas, and brief observation notes.
  */
-export async function mountFlameTests(container) {
+export async function mountFlameTests(container, params = null) {
   container.innerHTML = `<div class="placeholder-note">Loading flame tests...</div>`;
 
   // ── Flame test data ──────────────────────────────────────────────────
@@ -643,7 +705,7 @@ export async function mountFlameTests(container) {
     </div>
     <div class="flame-grid">
       ${flameData.map(f => `
-        <div class="flame-card">
+        <div class="flame-card" data-ion="${f.ion}">
           <div class="flame-swatch" style="background: ${f.hex};">
             <span style="color: #fff; font-weight: 700; font-size: 0.85rem; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">${f.color}</span>
           </div>
@@ -656,6 +718,20 @@ export async function mountFlameTests(container) {
       `).join('')}
     </div>
   `;
+
+  // Phase 8b: a periodic-table jump button preselects an ion via params.focus
+  // (an element id like 'sodium') — match against the ion name's leading word
+  // so 'copper' still matches the 'Copper(II)' card.
+  if (params?.focus) {
+    const focusLower = String(params.focus).toLowerCase();
+    const targetCard = [...container.querySelectorAll('.flame-card')].find(
+      card => card.dataset.ion.toLowerCase().startsWith(focusLower)
+    );
+    if (targetCard) {
+      targetCard.classList.add('flame-card-highlight');
+      setTimeout(() => targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+    }
+  }
 }
 /* =====================================================================
    4. SOLUBILITY RULES
@@ -717,6 +793,7 @@ export async function mountSolubilityRules(container) {
                   <span style="font-weight: 600;">${r.ion}</span>
                   <span class="sol-badge-${r.badge}">${r.status}</span>
                   ${r.exceptions.length > 0 ? r.exceptions.map(ex => `<span class="sol-badge-exception">⚠ ${ex}</span>`).join('') : ''}
+                  ${r.badge === 'insoluble' || r.exceptions.length > 0 ? jumpButtonHTML('Ksp Calculator', 'calculators', '', '🧮', { tab: 'ksp' }) : ''}
                 </div>
               </div>
             `).join('')}
