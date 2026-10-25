@@ -1,4 +1,4 @@
-const CACHE_NAME = 'elementa-engine-v20'; // Bumped: added Kinetics Grapher (feat-kinetics.js)
+const CACHE_NAME = 'elementa-engine-v21'; // Bumped: added Orbital Visualization (feat-orbitals.js, orbital-math.js) + three.js CDN precache
 
 // App shell CODE: always prefer network when online, so you never get stuck on an old
 // build after a deploy. Falls back to cache only when offline.
@@ -24,7 +24,8 @@ const SAME_ORIGIN_PRECACHE = [...APP_SHELL_FILES.map(f => `./${f}`), ...SAME_ORI
 // Fix: fetch each individually in no-cors (opaque) mode, and never let one failure block another.
 const CROSS_ORIGIN_LIBS = [
     'https://cdn.jsdelivr.net/npm/smiles-drawer@1.0.10/dist/smiles-drawer.min.js',
-    'https://3Dmol.org/build/3Dmol-min.js'
+    'https://3Dmol.org/build/3Dmol-min.js',
+    'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js'
 ];
 
 function isAppShellRequest(request) {

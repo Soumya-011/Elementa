@@ -823,3 +823,9 @@ sup { font-size: 0.72em; }
   #kin-arrhenius .form-grid[style*="grid-template-columns: 1fr 1fr auto"] { grid-template-columns: 1fr 1fr; }
   #arr-rows .arr-remove-row { grid-column: span 2; width: 100% !important; }
 }
+
+/* =========================================
+   20. ORBITAL VISUALIZATION (Phase 6)
+   ========================================= */
+#orb-canvas-container canvas { display: block; touch-action: none; }
+#orb-status { font-family: var(--font-mono); }

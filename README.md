@@ -98,16 +98,3 @@ No automated test suite currently exists. Manual verification checklist:
 
 - Cosmetic: `titleCase("n/a")` display formatting issue outstanding (see project bug-fix notes).
 
----
-
-## Roadmap — Planned Features
-
-The following are confirmed as the next major features to design and build, in no particular priority order yet:
-
-1. **Kinetics Grapher** — Interactive rate-law / reaction-order visualizer (concentration vs. time, rate vs. concentration plots, half-life calculations).
-2. **Orbital Visualization** — Visual/3D rendering of atomic orbital shapes (s/p/d/f), extending the electron configuration data already shown in the Periodic Table module.
-3. **Qualitative Analysis State Machine** — A guided, branching decision-tree simulator for cation/anion qualitative analysis procedures (builds on `identification_test.json`).
-4. **Titration Simulator** — Interactive acid-base titration curve plotter with indicator selection and equivalence point detection.
-5. **Infinite Problem Generation** — Procedurally generated practice problems (stoichiometry, equation balancing, pH, etc.) for self-testing, likely paired with the on-the-horizon AI explanation integration.
-
-These are not yet scoped or architected — each will need a design discussion before implementation begins.

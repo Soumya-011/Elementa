@@ -151,6 +151,11 @@ export async function mountLanding(container) {
         <h3>Kinetics Grapher</h3>
         <p>Rate laws · order · Arrhenius</p>
       </button>
+      <button class="module-card" id="card-orbitals3d" style="--mc-accent:var(--accent-potassium); --mc-accent-dim:var(--accent-potassium-dim);">
+        <div class="icon-badge">⚛️</div>
+        <h3>Atomic Orbitals 3D</h3>
+        <p>s/p/d/f electron clouds</p>
+      </button>
     </div>
   `;
 
@@ -170,6 +175,7 @@ export async function mountLanding(container) {
   document.getElementById("card-reactivity").addEventListener("click", () => navigateTo("reactivity"));
   document.getElementById("card-problems").addEventListener("click", () => navigateTo("problems"));
   document.getElementById("card-kinetics").addEventListener("click", () => navigateTo("kinetics"));
+  document.getElementById("card-orbitals3d").addEventListener("click", () => navigateTo("orbitals3d"));
 }
 export async function mountSearch(container) {
   container.innerHTML = `<div class="placeholder-note">Loading databases for search...</div>`;
