@@ -1,4 +1,4 @@
-const CACHE_NAME = 'elementa-engine-v5'; // Bumped: Phase 10 landing workflows + scrollable periodic-table popup (feat-landing.js, feat-theory.js, styles.css)
+const CACHE_NAME = 'elementa-engine-v6'; // Bumped: removed 2D SMILES panel from Compounds (feat-database.js)
 
 // App shell CODE: always prefer network when online, so you never get stuck on an old
 // build after a deploy. Falls back to cache only when offline.

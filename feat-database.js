@@ -8,7 +8,7 @@ import {
   formatEquation, formatMultiEquation, formatFormula, navigateTo
 } from './core.js';
 
-import { createInfoCard, resultField, drawSmiles, titleCase, activeSmilesDrawers, jumpButtonHTML } from './feat-helpers.js';
+import { createInfoCard, resultField, titleCase, activeSmilesDrawers, jumpButtonHTML } from './feat-helpers.js';
 import { ACIDS, BASES } from './feat-titration.js';
 
 // Phase 9: shared id normaliser — reactions.json uses "acetic acid" while
@@ -241,34 +241,14 @@ export async function mountCompounds(container, params = null) {
 
   activeSmilesDrawers.length = 0;
 
-  const fallbackSmiles = {
-      "water": "O", "sulfuric_acid": "OS(=O)(=O)O",
-      "ammonia": "N", "methane": "C", "carbon_dioxide": "O=C=O", "acetic_acid": "CC(=O)O",
-      "benzene": "C1=CC=CC=C1", "ethanol": "CCO"
-  };
-
   const renderCards = (filterId) => {
     let html = "";
-    let targetsToDraw = [];
     const filtered = filterId === "all" ? compounds : compounds.filter(c => c.id === filterId);
 
     for(let comp of filtered) {
       let bodyHtml = "";
       const mis = misconceptions.find(m => m.target_id === comp.id);
       if (mis) bodyHtml += `<div class="misconception-box"><strong>⚠️ Misconception Alert:</strong> <s>${mis.misconception}</s><br><em>Fact:</em> ${mis.correction}</div>`;
-
-      const smilesString = comp.smiles || fallbackSmiles[comp.id.toLowerCase()];
-
-      if (smilesString) {
-          const canvasId = `smiles-comp-${comp.id}`;
-          bodyHtml += `
-            <div style="text-align: center; background: var(--color-surface); border: 1px solid var(--color-border); padding: 10px; border-radius: 8px; margin-top: 16px;">
-                <p class="text-muted" style="font-size: 0.8rem; margin-bottom: 6px;">2D Topology (SMILES: ${smilesString})</p>
-                <canvas id="${canvasId}" width="250" height="200" style="width: 250px; height: 200px; max-width: 100%;"></canvas>
-            </div>
-          `;
-          targetsToDraw.push({ id: canvasId, smiles: smilesString });
-      }
 
       bodyHtml += compoundLinkRow(comp);
       const card = createInfoCard({
@@ -285,7 +265,7 @@ export async function mountCompounds(container, params = null) {
       });
       html += card.outerHTML;
     }
-    return { html, targetsToDraw };
+    return { html };
   };
 
   // Phase 8e: filter compounds by element symbol (periodic table deep link).
@@ -323,9 +303,6 @@ export async function mountCompounds(container, params = null) {
       const grid = document.getElementById("compounds-grid");
       const result = renderCards(filterId);
       grid.innerHTML = result.html;
-      setTimeout(() => {
-          result.targetsToDraw.forEach(target => { drawSmiles(target.smiles, target.id, 250, 200); });
-      }, 150);
   };
 
   const injectElementFiltered = (symbol) => {
@@ -345,16 +322,9 @@ export async function mountCompounds(container, params = null) {
         grid.innerHTML = `<div class="placeholder-note">No compounds in the database contain ${symbol}.</div>`;
         return;
       }
-      let targetsToDraw = [];
       grid.innerHTML = matches.map(comp => {
         const mis = misconceptions.find(m => m.target_id === comp.id);
         let bodyHtml = mis ? `<div class="misconception-box"><strong>⚠️ Misconception Alert:</strong> <s>${mis.misconception}</s><br><em>Fact:</em> ${mis.correction}</div>` : "";
-        const smilesString = comp.smiles || fallbackSmiles[comp.id.toLowerCase()];
-        if (smilesString) {
-          const canvasId = `smiles-comp-${comp.id}`;
-          bodyHtml += `<div style="text-align: center; background: var(--color-surface); border: 1px solid var(--color-border); padding: 10px; border-radius: 8px; margin-top: 16px;"><p class="text-muted" style="font-size: 0.8rem; margin-bottom: 6px;">2D Topology (SMILES: ${smilesString})</p><canvas id="${canvasId}" width="250" height="200" style="width: 250px; height: 200px; max-width: 100%;"></canvas></div>`;
-          targetsToDraw.push({ id: canvasId, smiles: smilesString });
-        }
         bodyHtml += compoundLinkRow(comp);
         return createInfoCard({
           title: comp.name, badgeText: formatFormula(comp.formula), badgeType: "info",
@@ -362,7 +332,6 @@ export async function mountCompounds(container, params = null) {
           bodyHtml
         }).outerHTML;
       }).join("");
-      setTimeout(() => targetsToDraw.forEach(t => drawSmiles(t.smiles, t.id, 250, 200)), 150);
   };
 
   filterSelect.addEventListener("change", (e) => { bannerEl.innerHTML = ''; injectAndDraw(e.target.value); });
