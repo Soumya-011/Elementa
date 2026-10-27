@@ -441,21 +441,6 @@
     "explanation": "Concentrated HNO3 is reduced to NO2."
   },
   {
-    "id": "rxn_030",
-    "reactant_id": "magnesium",
-    "reagent_id": "acetic acid",
-    "concentration": "dilute",
-    "temperature": "room temp",
-    "result": "reaction",
-    "main_product": "Magnesium Acetate (Mg(CH3COO)2)",
-    "balanced_equation": "Mg + 2CH3COOH -> Mg(CH3COO)2 + H2",
-    "byproducts": [
-      "H2 (gas)"
-    ],
-    "reaction_type": "metal-acid displacement",
-    "explanation": "Weak acid, but magnesium is reactive enough to still displace H2."
-  },
-  {
     "id": "rxn_031",
     "reactant_id": "magnesium",
     "reagent_id": "acetic acid",
@@ -1033,22 +1018,6 @@
     ],
     "reaction_type": "metal-acid redox (oxidizing acid)",
     "explanation": "Copper is below hydrogen, but HNO3 attacks it by oxidation (not displacement), producing NO."
-  },
-  {
-    "id": "rxn_069",
-    "reactant_id": "copper",
-    "reagent_id": "hno3",
-    "concentration": "concentrated",
-    "temperature": "warm",
-    "result": "reaction",
-    "main_product": "Copper(II) Nitrate (Cu(NO3)2)",
-    "balanced_equation": "Cu + 4HNO3 -> Cu(NO3)2 + 2NO2 + 2H2O",
-    "byproducts": [
-      "NO2 (gas)",
-      "H2O"
-    ],
-    "reaction_type": "metal-acid redox (oxidizing acid)",
-    "explanation": "Concentrated HNO3 oxidizes copper and is itself reduced to brown NO2 gas."
   },
   {
     "id": "rxn_070",
@@ -1711,5 +1680,483 @@
     ],
     "reaction_type": "metal-acid displacement",
     "explanation": "Same reaction, faster."
+  },
+  {
+    "id": "rxn_114",
+    "reactant_id": "hydrogen",
+    "reagent_id": "o2",
+    "concentration": "n/a",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Water (H2O)",
+    "balanced_equation": "2H2 + O2 -> 2H2O",
+    "byproducts": [],
+    "reaction_type": "combustion (non-metal + oxygen)",
+    "explanation": "Needs a spark or flame to start; the reaction is highly exothermic and H2/O2 mixtures burn explosively (the \"squeaky pop\" test)."
+  },
+  {
+    "id": "rxn_115",
+    "reactant_id": "hydrogen",
+    "reagent_id": "cl2",
+    "concentration": "n/a",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Hydrogen Chloride (HCl)",
+    "balanced_equation": "H2 + Cl2 -> 2HCl",
+    "byproducts": [],
+    "reaction_type": "direct combination (non-metal + halogen)",
+    "explanation": "Does not start in the dark; UV light or a flame triggers a radical chain reaction that can be explosive. Basis of industrial HCl synthesis."
+  },
+  {
+    "id": "rxn_116",
+    "reactant_id": "helium",
+    "reagent_id": "o2",
+    "concentration": "n/a",
+    "temperature": "hot",
+    "result": "no_reaction",
+    "main_product": "No Reaction",
+    "balanced_equation": null,
+    "byproducts": [],
+    "reaction_type": "no reaction",
+    "explanation": "Helium has a full 1s shell and the highest ionisation energy of any element, so it forms no compounds under ordinary conditions."
+  },
+  {
+    "id": "rxn_117",
+    "reactant_id": "lithium",
+    "reagent_id": "h2o",
+    "concentration": "n/a",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Lithium Hydroxide (LiOH) and Hydrogen gas (H2)",
+    "balanced_equation": "2Li + 2H2O -> 2LiOH + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-water displacement",
+    "explanation": "Lithium reacts steadily with cold water, less violently than sodium or potassium because it is less reactive and melts at a higher temperature."
+  },
+  {
+    "id": "rxn_118",
+    "reactant_id": "lithium",
+    "reagent_id": "n2",
+    "concentration": "n/a",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Lithium Nitride (Li3N)",
+    "balanced_equation": "6Li + N2 -> 2Li3N",
+    "byproducts": [],
+    "reaction_type": "metal-non-metal combination",
+    "explanation": "Lithium is the only alkali metal that reacts directly with nitrogen at room temperature, giving a red-brown nitride."
+  },
+  {
+    "id": "rxn_119",
+    "reactant_id": "beryllium",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Beryllium Chloride (BeCl2)",
+    "balanced_equation": "Be + 2HCl -> BeCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Beryllium is above hydrogen in the series and displaces H2 from dilute acids, though its oxide film can slow the start."
+  },
+  {
+    "id": "rxn_120",
+    "reactant_id": "beryllium",
+    "reagent_id": "naoh",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Sodium Tetrahydroxoberyllate (Na2Be(OH)4)",
+    "balanced_equation": "Be + 2NaOH + 2H2O -> Na2Be(OH)4 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-base (amphoteric)",
+    "explanation": "Beryllium is amphoteric, unlike the other Group 2 metals, and dissolves in hot concentrated alkali."
+  },
+  {
+    "id": "rxn_121",
+    "reactant_id": "boron",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Boric Acid (H3BO3)",
+    "balanced_equation": "B + 3HNO3 -> H3BO3 + 3NO2",
+    "byproducts": [
+      "NO2 (gas)"
+    ],
+    "reaction_type": "non-metal redox (oxidizing acid)",
+    "explanation": "Boron is inert to non-oxidizing acids but hot concentrated nitric acid oxidizes it to boric acid."
+  },
+  {
+    "id": "rxn_122",
+    "reactant_id": "nitrogen",
+    "reagent_id": "h2",
+    "concentration": "n/a",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Ammonia (NH3)",
+    "balanced_equation": "N2 + 3H2 <-> 2NH3",
+    "byproducts": [],
+    "reaction_type": "direct combination (Haber process)",
+    "explanation": "Very stable N≡N triple bond means high temperature (~450°C), an iron catalyst and ~200 atm are needed; the equilibrium is exothermic and reversible."
+  },
+  {
+    "id": "rxn_123",
+    "reactant_id": "oxygen",
+    "reagent_id": "no",
+    "concentration": "n/a",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Nitrogen Dioxide (NO2)",
+    "balanced_equation": "2NO + O2 -> 2NO2",
+    "byproducts": [],
+    "reaction_type": "gas-phase oxidation",
+    "explanation": "Colorless NO is oxidized instantly by air to brown NO2 - the identification test for nitric oxide."
+  },
+  {
+    "id": "rxn_124",
+    "reactant_id": "fluorine",
+    "reagent_id": "h2o",
+    "concentration": "n/a",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Hydrogen Fluoride (HF) and Oxygen (O2)",
+    "balanced_equation": "2F2 + 2H2O -> 4HF + O2",
+    "byproducts": [
+      "O2 (gas)"
+    ],
+    "reaction_type": "halogen-water redox",
+    "explanation": "Fluorine is the strongest common oxidizing agent and oxidizes water itself. Simplified: small amounts of OF2 and O3 also form."
+  },
+  {
+    "id": "rxn_125",
+    "reactant_id": "neon",
+    "reagent_id": "f2",
+    "concentration": "n/a",
+    "temperature": "room temp",
+    "result": "no_reaction",
+    "main_product": "No Reaction",
+    "balanced_equation": null,
+    "byproducts": [],
+    "reaction_type": "no reaction",
+    "explanation": "Neon has a full octet and no known stable compounds, even with the most reactive element, fluorine."
+  },
+  {
+    "id": "rxn_126",
+    "reactant_id": "silicon",
+    "reagent_id": "naoh",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Sodium Silicate (Na2SiO3)",
+    "balanced_equation": "Si + 2NaOH + H2O -> Na2SiO3 + 2H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "non-metal-base redox",
+    "explanation": "Silicon resists most acids but dissolves in hot concentrated alkali, releasing hydrogen."
+  },
+  {
+    "id": "rxn_127",
+    "reactant_id": "argon",
+    "reagent_id": "cl2",
+    "concentration": "n/a",
+    "temperature": "room temp",
+    "result": "no_reaction",
+    "main_product": "No Reaction",
+    "balanced_equation": null,
+    "byproducts": [],
+    "reaction_type": "no reaction",
+    "explanation": "Argon is chemically inert under ordinary conditions; it is used as a protective atmosphere precisely because it does not react."
+  },
+  {
+    "id": "rxn_128",
+    "reactant_id": "scandium",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Scandium Chloride (ScCl3)",
+    "balanced_equation": "2Sc + 6HCl -> 2ScCl3 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Scandium is an electropositive metal and displaces H2 from dilute acids."
+  },
+  {
+    "id": "rxn_129",
+    "reactant_id": "titanium",
+    "reagent_id": "hcl",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Titanium(III) Chloride (TiCl3)",
+    "balanced_equation": "2Ti + 6HCl -> 2TiCl3 + 3H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "A tough passive oxide film protects titanium from dilute acids in the cold; hot concentrated HCl breaks through, giving a purple Ti(III) solution."
+  },
+  {
+    "id": "rxn_130",
+    "reactant_id": "vanadium",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Dioxovanadium(V) Nitrate (VO2NO3)",
+    "balanced_equation": "V + 6HNO3 -> VO2NO3 + 5NO2 + 3H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Vanadium resists HCl and dilute H2SO4 but is oxidized to the +5 state by hot concentrated nitric acid. Simplified: the aqueous product is the VO2+ ion."
+  },
+  {
+    "id": "rxn_131",
+    "reactant_id": "chromium",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Chromium(II) Chloride (CrCl2)",
+    "balanced_equation": "Cr + 2HCl -> CrCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Without air, chromium gives the blue Cr(II) ion; in air it is rapidly oxidized to green Cr(III). Concentrated nitric acid instead passivates chromium."
+  },
+  {
+    "id": "rxn_132",
+    "reactant_id": "manganese",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Manganese(II) Chloride (MnCl2)",
+    "balanced_equation": "Mn + 2HCl -> MnCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Manganese is well above hydrogen and reacts readily with dilute acids to give pale pink Mn(II)."
+  },
+  {
+    "id": "rxn_133",
+    "reactant_id": "cobalt",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Cobalt(II) Chloride (CoCl2)",
+    "balanced_equation": "Co + 2HCl -> CoCl2 + H2",
+    "byproducts": [
+      "H2 (gas)"
+    ],
+    "reaction_type": "metal-acid displacement",
+    "explanation": "Cobalt is slightly above hydrogen, so the reaction is slow in the cold and speeds up when warmed."
+  },
+  {
+    "id": "rxn_134",
+    "reactant_id": "mercury",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Mercury(II) Nitrate (Hg(NO3)2)",
+    "balanced_equation": "Hg + 4HNO3 -> Hg(NO3)2 + 2NO2 + 2H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Mercury lies below hydrogen so it is attacked only by oxidizing acids. With excess hot concentrated acid it forms Hg(II); with excess mercury, Hg2(NO3)2 forms. Toxic fumes."
+  },
+  {
+    "id": "rxn_135",
+    "reactant_id": "mercury",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "no_reaction",
+    "main_product": "No Reaction",
+    "balanced_equation": null,
+    "byproducts": [],
+    "reaction_type": "no reaction",
+    "explanation": "Mercury sits below hydrogen in the reactivity series and cannot displace H2 from HCl."
+  },
+  {
+    "id": "rxn_136",
+    "reactant_id": "gold",
+    "reagent_id": "aqua regia",
+    "concentration": "concentrated",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Chloroauric Acid (HAuCl4)",
+    "balanced_equation": "Au + HNO3 + 4HCl -> HAuCl4 + NO + 2H2O",
+    "byproducts": [
+      "NO (gas)",
+      "H2O"
+    ],
+    "reaction_type": "noble metal complexation",
+    "explanation": "Neither acid alone attacks gold. Nitric acid oxidizes it and chloride ions stabilize Au3+ as the [AuCl4]- complex, pulling the equilibrium forward."
+  },
+  {
+    "id": "rxn_137",
+    "reactant_id": "silver",
+    "reagent_id": "hno3",
+    "concentration": "dilute",
+    "temperature": "warm",
+    "result": "reaction",
+    "main_product": "Silver Nitrate (AgNO3)",
+    "balanced_equation": "3Ag + 4HNO3 -> 3AgNO3 + NO + 2H2O",
+    "byproducts": [
+      "NO (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Silver is below hydrogen but is oxidized by nitric acid; dilute acid is reduced to NO."
+  },
+  {
+    "id": "rxn_138",
+    "reactant_id": "silver",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Silver Nitrate (AgNO3)",
+    "balanced_equation": "Ag + 2HNO3 -> AgNO3 + NO2 + H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "metal-acid redox (oxidizing acid)",
+    "explanation": "Concentrated nitric acid is reduced to brown NO2 instead of NO."
+  },
+  {
+    "id": "rxn_139",
+    "reactant_id": "silver",
+    "reagent_id": "hcl",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "no_reaction",
+    "main_product": "No Reaction",
+    "balanced_equation": null,
+    "byproducts": [],
+    "reaction_type": "no reaction",
+    "explanation": "Silver sits below hydrogen in the reactivity series, so it cannot displace H2 from HCl."
+  },
+  {
+    "id": "rxn_140",
+    "reactant_id": "platinum",
+    "reagent_id": "aqua regia",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Hexachloroplatinic Acid (H2PtCl6)",
+    "balanced_equation": "Pt + 4HNO3 + 6HCl -> H2PtCl6 + 4NO2 + 4H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "noble metal complexation",
+    "explanation": "Platinum resists every single acid but dissolves slowly in hot aqua regia, forming the stable [PtCl6]2- complex."
+  },
+  {
+    "id": "rxn_141",
+    "reactant_id": "platinum",
+    "reagent_id": "hcl",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "no_reaction",
+    "main_product": "No Reaction",
+    "balanced_equation": null,
+    "byproducts": [],
+    "reaction_type": "no reaction",
+    "explanation": "Platinum is a noble metal far below hydrogen in the reactivity series; no single acid attacks it."
+  },
+  {
+    "id": "rxn_142",
+    "reactant_id": "bromine",
+    "reagent_id": "naoh",
+    "concentration": "dilute",
+    "temperature": "cold",
+    "result": "reaction",
+    "main_product": "Sodium Bromate(I) (NaBrO) and Sodium Bromide (NaBr)",
+    "balanced_equation": "Br2 + 2NaOH -> NaBr + NaOBr + H2O",
+    "byproducts": [
+      "H2O"
+    ],
+    "reaction_type": "halogen disproportionation",
+    "explanation": "Cold dilute alkali gives bromide and hypobromite (Br is both oxidized and reduced), like chlorine does."
+  },
+  {
+    "id": "rxn_143",
+    "reactant_id": "bromine",
+    "reagent_id": "naoh",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Sodium Bromate(V) (NaBrO3)",
+    "balanced_equation": "3Br2 + 6NaOH -> 5NaBr + NaBrO3 + 3H2O",
+    "byproducts": [
+      "H2O"
+    ],
+    "reaction_type": "halogen disproportionation",
+    "explanation": "Hot concentrated alkali pushes bromine to bromate(V) because hypobromite itself disproportionates when warm."
+  },
+  {
+    "id": "rxn_144",
+    "reactant_id": "iodine",
+    "reagent_id": "naoh",
+    "concentration": "dilute",
+    "temperature": "room temp",
+    "result": "reaction",
+    "main_product": "Sodium Iodate (NaIO3)",
+    "balanced_equation": "3I2 + 6NaOH -> 5NaI + NaIO3 + 3H2O",
+    "byproducts": [
+      "H2O"
+    ],
+    "reaction_type": "halogen disproportionation",
+    "explanation": "Hypoiodite is so unstable that iodine gives iodide and iodate even with cold alkali."
+  },
+  {
+    "id": "rxn_145",
+    "reactant_id": "iodine",
+    "reagent_id": "hno3",
+    "concentration": "concentrated",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Iodic Acid (HIO3)",
+    "balanced_equation": "I2 + 10HNO3 -> 2HIO3 + 10NO2 + 4H2O",
+    "byproducts": [
+      "NO2 (gas)",
+      "H2O"
+    ],
+    "reaction_type": "non-metal redox (oxidizing acid)",
+    "explanation": "Hot concentrated nitric acid oxidizes iodine from 0 to +5."
+  },
+  {
+    "id": "rxn_146",
+    "reactant_id": "tin",
+    "reagent_id": "o2",
+    "concentration": "n/a",
+    "temperature": "hot",
+    "result": "reaction",
+    "main_product": "Tin(IV) Oxide (SnO2)",
+    "balanced_equation": "Sn + O2 -> SnO2",
+    "byproducts": [],
+    "reaction_type": "metal-oxygen combination",
+    "explanation": "Tin is stable in air at room temperature but burns to white SnO2 when strongly heated."
   }
 ]

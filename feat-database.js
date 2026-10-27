@@ -360,7 +360,18 @@ export async function mountPreparations(container, params = null) {
 
   let compoundIds = new Set();
   try { compoundIds = new Set((await getCompounds()).map(c => normId(c.id))); } catch (e) {}
-  const formatPrepTarget = (t) => t.length <= 5 ? t.toUpperCase() : titleCase(t);
+  // Readable target label: compound formula when known, else a few explicit labels,
+  // else "Br2"/"He"/"P4"-style element forms, else the old behaviour.
+  let compoundFormulas = new Map();
+  try { compoundFormulas = new Map((await getCompounds()).map(c => [normId(c.id), c.formula])); } catch (e) {}
+  const TARGET_LABELS = { co2: 'CO2', h2s: 'H2S', aqua_regia: 'Aqua Regia', pbno3: 'Pb(NO3)2', h2: 'H2', o2: 'O2', n2: 'N2' };
+  const formatPrepTarget = (t) => {
+    const n = normId(t);
+    if (TARGET_LABELS[n]) return TARGET_LABELS[n];
+    if (compoundFormulas.has(n)) return compoundFormulas.get(n);
+    if (/^[a-z]{1,2}\d?$/.test(n)) return n.charAt(0).toUpperCase() + n.slice(1);
+    return n.length <= 5 ? n.toUpperCase() : titleCase(t);
+  };
   const uniqueTargets = [...new Set(preps.map(p => p.target_id))].sort();
 
   const renderCards = (filterId) => {

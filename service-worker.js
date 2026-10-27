@@ -1,4 +1,4 @@
-const CACHE_NAME = 'elementa-engine-v6'; // Bumped: removed 2D SMILES panel from Compounds (feat-database.js)
+const CACHE_NAME = 'elementa-engine-v7'; // Bumped: Phase 11 element popup Synthesis button, extended reactions.json / preparations.json, IndexedDB refresh (core.js)
 
 // App shell CODE: always prefer network when online, so you never get stuck on an old
 // build after a deploy. Falls back to cache only when offline.

@@ -26,7 +26,7 @@ computeWorker.onmessage = (event) => {
    ===================================================================== */
 
 const DB_NAME = 'ElementaDB';
-const DB_VERSION = 3; // Bumped: force re-creation of all object stores (reactivity was missing in older DBs)
+const DB_VERSION = 4; // Bumped: v4 clears cached data stores on upgrade so updated reactions/preparations JSON is re-fetched
 const STORES = [
     'elements', 'compounds', 'reactions', 'preparations', 
     'identification_test', 'misconceptions', 'reactivity'
@@ -45,9 +45,14 @@ function getDB() {
         const db = event.target.result;
         console.log(`[Elementa DB] Initializing IndexedDB architecture version ${DB_VERSION}`);
         
+        const upgradeTx = event.target.transaction;
         STORES.forEach(store => {
           if (!db.objectStoreNames.contains(store)) {
             db.createObjectStore(store, { autoIncrement: true });
+          } else if (upgradeTx) {
+            // Existing cached copy may be stale (data files were extended) — empty it so
+            // loadData() re-fetches data/<name>.json and repopulates it.
+            upgradeTx.objectStore(store).clear();
           }
         });
         Object.entries(KEYED_STORES).forEach(([store, keyPath]) => {

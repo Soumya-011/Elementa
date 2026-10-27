@@ -5,7 +5,7 @@
  */
 
 import {
-  getElements, getMisconceptions, getReactions, getReactivity, getCompounds, navigateTo
+  getElements, getMisconceptions, getReactions, getReactivity, getCompounds, getPreparations, navigateTo
 } from './core.js';
 
 import { resultField, moduleHeaderHTML, titleCase, jumpButtonHTML } from './feat-helpers.js';
@@ -93,6 +93,20 @@ function getElectronConfiguration(z) {
    PHASE 8 INTERLINKING HELPERS
    ===================================================================== */
 const FLAME_TEST_IONS = new Set(['lithium', 'sodium', 'potassium', 'calcium', 'copper', 'barium', 'strontium', 'rubidium', 'cesium', 'boron', 'lead']);
+// Phase 11: element symbol -> preparations.json target_id(s), first match wins.
+// Elemental form where one exists (H2, O2, N2, Cl2, F2, Br2, I2, P4 ...), otherwise the
+// element's best-known compound (C -> CO2, S -> SO2 / H2SO4).
+export const ELEMENT_PREP_TARGETS = {
+  H: ['h2'], He: ['he'], Li: ['li'], Be: ['be'], B: ['b'], C: ['co2'], N: ['n2', 'nh3'], O: ['o2'], F: ['f2'], Ne: ['ne'],
+  Na: ['na'], Mg: ['mg'], Al: ['al'], Si: ['si'], P: ['p4'], S: ['so2', 'h2so4'], Cl: ['cl2'], Ar: ['ar'],
+  K: ['k'], Ca: ['ca'], Sc: ['sc'], Ti: ['ti'], V: ['v'], Cr: ['cr'], Mn: ['mn'], Fe: ['fe'], Co: ['co'], Ni: ['ni'],
+  Cu: ['cu'], Zn: ['zn'], Br: ['br2'], Ag: ['ag'], Sn: ['sn'], I: ['i2'], Pt: ['pt'], Au: ['au'], Hg: ['hg']
+};
+export function preparationTargetFor(symbol, preparations) {
+  const wanted = ELEMENT_PREP_TARGETS[symbol] || [];
+  const have = new Set((preparations || []).map(p => String(p.target_id).toLowerCase()));
+  return wanted.find(t => have.has(t)) || null;
+}
 const DIATOMIC_MOLECULE_MAP = { hydrogen: 'H2', helium: 'He2', lithium: 'Li2', boron: 'B2', carbon: 'C2', nitrogen: 'N2', oxygen: 'O2', fluorine: 'F2', neon: 'Ne2' };
 
 /**
@@ -122,12 +136,13 @@ function formulaContainsElement(formula, symbol) {
 
 export async function mountPeriodicTable(container) {
   container.innerHTML = `<div class="placeholder-note">Loading periodic table...</div>`;
-  let elementsData, misconceptions, reactionsData, reactivityData, compoundsData;
+  let elementsData, misconceptions, reactionsData, reactivityData, compoundsData, preparationsData;
   try { elementsData = await getElements(); } catch (e) { container.innerHTML = `<div class="placeholder-note">Failed to load elements.</div>`; return; }
   try { misconceptions = await getMisconceptions(); } catch (e) { misconceptions = []; }
   try { reactionsData = await getReactions(); } catch (e) { reactionsData = []; }
   try { reactivityData = await getReactivity(); } catch (e) { reactivityData = []; }
   try { compoundsData = await getCompounds(); } catch (e) { compoundsData = []; }
+  try { preparationsData = await getPreparations(); } catch (e) { preparationsData = []; }
 
   let gridHtml = `<div class="pt-container"><div class="pt-grid">`;
 
@@ -172,7 +187,12 @@ export async function mountPeriodicTable(container) {
       const name = el.dataset.name;
       const catLabel = el.dataset.cat;
       const dbRef = elementsData.find(e => e.atomic_number === z);
-      const hasReactions = reactionsData.some(r => r.reactant_id === dbRef?.id || r.reagent_id === dbRef?.id);
+      // Match every database entry sharing this atomic number (e.g. P -> 'phosphorus',
+      // 'white phosphorus', 'red phosphorus') so allotropes count too.
+      const sameZIds = new Set(elementsData.filter(e => e.atomic_number === z).map(e => e.id));
+      const asReactant = reactionsData.find(r => sameZIds.has(r.reactant_id));
+      const asReagent = reactionsData.find(r => sameZIds.has(r.reagent_id));
+      const hasReactions = !!(asReactant || asReagent);
 
       let body = `<h2 style="margin-bottom:4px; display:flex; justify-content:space-between;"><span>${name} (${sym})</span> <span>Z=${z}</span></h2><p class="text-muted" style="margin-bottom:12px;">${catLabel}</p>`;
       const block = getBlock(z);
@@ -209,6 +229,8 @@ export async function mountPeriodicTable(container) {
 
         // Phase 8: cross-module jump buttons
         const jumpButtons = [];
+        const prepTarget = preparationTargetFor(sym, preparationsData);
+        if (prepTarget) jumpButtons.push(jumpButtonHTML('Synthesis / Preparation', 'preparations', prepTarget, '🏭'));
         jumpButtons.push(jumpButtonHTML('Atomic Orbitals 3D', 'orbitals3d', elementToOrbitalId(z), '⚛️'));
         if (reactivityData.some(r => r.id === dbRef.id)) jumpButtons.push(jumpButtonHTML('Reactivity Series', 'reactivity', dbRef.id, '📈'));
         if (DIATOMIC_MOLECULE_MAP[dbRef.id]) jumpButtons.push(jumpButtonHTML('Molecular Orbitals', 'molecularorbitals', DIATOMIC_MOLECULE_MAP[dbRef.id], '🧲'));
@@ -224,7 +246,11 @@ export async function mountPeriodicTable(container) {
       modal.classList.add('active');
 
       const btn = document.getElementById('btn-pt-rxn');
-      if (btn) btn.addEventListener('click', () => { modal.classList.remove('active'); navigateTo('reactions'); });
+      if (btn) btn.addEventListener('click', () => {
+        modal.classList.remove('active');
+        // Open Reaction Mechanics pre-selected on this element (or as a reagent).
+        navigateTo('reactions', asReactant ? { reactant: asReactant.reactant_id } : { reagent: asReagent.reagent_id });
+      });
     });
   });
 
